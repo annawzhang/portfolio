@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想汽车 · 日常销售运营</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .ops-loop { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; margin: 8px 0 4px; }
+    .ops-node { text-align: center; padding: 18px 10px 14px; background: var(--surface); border: 1px solid var(--border); position: relative; }
+    .ops-node:first-child { border-radius: 10px 0 0 10px; }
+    .ops-node:last-child { border-radius: 0 10px 10px 0; }
+    .ops-node + .ops-node { border-left: none; }
+    .ops-node .n { font-size: 0.72rem; color: #fff; background: var(--accent); border-radius: 999px; display: inline-block; width: 22px; height: 22px; line-height: 22px; margin-bottom: 8px; font-weight: 700; }
+    .ops-node .t { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+    .ops-node .d { font-size: 0.76rem; color: var(--muted); line-height: 1.55; }
+    .ops-node:not(:last-child)::after { content: "→"; position: absolute; right: -9px; top: 50%; transform: translateY(-50%); color: var(--accent); font-weight: 700; background: var(--bg, #fff); z-index: 1; }
+    .loop-back { text-align: center; font-size: 0.78rem; color: var(--accent); border: 1px dashed var(--accent); border-top: none; border-radius: 0 0 12px 12px; margin: 0 10% 0; padding: 6px 0; }
+    .ops-block h3 { display: flex; align-items: center; gap: 8px; }
+    .ops-block h3 .n { font-size: 0.72rem; color: #fff; background: var(--accent); border-radius: 999px; width: 22px; height: 22px; line-height: 22px; text-align: center; }
+    .ops-list { font-size: 0.85rem; padding-left: 18px; line-height: 1.85; color: var(--text-secondary); }
+    .caliber { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
+    .caliber div { font-size: 0.78rem; text-align: center; padding: 8px 4px; border-radius: 8px; background: #f1f5f9; border: 1px solid var(--border); }
+    .caliber strong { display: block; font-size: 0.86rem; color: var(--text); }
+    .poster-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .poster-tags span { font-size: 0.78rem; padding: 4px 10px; border-radius: 999px; background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; }
+    @media (max-width: 860px) {
+      .ops-loop { grid-template-columns: 1fr; }
+      .ops-node, .ops-node:first-child, .ops-node:last-child { border-radius: 0; border-left: 1px solid var(--border); }
+      .ops-node:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -11px; transform: translateX(50%); }
+      .loop-back { margin: 0; }
+      .caliber { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · 日常销售运营</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-overview.html">理想导览</a>
+      <a href="lixiang-daily-ops.html" class="active">日常运营</a>
+      <a href="lixiang-cockpit.html">经营驾驶舱</a>
+      <a href="lixiang-ai-assistant.html">AI 助手</a>
+      <a href="lixiang-mega-es9-voc.html">MEGA/ES9</a>
+      <a href="lixiang-sales-script.html">话术手册</a>
+      <a href="lixiang-aito-voc.html">问界专项</a>
+      <a href="lixiang-competitor-map.html">竞品商圈</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>日常销售运营 · 把目标、数据和一线动作连接起来</h1>
+      <div class="meta">理想汽车 · 销售策略 · 2026.07 – 至今 · 工作基本盘</div>
+      <p class="tagline">专项分析和 AI 工具之外，持续承担销售节奏管理、内容宣发和一线协同，通过高频运营动作保障区域目标<strong>被看见、被拆解、被追踪并最终落地</strong>。</p>
+      <div class="badge-row">
+        <span class="badge">目标拆解</span>
+        <span class="badge">达成监控</span>
+        <span class="badge">操盘日报</span>
+        <span class="badge">海报宣发</span>
+        <span class="badge">一线闭环</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">4 层</div><div class="lbl">区域 → 城市部 → 门店 → 车型</div></div>
+      <div class="card stat"><div class="num">4 种</div><div class="lbl">口径：MTD / WTD / 整月 / 整周</div></div>
+      <div class="card stat"><div class="num">每日</div><div class="lbl">广东操盘日报</div></div>
+      <div class="card stat up"><div class="num">5 环</div><div class="lbl">运营闭环</div></div>
+    </div>
+
+    <div class="section-title">运营闭环</div>
+    <div class="ops-loop">
+      <div class="ops-node"><div class="n">1</div><div class="t">目标拆解</div><div class="d">城市部 / 门店 / 车型<br/>周 · 日 · 关键节点</div></div>
+      <div class="ops-node"><div class="n">2</div><div class="t">过程监控</div><div class="d">达成率 · 口径区分<br/>领先 / 落后 / 异常</div></div>
+      <div class="ops-node"><div class="n">3</div><div class="t">日报复盘</div><div class="d">商机 · 试驾 · 锁单<br/>结论 + 追踪事项</div></div>
+      <div class="ops-node"><div class="n">4</div><div class="t">宣发动员</div><div class="d">预热 · 倒计时<br/>战报 · 喜报</div></div>
+      <div class="ops-node"><div class="n">5</div><div class="t">一线反馈</div><div class="d">门店与销售反馈<br/>差距跟进</div></div>
+    </div>
+    <div class="loop-back">↺ 一线反馈反向补充到目标重点、日报、话术、海报和专项分析</div>
+
+    <div class="section-title">五项日常工作</div>
+    <div class="grid-2">
+      <div class="card ops-block">
+        <h3><span class="n">1</span>目标拆解与节奏管理</h3>
+        <ul class="ops-list">
+          <li>区域月度 / 阶段目标拆到城市部、门店和车型</li>
+          <li>月目标继续拆到周、日和关键节点，明确各阶段应完成进度</li>
+          <li>结合历史表现、门店体量和车型结构判断目标压力，识别重点攻坚单位</li>
+          <li>活动、新品和月底冲刺阶段动态调整关注重点，统一团队节奏</li>
+        </ul>
+      </div>
+      <div class="card ops-block">
+        <h3><span class="n">2</span>订单达成监控</h3>
+        <ul class="ops-list">
+          <li>跟踪区域、城市部、门店和车型的订单实际、目标及达成率</li>
+          <li>对领先、落后和异常波动排序标记，及时暴露目标缺口</li>
+          <li>结合商机、试驾、锁单和车型结构，判断问题来自<strong>流量、转化还是产品结构</strong></li>
+          <li>关键时段滚动监控，为冲刺动作和资源调度提供依据</li>
+        </ul>
+        <div class="caliber">
+          <div><strong>MTD</strong>月初至今</div>
+          <div><strong>WTD</strong>周初至今</div>
+          <div><strong>整月</strong>月度目标</div>
+          <div><strong>整周</strong>周度目标</div>
+        </div>
+        <p style="font-size:0.76rem;color:var(--muted);margin-top:8px;">严格区分口径，避免分母错用导致判断偏差</p>
+      </div>
+      <div class="card ops-block">
+        <h3><span class="n">3</span>操盘日报与经营复盘</h3>
+        <ul class="ops-list">
+          <li>编写广东操盘日报，汇总商机、试驾、锁单等核心经营数据</li>
+          <li>对比昨日、前日及阶段数据，提炼亮点、问题和变化趋势</li>
+          <li>把复杂数据转化为管理层快速可读的结论和重点关注方向</li>
+          <li>围绕城市部、门店和车型输出可执行追踪事项，让日报从信息同步升级为经营工具</li>
+          <li>根据业务反馈持续调整日报结构和重点</li>
+        </ul>
+      </div>
+      <div class="card ops-block">
+        <h3><span class="n">4</span>海报制作与内容宣发</h3>
+        <ul class="ops-list">
+          <li>把政策、产品卖点、活动信息和业务节奏转化为简洁易传播的内容</li>
+          <li>按不同群体调整表达，兼顾管理信息传递与一线动员效果</li>
+          <li>用视觉化内容增强触达，帮助团队形成共同关注和行动氛围</li>
+        </ul>
+        <div class="poster-tags">
+          <span>车展</span><span>新品上市</span><span>阶段冲刺</span><span>门店活动</span>
+          <span>预热</span><span>倒计时</span><span>战报</span><span>喜报</span><span>政策宣发</span>
+        </div>
+      </div>
+      <div class="card ops-block" style="grid-column: 1 / -1;">
+        <h3><span class="n">5</span>一线协同与闭环跟进</h3>
+        <div class="grid-3" style="margin-top:8px;">
+          <div class="arch-box"><div class="arch-title">收集</div><div class="arch-items">门店和销售对政策、产品、客户顾虑及竞品的反馈</div></div>
+          <div class="arch-box"><div class="arch-title">跟进</div><div class="arch-items">订单差距、过程指标和异常门店，推动问题进入后续动作</div></div>
+          <div class="arch-box highlight"><div class="arch-title">反哺</div><div class="arch-items">反馈补充到<a href="lixiang-sales-script.html">话术</a>、日报、海报和<a href="lixiang-mega-es9-voc.html">专项分析</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">业务价值</div>
+    <div class="grid-3">
+      <div class="card"><h3>目标落到动作</h3><p style="font-size:0.85rem;line-height:1.75;">区域月度数字转化为城市部、门店和车型层面的具体动作。</p></div>
+      <div class="card"><h3>风险提前暴露</h3><p style="font-size:0.85rem;line-height:1.75;">持续监控减少"月底才发现缺口"的被动情况。</p></div>
+      <div class="card"><h3>团队节奏统一</h3><p style="font-size:0.85rem;line-height:1.75;">日报和宣发提高管理信息传递效率；海报、战报、喜报为车展、新品和冲刺节点提供运营支撑。</p></div>
+    </div>
+    <div class="card" style="margin-top:16px;border-left:4px solid var(--accent);">
+      <p style="font-size:0.86rem;line-height:1.75;">高频日常工作进一步沉淀为标准模板和自动化流程：达成监控与日报数据来自<a href="lixiang-cockpit.html">经营驾驶舱</a>，定时推送与群发管控由<a href="lixiang-ai-assistant.html">区域销售 AI 助手</a>承担。</p>
+    </div>
+
+    <p style="margin-top:16px;font-size:0.85rem;"><a href="lixiang-overview.html">← 理想导览</a> · <a href="lixiang-cockpit.html">经营驾驶舱 →</a></p>
+
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';">面试口述讲稿（自用）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 区域月度目标需要层层落地，口径混用、缺口发现晚、信息传递和一线动员依赖人工。</p>
+      <p><span class="label">T</span> 承担日常销售运营，让目标被看见、被拆解、被追踪并最终落地。</p>
+      <p><span class="label">A</span> 目标拆到城市部/门店/车型和周/日节点；分口径监控达成并定位流量、转化或结构问题；每日操盘日报输出结论和追踪事项；车展、新品、冲刺海报与战报宣发；收集一线反馈反哺话术和专项。</p>
+      <p><span class="label">R</span> 形成"目标拆解—过程监控—日报复盘—宣发动员—一线反馈"闭环，风险提前暴露，团队节奏统一，并沉淀为模板和自动化流程。</p>
+    </div>
+    <div class="footer">理想汽车 · 日常销售运营 · 张文婧</div>
+  </div>
+</body>
+</html>

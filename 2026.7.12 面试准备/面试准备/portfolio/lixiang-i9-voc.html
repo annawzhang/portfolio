@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想汽车 · i9 舆情 VOC 监控</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .voc-item { border-left: 3px solid var(--border); padding: 14px 16px; margin-bottom: 12px; background: var(--surface); border-radius: 0 8px 8px 0; }
+    .voc-item.risk { border-left-color: var(--danger); background: #fffbfb; }
+    .voc-item.ok { border-left-color: var(--success); background: #f0fdf4; }
+    .voc-q { font-weight: 700; color: #1a56db; font-size: 0.88rem; margin-bottom: 6px; }
+    .voc-c { font-size: 0.86rem; color: var(--text); margin-bottom: 8px; line-height: 1.7; }
+    .voc-v { font-size: 0.82rem; color: #64748b; font-style: italic; padding-left: 12px; border-left: 2px solid #e2e8f0; }
+    .voc-v span { color: #94a3b8; font-style: normal; }
+    .action-tag { display: inline-block; font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; background: #fef2f2; color: #991b1b; font-weight: 600; margin-left: 6px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · i9 舆情 VOC</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-overview.html">理想导览</a>
+      <a href="lixiang-cockpit.html">经营驾驶舱</a>
+      <a href="lixiang-voc.html">提车 VOC</a>
+      <a href="lixiang-i9-voc.html" class="active">i9 舆情</a>
+      <a href="lixiang-product-evolution.html">必赢清单 V2</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>i9 舆情监控 · 社媒 VOC 洞察</h1>
+      <div class="meta">理想汽车 · AI 策略产品 · 小红书评论快照 · 2026-08-24</div>
+      <p class="tagline">879 条评论 / 93 条 i9 直接提及 · 从<strong>舆情信号</strong>到<strong>定价/上市/传播决策</strong>，与终端 VOC、驾驶舱形成「外圈舆情 + 内圈经营」双环。</p>
+      <div class="badge-row">
+        <span class="badge" style="background:#fef2f2;color:#dc2626;">高关注 · 低共识 · 偏谨慎</span>
+        <span class="badge">40万心理死线</span>
+        <span class="badge">问题·结论·原声</span>
+        <span class="badge">决策建议动作</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">879</div><div class="lbl">评论总量</div></div>
+      <div class="card stat"><div class="num">93</div><div class="lbl">i9 直接提及</div></div>
+      <div class="card stat down"><div class="num">37.6%</div><div class="lbl">定价负面密度</div></div>
+      <div class="card stat up"><div class="num">16%</div><div class="lbl">明确正面占比</div></div>
+    </div>
+
+    <div class="section-title">舆情 → 终端联动架构</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">01</div><div class="step-title">社媒采集</div><div class="step-desc">小红书/抖音<br/>评论+点赞+IP</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">02</div><div class="step-title">议题编码</div><div class="step-desc">定价/造型/定位<br/>8大舆情主题</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">03</div><div class="step-title">决策输出</div><div class="step-desc">问题·结论·原声<br/>Must/Should/Not</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">04</div><div class="step-title">终端 VOC</div><div class="step-desc">门店话术/竞品<br/>255条提车语料</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">05</div><div class="step-title">驾驶舱</div><div class="step-desc">i9爬坡 S6<br/>分层级 Top10</div></div>
+    </div>
+
+    <div class="section-title">八大舆情议题 · 问题 · 结论 · 原声</div>
+
+    <div class="voc-item risk">
+      <div class="voc-q">议题一：i9 定价多少合适？40 万是不是死线？</div>
+      <div class="voc-c">结论：用户价格锚点 i6≈20 / i8≈30 / i9≈40 / MEGA≈50 万。40 万是硬性心理关口，42.98 万起已现负面。可接受区间 35–40 万。</div>
+      <div class="voc-v">「40-50区间，销量要扑…30-40比较实际」<span> —— 17赞</span></div>
+      <div class="voc-v">「价格超40就别费事生产了」<span> —— 14赞</span></div>
+      <div class="voc-v">「i9至少42.98起」<span> —— 3赞</span></div>
+      <span class="action-tag">决策：起售价≤39.98万</span>
+    </div>
+
+    <div class="voc-item risk">
+      <div class="voc-q">议题二：i9 与 i8、MEGA 是否定位重叠？</div>
+      <div class="voc-c">结论：65.6% i9 评论涉及定位讨论。主流质疑「i8+MEGA 已覆盖，i9 多余」。50.5% i9 评论同时提及 i8，i8 负面直接拖累 i9。</div>
+      <div class="voc-v">「有 i8 和 mega，就没必要有 i9，要么取消 i8」<span> —— 17赞</span></div>
+      <div class="voc-v">「i9直接竞品应该是mega吧，简直就是mpv」<span> —— 5赞</span></div>
+      <span class="action-tag">决策：四车定位对比图 + i8同步调价</span>
+    </div>
+
+    <div class="voc-item risk">
+      <div class="voc-q">议题三：溜背/子弹头造型能否被接受？</div>
+      <div class="voc-c">结论：造型两极分化。负面：不像传统 SUV、不适合三排家用。正面：年轻时尚。大型 SUV 用户要「方正+气场」。</div>
+      <div class="voc-v">「溜背造型就不适合家用suv，尤其是三排座的」<span> —— 4赞</span></div>
+      <div class="voc-v">「我还以为我的C4复活了」<span> —— 21赞</span></div>
+      <span class="action-tag">决策：风阻/空间实测 + KOL 第三排体验</span>
+    </div>
+
+    <div class="voc-item risk">
+      <div class="voc-q">议题四：上市后销量预期如何？</div>
+      <div class="voc-c">结论：负面占多数。逻辑链：i8 已失败 → i9 更贵 → 造型更偏 → 销量更差。ES8「零头」论传播较广。</div>
+      <div class="voc-v">「销量Es8的零头估计都没有」<span> —— 18赞</span></div>
+      <div class="voc-v">「40到50大概率扑……」<span> —— 10赞</span></div>
+      <span class="action-tag">决策：试驾优先 + 首月舆情脉冲监测</span>
+    </div>
+
+    <div class="voc-item">
+      <div class="voc-q">议题五：哪些配置能转正向？</div>
+      <div class="voc-c">结论：用户期待马赫芯片、8797、一体连屏、120 度电池、线控底盘。i8 未上马赫加剧「等 i9 还是买 i8」决策延迟。</div>
+      <div class="voc-v">「i9肯定是8797，屏幕也是一体屏」<span> —— 2赞</span></div>
+      <div class="voc-v">「i9看图是120度，续航应该上个台阶」<span> —— 2赞</span></div>
+      <span class="action-tag">决策：发布会前释放技术代差</span>
+    </div>
+
+    <div class="voc-item">
+      <div class="voc-q">议题六：潜在用户决策状态？</div>
+      <div class="voc-c">结论：主流观望。三类人群：等 i9 派、锁 i8 派、放弃派。i8 存量用户有置换意愿，前提是 i9 不能太贵。</div>
+      <div class="voc-v">「爆料越多越期待，i9搞快点」<span> —— 22赞</span></div>
+      <div class="voc-v">「看门店能不能提前试驾」<span> —— 20赞</span></div>
+      <span class="action-tag">决策：试驾开放 + 置换补贴</span>
+    </div>
+
+    <div class="voc-item ok">
+      <div class="voc-q">议题七：有没有正向期待声音？</div>
+      <div class="voc-c">结论：核心粉丝仍表达期待，但声量弱于负面。正面约 16%，主要为「搞快点」「9 系不会差」。</div>
+      <div class="voc-v">「理想的9系不会差的，等着看吧」<span> —— 18赞</span></div>
+      <div class="voc-v">「50万左右家用天花板了」<span> —— 26赞</span></div>
+    </div>
+
+    <div class="section-title">决策建议 · 定价 / 上市 / 传播</div>
+    <table class="data card" style="padding:0;">
+      <thead><tr><th>维度</th><th>Must Do</th><th>Must Not Do</th></tr></thead>
+      <tbody>
+        <tr><td><strong>定价</strong></td><td>起售价≤39.98万 · 入门版35–37万 · i8同步降价 · 置换补贴1–2万</td><td>42.98万起 · 仅一个高配 · i8维持原价</td></tr>
+        <tr><td><strong>上市</strong></td><td>T-14释放马赫/8797/120度 · 四车定位对比 · 全国试驾 · i8策略同步</td><td>爆料空窗 · 回避i8 · 与竞品撞车</td></tr>
+        <tr><td><strong>传播</strong></td><td>技术代差叙事 · 体验转化Vlog · 分人群策略 · 竞品对比素材</td><td>只讲造型 · 与竞品骂战 · 过度爆料不兑现</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-title">与驾驶舱 / 终端 VOC 的衔接</div>
+    <div class="grid-3">
+      <div class="arch-box highlight">
+        <div class="arch-title">S6 新车爬坡</div>
+        <div class="arch-items">i9 上市后纳入 S6 渗透率/试驾锁单追踪，对接舆情预期差</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">分层级 Top10</div>
+        <div class="arch-items">一级店承担 i9 首发试驾转化；二三级店话术来自 VOC 异议库</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">255 条提车 VOC</div>
+        <div class="arch-items">i8 价格/交付议题与 i9 舆情交叉验证，支撑门店话术迭代</div>
+      </div>
+    </div>
+
+    <div class="card" style="text-align:center;padding:28px;margin-top:20px;">
+      <p style="margin-bottom:14px;">完整 Word 洞察报告（问题·结论·原声 + 决策建议动作）</p>
+      <a href="file:///Users/zhangwenjing/Desktop/理想i9舆情监控洞察报告-20260824.docx" style="display:inline-block;padding:12px 24px;background:#dc2626;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;margin-right:10px;">打开 Word 报告</a>
+      <a href="lixiang-voc.html" style="display:inline-block;padding:12px 24px;background:var(--accent);color:#fff;border-radius:8px;font-weight:600;text-decoration:none;">提车 VOC →</a>
+    </div>
+
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';">面试口述讲稿（点击展开）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> i9 上市前外圈舆情高度不确定：定价、造型、与 i8/MEGA 定位重叠是三大风险，但缺少结构化监测与决策输出。</p>
+      <p><span class="label">T</span> 搭建 i9 舆情 VOC 监控，输出「问题·结论·原声」+ 定价/上市/传播建议，并与终端 VOC、驾驶舱 S6 联动。</p>
+      <p><span class="label">A</span> 社媒助手导出 879 条小红书评论；8 大议题编码；40 万心理死线量化；Must/Should/Not 决策框架；衔接 255 条提车 VOC 与分层级 Top10 门店策略。</p>
+      <p><span class="label">R</span> 明确 i9 可接受定价 35–40 万、起售价不建议超 39.98 万；传播重点从技术代差而非造型；上市前需同步 i8 策略切断负面逻辑链。</p>
+    </div>
+
+    <div class="footer">i9 舆情 VOC · 数据已脱敏 · 仅供面试作品集展示</div>
+  </div>
+</body>
+</html>

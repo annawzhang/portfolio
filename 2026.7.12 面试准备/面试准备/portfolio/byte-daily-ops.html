@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>字节跳动 · Seed AI 数据产品 · 日常工作</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .ops-list { font-size: 0.85rem; padding-left: 18px; line-height: 1.85; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">字节 Seed · 日常工作</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="byte-seed-overview.html">字节导览</a>
+      <a href="byte-daily-ops.html" class="active">日常工作</a>
+      <a href="byte-data-pipeline.html">数据爬取</a>
+      <a href="byte-eight-dim.html">八维模型</a>
+      <a href="byte-campus-recruit.html">关系网络模型</a>
+      <a href="byte-funnel-ab.html">漏斗 AB</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>日常工作 · 数据交付、取数监控与 Agent 协同</h1>
+      <div class="meta">字节跳动 Seed · AI 数据产品经理 · 2026.02 – 2026.05</div>
+      <p class="tagline">项目之外的持续性工作：按批次跑采集和质检、交付标准化数据，用 SQL 模板支持日常取数和漏斗监控，根据业务反馈校准评分结果，并协助梳理招聘 Agent 的人才画像模型和招聘漏斗。</p>
+      <div class="badge-row">
+        <span class="badge">批次采集与质检</span>
+        <span class="badge">25 项标准字段</span>
+        <span class="badge">增量取数</span>
+        <span class="badge">指标异动监控</span>
+        <span class="badge">招聘 Agent 画像梳理</span>
+      </div>
+    </div>
+
+    <div class="section-title">日常数据流</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">01</div><div class="step-title">批次采集</div><div class="step-desc">多源拉取<br/>断点续传</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">02</div><div class="step-title">异常兜底</div><div class="step-desc">限流 / 拦截<br/>切换备选源</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">03</div><div class="step-title">质检复核</div><div class="step-desc">错位校验<br/>异常待人工</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">04</div><div class="step-title">标准交付</div><div class="step-desc">25 项字段<br/>业务侧使用</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">05</div><div class="step-title">取数监控</div><div class="step-desc">SQL 模板<br/>漏斗异动</div></div>
+    </div>
+
+    <div class="section-title">四项日常工作</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>1 · 批次采集与质检</h3>
+        <ul class="ops-list">
+          <li>按批次运行 GitHub / Hugging Face / Scholar 多源采集</li>
+          <li>处理 API 配额耗尽、站点拦截等故障：切换备选接口或改走 DOI 批量拉取</li>
+          <li>采集中断按断点续传恢复，避免重复采集</li>
+          <li>同名主体消歧、错位校验，异常数据自动标记待人工复核</li>
+        </ul>
+        <p style="font-size:0.8rem;margin-top:8px;"><a href="byte-data-pipeline.html">采集流水线设计 →</a></p>
+      </div>
+      <div class="card">
+        <h3>2 · 取数支持与漏斗监控</h3>
+        <ul class="ops-list">
+          <li>用可复用 SQL 模板做增量计算，不必每次全量重算</li>
+          <li>盯触达率、转化等核心指标的异动</li>
+          <li>按分层、地域、赛道、时间窗口拆解，定位差异来源</li>
+          <li>响应业务同学的临时取数需求</li>
+        </ul>
+        <p style="font-size:0.8rem;margin-top:8px;"><a href="byte-funnel-ab.html">漏斗看板与 AB 实验 →</a></p>
+      </div>
+      <div class="card">
+        <h3>3 · 评分结果交付与校准</h3>
+        <ul class="ops-list">
+          <li>把 S+/S/A/B/C 分层结果交付业务方使用</li>
+          <li>收集跟进反馈，排查误判样本</li>
+          <li>结合看板转化数据，反向微调维度权重</li>
+        </ul>
+        <p style="font-size:0.8rem;margin-top:8px;"><a href="byte-eight-dim.html">八维评估模型 →</a></p>
+      </div>
+      <div class="card">
+        <h3>4 · 协助梳理招聘 Agent：人才画像与招聘漏斗</h3>
+        <ul class="ops-list">
+          <li><strong>画像标签体系：</strong>经验年限、学历背景、技术栈、学术成果（顶会论文、专利、开源贡献、技术博客）和 AI 评分分档</li>
+          <li><strong>匹配规则：</strong>梳理技能、经验、文化、学历四类匹配维度，以及自动通过 / 推荐面试 / 自动淘汰三档阈值</li>
+          <li><strong>招聘漏斗：</strong>投递 → AI 初筛 → 初面 → 终面 → 入职的环节定义与转化口径，补充 Offer 审批节点</li>
+          <li>与八维评估、漏斗看板的口径对齐，便于 Agent 直接复用</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-title">和项目的关系</div>
+    <div class="card" style="border-left:4px solid var(--accent);">
+      <p style="font-size:0.86rem;line-height:1.75;">项目负责搭能力（采集流水线、八维模型、关系网络模型、AB 实验体系）；日常工作负责让数据每批稳定产出、指标每天可查，把业务反馈带回模型迭代，并把画像和漏斗口径输出给招聘 Agent 使用。</p>
+    </div>
+
+    <p style="margin-top:16px;font-size:0.85rem;"><a href="byte-seed-overview.html">← 字节导览</a> · <a href="byte-data-pipeline.html">数据爬取 →</a></p>
+    <div class="footer">字节 Seed · 日常工作 · 张文婧</div>
+  </div>
+</body>
+</html>

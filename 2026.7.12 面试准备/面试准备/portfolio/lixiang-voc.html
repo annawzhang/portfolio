@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想汽车 · VOC 用户声音可视化</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · VOC 可视化</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-diagnosis-star.html">诊断模型</a>
+      <a href="lixiang-cockpit.html">经营驾驶舱</a>
+      <a href="lixiang-voc.html" class="active">提车 VOC</a>
+      <a href="lixiang-i9-voc.html">i9 舆情</a>
+      <a href="lixiang-feishu-sop.html">飞书 SOP</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>VOC 用户声音 · 竞品情报可视化</h1>
+      <div class="meta">理想汽车 · AI 策略产品实习生 · 广东省提车 VOC 项目</div>
+      <p class="tagline">驻店 15 场访谈 + 200+ 问卷；Python 多源 pipeline 自动采集 <strong>255 条 verified</strong> 语料，输出 14 份洞察报告 + 31 款×8 维竞品矩阵。</p>
+      <div class="badge-row">
+        <span class="badge">255 verified</span>
+        <span class="badge">5 车型</span>
+        <span class="badge">31 竞品 × 8 维</span>
+        <span class="badge">邀约 +1.8pp</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">255</div><div class="lbl">verified 语料</div></div>
+      <div class="card stat"><div class="num">15</div><div class="lbl">驻店深度访谈</div></div>
+      <div class="card stat"><div class="num">200+</div><div class="lbl">有效问卷</div></div>
+      <div class="card stat up"><div class="num">+1.8pp</div><div class="lbl">漏斗邀约转化</div></div>
+    </div>
+
+    <div class="section-title">双环 VOC · 终端提车 + 外圈舆情</div>
+    <div class="grid-2">
+      <div class="card">
+        <h2>终端提车 VOC（本项目）</h2>
+        <p style="font-size:0.85rem;margin-bottom:10px;">255 条 verified 语料 · 驻店访谈 · 竞品矩阵 · 支撑门店话术与漏斗 +1.8pp。</p>
+        <div class="badge-row"><span class="badge">5 车型</span><span class="badge">31×8 竞品</span><span class="badge">14 报告</span></div>
+      </div>
+      <a class="project-card accent-purple" href="lixiang-i9-voc.html" style="display:block;text-decoration:none;color:inherit;">
+        <div class="company">外圈舆情 · i9 上市监控</div>
+        <h2>879 条社媒评论 · 8 大议题 · 决策建议</h2>
+        <p>小红书 i9 舆情：定价/造型/定位/销量预期 → 问题·结论·原声 → 定价/上市/传播 Must Do。</p>
+        <div class="metrics"><span>93条i9提及</span><span>40万死线</span><span>Word报告</span></div>
+      </a>
+    </div>
+
+    <div class="section-title">VOC Pipeline 架构</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">采集</div><div class="step-title">多源爬取</div><div class="step-desc">车质网 246 条<br/>媒体/官方 9 条</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">清洗</div><div class="step-title">标准化</div><div class="step-desc">去重·字段补全<br/>附公开 url</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">编码</div><div class="step-title">情感/主题</div><div class="step-desc">正/负/混合<br/>议题标签</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">报告</div><div class="step-title">14 份洞察</div><div class="step-desc">分车型 + 竞品<br/>vs 矩阵</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">看板</div><div class="step-title">HTML Dashboard</div><div class="step-desc">交互筛选<br/>可溯源</div></div>
+    </div>
+
+    <div class="section-title">按车型样本分布</div>
+    <div class="grid-2">
+      <div class="card">
+        <h2>语料量 · 5 车型</h2>
+        <div class="bar-row"><span>L6</span><div class="bar-track"><div class="bar-fill" style="width:91%"></div></div><span>50</span></div>
+        <div class="bar-row"><span>L7</span><div class="bar-track"><div class="bar-fill" style="width:93%"></div></div><span>51</span></div>
+        <div class="bar-row"><span>i6</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span>55</span></div>
+        <div class="bar-row"><span>i8</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span>44</span></div>
+        <div class="bar-row"><span>L9</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span>55</span></div>
+      </div>
+      <div class="card">
+        <h2>数据来源（可核对）</h2>
+        <table class="data">
+          <thead><tr><th>来源</th><th>条数</th><th>类型</th></tr></thead>
+          <tbody>
+            <tr><td>车质网投诉公开页</td><td>246</td><td>verified · 附 url</td></tr>
+            <tr><td>理想官方/媒体</td><td>9</td><td>交付/定价补充</td></tr>
+            <tr><td>驻店访谈</td><td>15 场</td><td>一手 · 脱敏后入库</td></tr>
+            <tr><td>线上问卷</td><td>200+</td><td>量化验证</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.78rem;color:var(--warning);margin-top:10px;">不含小红书最终语料 · 使用前请阅读 DATA_PROVENANCE.md</p>
+      </div>
+    </div>
+
+    <div class="section-title">核心议题识别</div>
+    <div class="grid-3">
+      <div class="arch-box"><div class="arch-title">交付体验</div><div class="arch-items">等待时长 · 交付流程 · 补偿机制</div></div>
+      <div class="arch-box"><div class="arch-title">质量/异响</div><div class="arch-items">各车型高频负面议题 · 门店话术支撑</div></div>
+      <div class="arch-box"><div class="arch-title">价格/补贴</div><div class="arch-items">i8 核心议题 · 竞品政策对比</div></div>
+    </div>
+
+    <div class="section-title">竞品矩阵 · 31 款 × 8 维度</div>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>维度</th><th>说明</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td>价格/政策</td><td>官方指导价、优惠、金融方案</td><td>门店话术对标</td></tr>
+          <tr><td>空间/尺寸</td><td>轴距、座位布局、储物</td><td>家庭场景对比</td></tr>
+          <tr><td>智驾/座舱</td><td>辅助驾驶、智能座舱功能</td><td>差异化演示</td></tr>
+          <tr><td>续航/补能</td><td>CLTC、充电网络</td><td>通勤/长途场景</td></tr>
+          <tr><td>品牌/口碑</td><td>市场认知、VOC 情感</td><td>决策因子权重</td></tr>
+          <tr><td>安全/品质</td><td>碰撞测试、质量投诉</td><td>异议处理</td></tr>
+          <tr><td>服务网络</td><td>门店覆盖、售后</td><td>区域策略</td></tr>
+          <tr><td>交付周期</td><td>等车时长、产能</td><td>锁单促进</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-title">三类用户场景 · 决策链路</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-title">家庭型</div><div class="step-desc">空间/安全/品质<br/>全家体验·后排演示</div></div>
+      <div class="flow-step"><div class="step-title">通勤型</div><div class="step-desc">成本/智驾/续航<br/>费用测算·智驾体验</div></div>
+      <div class="flow-step"><div class="step-title">长途型</div><div class="step-desc">续航/舒适/服务<br/>长途试驾·补能网络</div></div>
+    </div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-top:8px;">决策链路：认知触达 → 兴趣培育 → 到店体验 → 试驾验证 → 政策对比 → 下定成交 → 交付推荐</p>
+
+    <div class="section-title">完整交互看板</div>
+    <div class="card" style="text-align:center;padding:32px;">
+      <p style="font-size:0.95rem;margin-bottom:16px;">VOC 交互看板含情感分布、议题热力、语料溯源（语料与门店信息已脱敏，仅本地留存完整版）。</p>
+      <p style="font-size:0.85rem;color:var(--muted);">完整看板不在线公开链接中，面试时可按需现场演示本地脱敏版。</p>
+    </div>
+
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';" >面试口述讲稿（自用 · 点击展开）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 理想广东终端销售缺少系统化提车用户声音与竞品情报，门店话术与跟进策略缺少数据支撑。</p>
+      <p><span class="label">T</span> 搭建 VOC pipeline，输出分车型报告与竞品矩阵，支撑差异化销售策略。</p>
+      <p><span class="label">A</span> 驻店 15 场访谈 + 200+ 问卷；Python 多源采集 255 条 verified 语料；31 款×8 维竞品矩阵；影刀 RPA 商机漏斗自动拉数。</p>
+      <p><span class="label">R</span> 识别各车型核心议题，邀约环节转化 +1.8pp，14 份报告 + 网页交互看板。</p>
+    </div>
+
+    <div class="footer">VOC 竞品分析 · 语料/门店信息已脱敏 · 仅供面试作品集展示</div>
+  </div>
+</body>
+</html>

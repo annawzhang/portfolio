@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想汽车 · 竞品商圈匹配</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .bar { display: flex; height: 34px; border-radius: 8px; overflow: hidden; margin: 12px 0 8px; font-size: 0.78rem; color: #fff; font-weight: 600; }
+    .bar div { display: flex; align-items: center; justify-content: center; }
+    .legend { font-size: 0.8rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · 竞品商圈匹配</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-overview.html">理想导览</a>
+      <a href="lixiang-daily-ops.html">日常运营</a>
+      <a href="lixiang-cockpit.html">经营驾驶舱</a>
+      <a href="lixiang-ai-assistant.html">AI 助手</a>
+      <a href="lixiang-mega-es9-voc.html">MEGA/ES9</a>
+      <a href="lixiang-sales-script.html">话术手册</a>
+      <a href="lixiang-aito-voc.html">问界专项</a>
+      <a href="lixiang-competitor-map.html" class="active">竞品商圈</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>理想 vs 小米、问界 · 门店商圈匹配</h1>
+      <div class="meta">理想汽车 · 销售策略 · 广东 17 城 · 50 家门店</div>
+      <p class="tagline">把竞品研究从品牌层面下钻到<strong>门店和商圈层面</strong>：逐一核验理想、问界、小米门店的位置关系，形成可查询、可筛选的本地竞争情报。</p>
+      <div class="badge-row">
+        <span class="badge">线上舆情 → 线下商圈</span>
+        <span class="badge">结构化数据集</span>
+        <span class="badge">高竞争门店标签</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">17</div><div class="lbl">覆盖城市</div></div>
+      <div class="card stat"><div class="num">50</div><div class="lbl">理想门店</div></div>
+      <div class="card stat"><div class="num">50 + 50</div><div class="lbl">问界匹配 / 小米分析门店</div></div>
+      <div class="card stat down"><div class="num">54%</div><div class="lbl">与问界同商圈</div></div>
+    </div>
+
+    <div class="section-title">问界竞争关系分布</div>
+    <div class="card">
+      <div class="bar">
+        <div style="width:54%;background:#dc2626;">同商圈 27 家</div>
+        <div style="width:44%;background:#f59e0b;">同城不同商圈 22 家</div>
+        <div style="width:2%;background:#94a3b8;"></div>
+      </div>
+      <p class="legend">同商圈 27 家（54%） · 同城不同商圈 22 家（44%） · 暂无对标门店 1 家（2%）</p>
+      <p style="font-size:0.85rem;margin-top:12px;line-height:1.75;">深圳、广州门店最集中，是竞品商圈重叠和本地策略研究的重点城市；"同城不同商圈"可用于识别城市内部的竞争半径。</p>
+    </div>
+
+    <div class="section-title">数据结构</div>
+    <table class="data card" style="padding:0;">
+      <thead><tr><th>字段组</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>理想门店</td><td>城市、门店地址、联系人、月定单</td></tr>
+        <tr><td>竞品门店</td><td>问界 / 小米对标门店地址</td></tr>
+        <tr><td>商圈关系</td><td>同商圈 / 同城不同商圈 / 暂无对标</td></tr>
+        <tr><td>竞争标签</td><td>同商场、同路段、距离约 1–5 公里</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-title">方案流程</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">01</div><div class="step-title">门店底表</div><div class="step-desc">50 家理想门店<br/>地址与定单</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">02</div><div class="step-title">竞品核验</div><div class="step-desc">逐店匹配<br/>问界 / 小米</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">03</div><div class="step-title">商圈分类</div><div class="step-desc">三类关系<br/>距离标签</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">04</div><div class="step-title">高竞争识别</div><div class="step-desc">重点门店<br/>重点城市</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">05</div><div class="step-title">业务应用</div><div class="step-desc">走访 · 活动<br/>话术 · 投放</div></div>
+    </div>
+
+    <div class="section-title">业务应用</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>现在可用</h3>
+        <ul style="font-size:0.86rem;padding-left:18px;line-height:1.9;">
+          <li>竞品走访路线规划</li>
+          <li>商圈活动选址与时间错峰</li>
+          <li>同商圈门店的针对性对比话术</li>
+          <li>高竞争门店的资源投放优先级</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>可进一步验证</h3>
+        <ul style="font-size:0.86rem;padding-left:18px;line-height:1.9;">
+          <li>结合定单数据，检验竞品距离与门店表现的关系</li>
+          <li>叠加舆情热度，看竞品事件对同商圈门店的影响</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top:16px;font-size:0.85rem;"><a href="lixiang-aito-voc.html">← 问界专项</a> · <a href="lixiang-frontline.html">政策传达与一线支持 →</a></p>
+    <div class="footer">理想汽车 · 竞品商圈匹配 · 门店明细已脱敏 · 张文婧</div>
+  </div>
+</body>
+</html>

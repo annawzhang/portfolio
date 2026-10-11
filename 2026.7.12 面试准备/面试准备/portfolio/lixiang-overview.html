@@ -27,171 +27,90 @@
     <div class="hero-index">
       <h1>理想销售策略 · 项目导览</h1>
       <p style="color:var(--muted);max-width:640px;margin:12px auto;line-height:1.75;">
-        2026.07 – 至今 · 数据支撑、AI 应用、舆情洞察、策略转化、一线支持<br/>
+        2026.07 – 至今 · 广东大区 · 日常销售运营为基本盘，叠加数据产品、舆情监控和竞品研究专项<br/>
         把分散的数据、用户声音和业务问题，转化为可执行的销售策略与一线工具
       </p>
       <div class="badge-row" style="justify-content:center;">
-        <span class="badge">数据 → 问题 → 原因 → 策略 → 动作</span>
-        <span class="badge">18 类 AI 产品/流程</span>
-        <span class="badge">7,550 条舆情评论</span>
+        <span class="badge">目标拆解 → 过程监控 → 日报复盘 → 宣发动员 → 一线反馈</span>
       </div>
     </div>
 
-    <div class="grid-4">
-      <div class="card stat accent"><div class="num">18</div><div class="lbl">AI 助手沉淀的产品/流程</div></div>
-      <div class="card stat"><div class="num">6 层</div><div class="lbl">AI 助手能力架构</div></div>
-      <div class="card stat up"><div class="num">50</div><div class="lbl">门店商圈匹配 · 17 城市</div></div>
-      <div class="card stat"><div class="num">6,841</div><div class="lbl">问界专项评论</div></div>
-    </div>
-
-    <div class="section-title">工作链路</div>
-    <div class="flow">
-      <div class="flow-step"><div class="step-num">01</div><div class="step-title">数据</div><div class="step-desc">订单/商机/试驾<br/>交付/目标</div></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="step-num">02</div><div class="step-title">问题</div><div class="step-desc">TOP/BOT<br/>达成差距·异常</div></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="step-num">03</div><div class="step-title">原因</div><div class="step-desc">舆情原声<br/>竞品商圈</div></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="step-num">04</div><div class="step-title">策略</div><div class="step-desc">差异化沟通<br/>销售话术</div></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="step-num">05</div><div class="step-title">动作</div><div class="step-desc">飞书卡片/驾驶舱<br/>定时触达</div></div>
-    </div>
-
-    <div class="section-title" id="cockpit">01 · 区域经营驾驶舱：从报表输出走向门店诊断</div>
-    <div class="card">
-      <p style="font-size:0.88rem;margin-bottom:10px;"><strong>背景：</strong>经营数据分散在不同数据源和报表中，人工汇总耗时、门店口径不一。管理者需要一个统一入口，同时看到目标完成、同比变化、车型结构和门店诊断。</p>
-      <ul class="proj-list">
-        <li>梳理指标框架：订单、商机、试驾、目标、达成率、车型结构纳入统一分析；拆解 MTD / WTD / 整月 / 整周目标，减少口径混用</li>
-        <li>自动拉取当月、上月及同比历史宽表，形成门店级 MTD 经营底表；同比、环比、贡献度、达成率交给程序计算</li>
-        <li>建立 KPI、同比表现、车型爬坡、门店健康度、漏斗和综合诊断模块，识别领先 / 落后 / 异常门店</li>
-        <li>输出飞书互动卡片、HTML 驾驶舱、CSV 综合诊断表和完整数据包</li>
-        <li>稳定性：拉取 → 计算 → 渲染 → 校验 → 发送串成流水线；偶发失败等待后完整重跑一次；固定收件人与发送顺序；保留结果文件和过程状态</li>
-      </ul>
-      <p class="proj-value"><strong>价值：</strong>从"展示数字"升级为"识别问题并给出诊断"，减少逐店排查和人工核对，为后续预警、归因和策略推荐打基础。</p>
-      <div class="proj-links">
-        <a href="lixiang-cockpit.html">驾驶舱与诊断引擎 →</a>
-        <a href="dashboard_store_20260819.html">脱敏版 HTML 驾驶舱 →</a>
-        <a href="lixiang-product-evolution.html">V2 本周必赢清单 →</a>
-        <a href="lixiang-diagnosis-star.html">诊断模型 →</a>
-      </div>
-    </div>
-
-    <div class="section-title" id="ai-assistant">02 · 区域销售 AI 助手：稳定可复用的业务闭环</div>
-    <div class="card">
-      <p style="font-size:0.88rem;margin-bottom:10px;">从单一问答工具升级为面向区域销售与经营管理的综合 AI 助手，形成<strong>智能交互、业务数据、分析决策、内容生产、自动执行、安全治理</strong>六层能力。</p>
-      <div class="grid-3" style="margin:12px 0;">
-        <div class="arch-box"><div class="arch-title">多源取数</div><div class="arch-items">DC · 飞书表格 · PB 看板自动抓取</div></div>
-        <div class="arch-box"><div class="arch-title">自动产出</div><div class="arch-items">报表 · 图片 · Excel · 互动卡片 · HTML 驾驶舱</div></div>
-        <div class="arch-box"><div class="arch-title">确定性流水线</div><div class="arch-items">刷新 → 渲染 → 健康检查 → 预览 → 发送</div></div>
-        <div class="arch-box"><div class="arch-title">稳定性</div><div class="arch-items">幂等锁 · 失败重试 · 时间护栏 · message_id 留痕</div></div>
-        <div class="arch-box"><div class="arch-title">安全治理</div><div class="arch-items">群发授权 · 禁言群保护 · 预览确认 · SOP 管控</div></div>
-        <div class="arch-box"><div class="arch-title">18 类产品/流程</div><div class="arch-items">数据晾晒 · 专家龙虎榜 · 大区定单进度 · 门店达成度 · 经营驾驶舱 · PB 看板等</div></div>
-      </div>
-      <p class="proj-value"><strong>我的贡献：</strong>把临时需求整理为标准流程，把一次性分析沉淀为可复用工具，并持续补齐稳定性和安全边界。另负责维护现车看板抓取文档，为每日库存截图播报提供稳定数据源。</p>
-      <div class="proj-links"><a href="lixiang-feishu-sop.html">飞书 SOP 产品化 →</a></div>
-    </div>
-
-    <div class="section-title" id="voc">03 · 舆情洞察：补足试驾录音之外的信息盲区</div>
+    <div class="section-title">日常工作 · 基本盘</div>
     <div class="projects" style="margin-top:0;">
-      <div class="card">
-        <h3>MEGA 与 ES9 区域用户专项</h3>
-        <ul class="proj-list">
-          <li>分析区域 IP 用户评论 437 条</li>
-          <li>对比多娃家庭、少娃家庭、商务用户的选车逻辑</li>
-          <li>洞察："空间好用高于空间数据大""侧滑门是隐性刚需""补能密度影响决策"</li>
-          <li>沉淀四娃家庭、GL8 升级宝妈、L9 置换用户等画像</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>外观顾虑销售话术手册</h3>
-        <ul class="proj-list">
-          <li>分析评论 272 条、总点赞 1,113 次</li>
-          <li>归纳为外观设计、价格信任、产品力与竞品三类</li>
-          <li>L 系列 / i6 / MEGA 分别采用进攻型、坦诚型、重构型策略</li>
-          <li>六类真实客户场景话术，并明确禁止表达</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>问界专项</h3>
-        <ul class="proj-list">
-          <li>围绕 9 月 15 日后销量变化，整理三个议题共 6,841 条评论</li>
-          <li>订单取消与退款、降价预期与观望、华为技术标签与品牌认知</li>
-          <li>关联抖音、小红书舆情变化与销量波动，解释"为什么发生"</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>i9 / ES8 社媒舆情</h3>
-        <ul class="proj-list">
-          <li>小红书 i9 舆情：问题 · 结论 · 原声 · 决策建议</li>
-          <li>定价、上市节奏、传播三类建议动作</li>
-          <li>提车 VOC：255 条语料、竞品矩阵与驻店访谈</li>
-        </ul>
-        <div class="proj-links">
-          <a href="lixiang-i9-voc.html">i9 舆情 →</a>
-          <a href="lixiang-i9-es8-voc.html">i9 vs ES8 →</a>
-          <a href="lixiang-voc.html">提车 VOC →</a>
-        </div>
-      </div>
+      <a class="project-card accent-red" href="lixiang-daily-ops.html">
+        <div class="company">日常 · 销售运营</div>
+        <h2>把目标、数据和一线动作连接起来</h2>
+        <p>目标拆解与节奏管理 → 订单达成监控 → 操盘日报与复盘 → 海报宣发动员 → 一线反馈闭环。</p>
+        <div class="metrics"><span>城市部 / 门店 / 车型</span><span>MTD / WTD 口径</span><span>每日操盘日报</span></div>
+      </a>
+      <a class="project-card" href="lixiang-frontline.html">
+        <div class="company">日常 · 政策传达与新品一线支持</div>
+        <h2>让一线看得懂、能执行</h2>
+        <p>政策本地化 · 飞书卡片与定时任务 · MEGA / i6 / L 系列差异化沟通策略。</p>
+        <div class="metrics"><span>政策本地化</span><span>新品支持</span></div>
+      </a>
     </div>
 
-    <div class="section-title" id="competitor">04 · 竞品商圈匹配：把门店位置转化为本地竞争情报</div>
-    <div class="card">
-      <p style="font-size:0.88rem;margin-bottom:10px;">以区域内理想门店为基础，逐一核验理想、问界、小米门店的位置关系，把竞品研究从品牌层面下钻到门店和商圈层面。</p>
-      <div class="grid-4" style="margin:12px 0;">
-        <div class="card stat"><div class="num">17 / 50</div><div class="lbl">城市 / 理想门店</div></div>
-        <div class="card stat down"><div class="num">27 家</div><div class="lbl">与问界同商圈（54%）</div></div>
-        <div class="card stat"><div class="num">22 家</div><div class="lbl">同城不同商圈</div></div>
-        <div class="card stat"><div class="num">1 家</div><div class="lbl">暂无对标门店</div></div>
-      </div>
-      <ul class="proj-list">
-        <li>门店地址、联系人、月定单、竞品门店地址和商圈关系结构化整理，可查询、可筛选</li>
-        <li>用同商场、同路段、距离约 1–5 公里等标签识别高竞争门店；核心城市门店最集中，是商圈重叠研究重点</li>
-        <li>为竞品走访、商圈活动、门店话术和资源投放提供本地化依据；后续可与定单数据结合，验证竞品距离与门店表现的关系</li>
-      </ul>
+    <div class="section-title">专项项目</div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:4px 0 10px;">数据与 AI 产品</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-red" href="lixiang-cockpit.html">
+        <div class="company">项目 01 · 广东经营驾驶舱</div>
+        <h2>从报表输出走向门店诊断</h2>
+        <p>门店级 MTD 底表 · KPI / 同比 / 车型爬坡 / 健康度 / 漏斗 / 综合诊断 · 飞书卡片 + HTML 驾驶舱。</p>
+        <div class="metrics"><span>领先/落后/异常识别</span><span>确定性流水线</span></div>
+      </a>
+      <a class="project-card" href="lixiang-ai-assistant.html">
+        <div class="company">项目 02 · 区域销售 AI 助手</div>
+        <h2>六层能力 · 稳定可复用的业务闭环</h2>
+        <p>多源取数 → 自动产出 → 健康检查 → 预览授权 → 发送留痕 · 幂等锁、失败重试、时间护栏。</p>
+        <div class="metrics"><span>18 类产品/流程</span><span>6 层架构</span></div>
+      </a>
     </div>
 
-    <div class="section-title" id="frontline">05 · 政策传达与新品一线支持</div>
-    <div class="grid-2">
-      <div class="card">
-        <h3>政策传达与本地化</h3>
-        <ul class="proj-list">
-          <li>保留政策原意，避免传递失真</li>
-          <li>突出日期、时间和关键动作，降低一线阅读成本</li>
-          <li>结合区域实际补充解释和执行提示</li>
-          <li>通过飞书卡片、文档和定时任务提高触达效率</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>新品上市与一线支持</h3>
-        <ul class="proj-list">
-          <li>监测新品上市后的用户反馈和媒体讨论</li>
-          <li>对 MEGA、i6、L 系列形成差异化沟通策略</li>
-          <li>把舆情问题转为试驾引导、需求探询和成交话术</li>
-          <li>根据一线反馈持续修正分析方向和表达方式</li>
-        </ul>
-      </div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:20px 0 10px;">舆情监控与洞察</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-purple" href="lixiang-mega-es9-voc.html">
+        <div class="company">项目 03 · MEGA vs ES9 用户专项</div>
+        <h2>谁选 MEGA、谁选 ES9、为什么</h2>
+        <p>广东 IP 437 条评论 · 空间好用高于数据大 · 侧滑门隐性刚需 · 6 类典型画像。</p>
+        <div class="metrics"><span>437 条</span><span>6 类画像</span></div>
+      </a>
+      <a class="project-card" href="lixiang-sales-script.html">
+        <div class="company">项目 04 · 外观顾虑销售话术手册</div>
+        <h2>把舆情变成一线工具</h2>
+        <p>272 条评论 · 三类顾虑 · L 系列进攻型 / i6 坦诚型 / MEGA 重构型 · 六类场景话术与禁止表达。</p>
+        <div class="metrics"><span>1,113 点赞</span><span>6 类场景</span></div>
+      </a>
+      <a class="project-card" href="lixiang-aito-voc.html">
+        <div class="company">项目 05 · 问界舆情专项</div>
+        <h2>解释销量变化为什么发生</h2>
+        <p>三个议题 6,841 条评论 · 订单取消、价格与退订、品牌与技术归属 · 为竞品应对提供外部证据。</p>
+        <div class="metrics"><span>6,841 条</span><span>3 个议题</span></div>
+      </a>
+      <a class="project-card" href="lixiang-i9-voc.html">
+        <div class="company">项目 06 · i9 / ES8 舆情与提车 VOC</div>
+        <h2>社媒舆情 + 终端用户声音</h2>
+        <p>i9 定价 / 上市 / 传播建议 · i9 vs ES8 对比 · 提车 VOC 与竞品矩阵。</p>
+        <div class="metrics"><span>问题·结论·原声</span><span>决策建议</span></div>
+      </a>
     </div>
 
-    <div class="section-title">复盘与下一步</div>
-    <div class="grid-2">
-      <div class="card">
-        <h3>不足</h3>
-        <ul class="proj-list">
-          <li>部分成果偏项目制，跨项目统一指标和效果追踪有待加强</li>
-          <li>舆情与商机、试驾、锁单的量化关联仍需持续验证</li>
-          <li>个别自动化流程依赖临时脚本，需进一步标准化、平台化</li>
-          <li>新品与竞品监测需从节点式分析升级为持续监测</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>规划</h3>
-        <ul class="proj-list">
-          <li>统一舆情监测框架：固定周报、异常预警、专项复盘</li>
-          <li>打通舆情与经营数据，提升归因质量</li>
-          <li>AI 任务看板、失败告警、口径审计与效果追踪</li>
-          <li>沉淀可检索的销售知识库；按节省工时、使用频次、转化改善量化价值</li>
-        </ul>
-      </div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:20px 0 10px;">竞品研究</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-green" href="lixiang-competitor-map.html">
+        <div class="company">项目 07 · 竞品商圈匹配</div>
+        <h2>把门店位置转化为本地竞争情报</h2>
+        <p>广东 17 城 50 家门店 · 理想 vs 问界、小米 · 同商圈 / 同城不同商圈 / 暂无对标三类关系。</p>
+        <div class="metrics"><span>54% 同商圈</span><span>1–5 km 标签</span></div>
+      </a>
+    </div>
+
+    <div class="section-title">驾驶舱延伸</div>
+    <div class="grid-3">
+      <a class="arch-box" href="dashboard_store_20260819.html" style="text-decoration:none;color:inherit;"><div class="arch-title">脱敏版 HTML 驾驶舱 →</div><div class="arch-items">完整交付形态示例</div></a>
+      <a class="arch-box" href="lixiang-product-evolution.html" style="text-decoration:none;color:inherit;"><div class="arch-title">V2 本周必赢清单 →</div><div class="arch-items">从全览到决策项</div></a>
+      <a class="arch-box" href="lixiang-diagnosis-star.html" style="text-decoration:none;color:inherit;"><div class="arch-title">诊断模型 →</div><div class="arch-items">指标与应用方向</div></a>
     </div>
 
     <div class="footer">理想汽车 · 销售策略实习 · 内部系统名称已泛化 · 张文婧</div>

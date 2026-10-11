@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>腾讯 · Chatbot 运营与知识闭环</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">腾讯 · Chatbot 知识闭环</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="tencent-ssc-overview.html">腾讯导览</a>
+      <a href="tencent-daily-ops.html">日常工作</a>
+      <a href="tencent-console.html">Console 总台</a>
+      <a href="tencent-chatbot-gap.html" class="active">Chatbot 运营</a>
+      <a href="tencent-regional-tools.html">区域工具</a>
+      <a href="tencent-98008-security.html">安全治理</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <div class="hero">
+      <h1>12 个专业 Agent 运营 · Gap Finder 知识闭环</h1>
+      <div class="meta">腾讯 · AI 技术产品经理 · 2026.05 – 2026.07</div>
+      <p class="tagline">Knot 主智能体 + 12 业务子 Agent，各绑不同书架 RAG 检索；问询日志驱动 <strong>Gap Finder 补库</strong>，未命中率降至 6%。</p>
+      <div class="badge-row"><span class="badge">12 专 Agent</span><span class="badge">未命中率 6%</span><span class="badge">建库→用库→补库</span></div>
+    </div>
+    <div class="grid-4">
+      <div class="card stat up"><div class="num">6%</div><div class="lbl">未命中率</div></div>
+      <div class="card stat accent"><div class="num">12</div><div class="lbl">业务子 Agent</div></div>
+      <div class="card stat"><div class="num">4</div><div class="lbl">运营流程环节</div></div>
+      <div class="card stat"><div class="num">3</div><div class="lbl">问题源类型</div></div>
+    </div>
+    <div class="section-title">架构 · 主智能体 + 子 Agent</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Knot 主智能体</h3>
+        <p style="font-size:0.85rem;line-height:1.7;">路由分发、全局 RAG、会话管理；对接 Console 运营侧配置与监控。</p>
+      </div>
+      <div class="card">
+        <h3>12 业务子 Agent</h3>
+        <p style="font-size:0.85rem;line-height:1.7;">薪酬 · 福利 · 税务 · 系统操作等，各绑不同权限化书架，从知识图书馆检索再答。</p>
+      </div>
+    </div>
+    <div class="section-title">Gap Finder · 建库 → 用库 → 补库</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-title">员工咨询</div><div class="step-desc">Knot 采集埋点</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">三类问题源</div><div class="step-desc">未命中/低分<br/>异常工单</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">Gap Finder</div><div class="step-desc">聚类挖缺口<br/>排序优先级</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">运营补 FAQ</div><div class="step-desc">审核入库<br/>索引重建</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">未命中率↓</div><div class="step-desc">看板监控 6%</div></div>
+    </div>
+    <div class="section-title">运营全流程 ETL</div>
+    <div class="grid-3">
+      <div class="arch-box"><div class="arch-title">采集</div><div class="arch-items">员工问询日志 · 多轮对话 · Helpful 反馈</div></div>
+      <div class="arch-box"><div class="arch-title">清洗 · 质检 · 标注</div><div class="arch-items">脱敏 · 质量规则 · 意图标注</div></div>
+      <div class="arch-box highlight"><div class="arch-title">Gap Finder</div><div class="arch-items">未命中聚类 · 知识缺口量化 · 驱动图书馆补缺</div></div>
+    </div>
+    <p style="margin-top:16px;font-size:0.85rem;"><a href="tencent-console.html">← Console 建库</a> · <a href="tencent-98008-security.html">安全治理详情 →</a></p>
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';" >面试口述讲稿（自用）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 12 专 Agent 知识覆盖不足，未命中率高。</p>
+      <p><span class="label">T</span> 问询 ETL + Gap Finder 驱动补库。</p>
+      <p><span class="label">A</span> 主+子 Agent 架构；聚类挖缺口；FAQ 迭代闭环。</p>
+      <p><span class="label">R</span> 未命中率 6%；Console 建库→Chatbot 用库→Gap Finder 补库。</p>
+    </div>
+    <div class="footer">腾讯 · 企业级 AI 工作台 · Chatbot 运营 · 张文婧</div>
+  </div>
+</body>
+</html>

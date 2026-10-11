@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>字节 · 八维度可解释评估模型 V5.0</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">字节 Seed · 八维评估模型</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="byte-seed-overview.html">字节导览</a>
+      <a href="byte-daily-ops.html">日常工作</a>
+      <a href="byte-data-pipeline.html">数据爬取</a>
+      <a href="byte-eight-dim.html" class="active">八维模型</a>
+      <a href="byte-campus-recruit.html">关系网络模型</a>
+      <a href="byte-funnel-ab.html">漏斗 AB</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>八维度可解释评估模型 V5.0</h1>
+      <div class="meta">字节跳动 Seed · AI 数据产品经理 · 2026.02 – 2026.05</div>
+      <p class="tagline">基于 ICLR 2026 顶会数据，将评估决策产品化为<strong>可配置、可解释、可决策</strong>的八维专家加权分层体系，服务业务优先级判断，覆盖 20,121 条样本。</p>
+      <div class="badge-row">
+        <span class="badge">可解释非黑盒</span>
+        <span class="badge">S+/S/A/B/C 五档</span>
+        <span class="badge">识别准确率 62%→90.8%</span>
+        <span class="badge">人工成本降 50–60%</span>
+        <span class="badge">3 轮 AB 实验</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">20,121</div><div class="lbl">量化评分人数</div></div>
+      <div class="card stat up"><div class="num">90.8%</div><div class="lbl">身份识别准确率</div></div>
+      <div class="card stat up"><div class="num">+21%</div><div class="lbl">海外转化提升</div></div>
+      <div class="card stat"><div class="num">2.1s</div><div class="lbl">核心 SQL 耗时</div></div>
+    </div>
+
+    <div class="section-title">产品闭环架构</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">01</div><div class="step-title">多源采集</div><div class="step-desc">GitHub/Scholar/顶会<br/>25 项标准字段</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">02</div><div class="step-title">八维特征</div><div class="step-desc">Python 文本匹配<br/>SQL 多表关联</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">03</div><div class="step-title">加权评分</div><div class="step-desc">专家权重可配置<br/>CASE WHEN 运算</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">04</div><div class="step-title">S+/S/A/B/C</div><div class="step-desc">差异化跟进策略<br/>跟进路径推荐</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">05</div><div class="step-title">AB 验证</div><div class="step-desc">NOT EXISTS 排他<br/>看板监控迭代</div></div>
+    </div>
+
+    <div class="section-title">八维度拆解 · 专家加权体系</div>
+    <div class="grid-2">
+      <div class="card">
+        <h2>维度权重与说明</h2>
+        <div class="dim-radar">
+          <div class="dim-item"><span class="dim-weight">最高</span><div><strong>竞品渠道关联</strong><br/><span style="color:var(--muted);font-size:0.78rem">与目标企业/赛道关联度</span></div></div>
+          <div class="dim-item"><span class="dim-weight">高</span><div><strong>导师网络</strong><br/><span style="color:var(--muted);font-size:0.78rem">资深导师加分，关系矩阵 20,000+</span></div></div>
+          <div class="dim-item"><span class="dim-weight">高</span><div><strong>本土资源</strong><br/><span style="color:var(--muted);font-size:0.78rem">国内院校/项目/connection</span></div></div>
+          <div class="dim-item"><span class="dim-weight">高</span><div><strong>内部连接</strong><br/><span style="color:var(--muted);font-size:0.78rem">组织内人脉与转介绍潜力</span></div></div>
+          <div class="dim-item"><span class="dim-weight">中</span><div><strong>工程转化潜力</strong><br/><span style="color:var(--muted);font-size:0.78rem">GitHub 等工程产出</span></div></div>
+          <div class="dim-item"><span class="dim-weight">中</span><div><strong>顶会论文质量</strong><br/><span style="color:var(--muted);font-size:0.78rem">ICLR 2026 等顶会产出</span></div></div>
+          <div class="dim-item"><span class="dim-weight">中</span><div><strong>华人身份梯度</strong><br/><span style="color:var(--muted);font-size:0.78rem">AB 实验核心变量 · 四因子线性加权</span></div></div>
+          <div class="dim-item"><span class="dim-weight">不计分</span><div><strong>纯学术引用</strong><br/><span style="color:var(--muted);font-size:0.78rem">噪声大，仅作参考不纳入加权</span></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>分层输出 · S+/S/A/B/C</h2>
+        <table class="data">
+          <thead><tr><th>层级</th><th>定义</th><th>跟进策略</th></tr></thead>
+          <tbody>
+            <tr><td><strong>S+</strong></td><td>顶会核心 + 强竞品关联 + 高潜华人</td><td>优先建联 · 高管层跟进</td></tr>
+            <tr><td><strong>S</strong></td><td>多维度高分 · 导师网络强</td><td>快速触达 · 定制 pitch</td></tr>
+            <tr><td><strong>A</strong></td><td>单项突出 · 工程或学术强</td><td>标准流程 · 定期跟进</td></tr>
+            <tr><td><strong>B</strong></td><td>中等潜力 · 部分维度缺失</td><td>批量触达 · 低优先级</td></tr>
+            <tr><td><strong>C</strong></td><td>低匹配 · 信息不足</td><td>暂缓 · 数据补全后复评</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;">五级推荐能力产品化，业务方可按赛道自定义阈值。</p>
+      </div>
+    </div>
+
+    <div class="section-title">核心创新 · 多因子梯度打分（AB 实验）</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>问题：二元姓名标签准确率仅 62%</h3>
+        <p style="font-size:0.85rem;margin-bottom:12px;">海外华裔大量漏判，外籍拼音误判严重，线索分配缺少量化依据。</p>
+        <h3 style="margin-top:16px;">方案：四因子线性加权</h3>
+        <div class="bar-row"><span>地域分</span><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span>高</span></div>
+        <div class="bar-row"><span>头部院校</span><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div><span>高</span></div>
+        <div class="bar-row"><span>本土导师</span><div class="bar-track"><div class="bar-fill" style="width:65%"></div></div><span>中</span></div>
+        <div class="bar-row"><span>科研项目</span><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><span>中</span></div>
+      </div>
+      <div class="card">
+        <h3>AB 实验 · 单一变量隔离</h3>
+        <table class="data">
+          <thead><tr><th>轮次</th><th>动作</th><th>结果</th></tr></thead>
+          <tbody>
+            <tr><td>首轮</td><td>拆分海外人群专项分析</td><td>发现华人模块是瓶颈</td></tr>
+            <tr><td>二轮</td><td>0/1 → 四因子梯度打分</td><td>准确率 62%→90.8%</td></tr>
+            <tr><td>三轮</td><td>转化数据反向调权重</td><td>海外转化 +21%</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;">NOT EXISTS 排他逻辑：纯对照 / 纯实验 / 混合样本三层隔离，混合数据不参与转化对比。</p>
+      </div>
+    </div>
+
+    <div class="section-title">关键指标对比</div>
+    <table class="data card" style="padding:0;overflow:hidden;">
+      <thead><tr><th>指标</th><th>优化前</th><th>优化后</th><th>变化</th></tr></thead>
+      <tbody>
+        <tr><td>华人身份识别准确率</td><td>62%</td><td><strong>90.8%</strong></td><td style="color:var(--success)">+28.8pp</td></tr>
+        <tr><td>海外高潜漏判</td><td>基准</td><td>下降 67%</td><td style="color:var(--success)">↓</td></tr>
+        <tr><td>无效跟进占比</td><td>基准</td><td>下降 29%</td><td style="color:var(--success)">↓</td></tr>
+        <tr><td>人工筛选成本</td><td>基准</td><td>降低 50–60%</td><td style="color:var(--success)">↓</td></tr>
+        <tr><td>核心 SQL 查询</td><td>45s</td><td>2.1s</td><td style="color:var(--success)">效率 +70%</td></tr>
+        <tr><td>策略迭代效率</td><td>Excel 手工</td><td>自动化看板</td><td style="color:var(--success)">+40%</td></tr>
+      </tbody>
+    </table>
+
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';" >面试口述讲稿（自用 · 点击展开）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 20 万级样本靠人工判断效率低，旧模型用中文姓名二元标签识别华人，准确率只有 62%，海外华裔大量漏判。</p>
+      <p><span class="label">T</span> 搭建可配置、可解释的八维加权打分模型，并通过 AB 实验验证华人识别优化收益。</p>
+      <p><span class="label">A</span> 舍弃 ML 黑盒，采用专家加权体系；华人识别从 0/1 升级为四因子梯度打分；NOT EXISTS 排他分组；SQL 从 45s 优化到 2.1s；搭建全链路转化看板支撑 3 轮迭代。</p>
+      <p><span class="label">R</span> 华人识别 62%→90.8%，无效跟进降 29%，海外转化 +21%，人工成本降 50–60%，覆盖 2 万+ 样本量化评分。</p>
+    </div>
+
+    <p style="margin-top:12px;font-size:0.85rem;"><a href="byte-seed-overview.html">← 字节导览</a> · <a href="byte-data-pipeline.html">数据爬取 →</a> · <a href="byte-campus-recruit.html">关系网络模型 →</a></p>
+    <div class="footer">字节 Seed · 八维模型 · 张文婧</div>
+  </div>
+</body>
+</html>

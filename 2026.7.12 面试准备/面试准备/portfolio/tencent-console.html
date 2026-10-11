@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>腾讯 · Console 海外总工作台</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>.layer-box { min-height: 280px; }</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">腾讯 · 企业级 AI 工作台 · Console 总工作台</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="tencent-ssc-overview.html">腾讯导览</a>
+      <a href="tencent-daily-ops.html">日常工作</a>
+      <a href="tencent-console.html" class="active">Console 总台</a>
+      <a href="tencent-chatbot-gap.html">Chatbot 运营</a>
+      <a href="tencent-regional-tools.html">区域工具</a>
+      <a href="tencent-98008-security.html">安全治理</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>Console 海外总工作台 0→1</h1>
+      <div class="meta">腾讯 · AI 技术产品经理（海外业务）· 2026.05 – 2026.07</div>
+      <p class="tagline">以微前端父壳聚合海外业务分散系统，实现<strong>执行层（Knot Agent）与治理层（Console）解耦</strong>，运营从多系统切换变为单一指挥台操作。</p>
+      <div class="badge-row">
+        <span class="badge">5 大板块</span>
+        <span class="badge">21 书架 / 135 文献</span>
+        <span class="badge">8 项自检指标</span>
+        <span class="badge">K8s 云原生</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">5</div><div class="lbl">功能板块聚合</div></div>
+      <div class="card stat"><div class="num">21</div><div class="lbl">权限化书架</div></div>
+      <div class="card stat"><div class="num">135</div><div class="lbl">运营文献</div></div>
+      <div class="card stat"><div class="num">13</div><div class="lbl">Agent（12 专 + 1 Knot）</div></div>
+    </div>
+
+    <div class="section-title">核心架构 · 执行与治理解耦</div>
+    <div class="dual-layer">
+      <div class="layer-box layer-console">
+        <div class="layer-label">治理层 · Console 海外总工作台</div>
+        <p style="font-size:0.85rem;margin-bottom:8px;">微前端父壳 · 运营侧监控配置 · 统一鉴权/权限/设计系统</p>
+        <ul class="arch-tree">
+          <li class="root">P0 全局总览 — KPI + Exception 六大异常监控</li>
+          <li>P1-P2 区域作战室 — AMER / APAC / EMEA 数据隔离</li>
+          <li>P3 Chatbot 98008 运营 — 指标 / 知识 / 工具箱 / Gap Finder</li>
+          <li>P8-P10 需求 / 知识 / 任务协同 — TAPD 可视化</li>
+          <li>No-IOA 子应用 — iframe 嵌入 · 40min→3min</li>
+        </ul>
+      </div>
+      <div class="connector">
+        <span>postMessage</span>
+        <span class="arrow">↕</span>
+        <span>内部 API</span>
+      </div>
+      <div class="layer-box layer-knot">
+        <div class="layer-label">执行层 · Knot 智能体</div>
+        <p style="font-size:0.85rem;margin-bottom:8px;">云原生 K8s 集群 · 员工侧实时交互 · 7×24 全球对话</p>
+        <div class="module-grid">
+          <div class="module-chip"><strong>RAG 检索 Skill</strong><span>全球统一权限知识库</span></div>
+          <div class="module-chip"><strong>敏感词风控 Skill</strong><span>P0-P3 双向扫描</span></div>
+          <div class="module-chip"><strong>IOA 鉴权 VIP Skill</strong><span>高管白名单识别</span></div>
+          <div class="module-chip"><strong>OEC 工单 Skill</strong><span>一键转人工</span></div>
+        </div>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;">98008 = 员工前端产品名 · 底层执行基座 = Knot Agent</p>
+      </div>
+    </div>
+
+    <div class="section-title">五大板块 · 信息架构</div>
+    <div class="grid-3">
+      <div class="arch-box highlight">
+        <div class="arch-title">P0 指挥总览</div>
+        <div class="arch-items">KPI 驾驶舱 · 6 类异常监控 · 30 分钟掌握运营健康 · 风险预警置顶</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">P1 知识图书馆</div>
+        <div class="arch-items">21 权限化书架 · 135 篇文献 · 即时检索 · 多轮深聊</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">P2 项目协同</div>
+        <div class="arch-items">Issue / 会议 / TAPD 需求全景 · 跨团队协同</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">P3 区域工具</div>
+        <div class="arch-items">AMER/APAC/EMEA 作战室 · No-IOA 提效 · 费用分摊自动化 · <a href="tencent-regional-tools.html">详情 →</a></div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">P4 系统管理</div>
+        <div class="arch-items">8 项自检指标 · 权限粒度 · 区域差异化配置</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">P3 Chatbot 运营</div>
+        <div class="arch-items">98008 全生命周期 · Gap Finder · FAQ 编辑 · 索引重建</div>
+      </div>
+    </div>
+
+    <div class="section-title">三阶段落地路线</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">一期</div><div class="step-title">基座搭建</div><div class="step-desc">统一鉴权/权限/通信<br/>业务子应用 iframe</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">二期</div><div class="step-title">Chatbot 运营</div><div class="step-desc">Gap Finder 闭环<br/>敏感风控 + VIP 服务</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">三期</div><div class="step-title">跨模块打通</div><div class="step-desc">分区域差异化<br/>语义风控升级</div></div>
+    </div>
+
+    <div class="section-title">98008 Bot 七步业务闭环</div>
+    <div class="card">
+      <div class="flow" style="margin:0;">
+        <div class="flow-step"><div class="step-title">知识门户引流</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">八大业务菜单</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">RAG 检索</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">可溯源回答</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">Helpful 反馈</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">转人工/工单</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">Gap Finder</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">关键决策</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>1. 执行与治理解耦</h3>
+        <p style="font-size:0.85rem;">Knot = 员工侧实时交互；Console = 运营侧监控配置。职责清晰，独立迭代。</p>
+        <h3 style="margin-top:16px;">2. 微前端父壳</h3>
+        <p style="font-size:0.85rem;">各子模块独立部署，统一鉴权/权限/设计系统，降低耦合。</p>
+      </div>
+      <div class="card">
+        <h3>3. 云原生部署</h3>
+        <p style="font-size:0.85rem;">K8s 容器集群 + 内部云 KV/向量库/时序库，配置热重载，全程不走公网。</p>
+        <h3 style="margin-top:16px;">4. 配置优先于代码</h3>
+        <p style="font-size:0.85rem;">No-IOA 工具规则外置 JSON，11 家供应商演示回归包，变更无需开发。</p>
+      </div>
+    </div>
+
+    <button class="script-btn" onclick="var p=document.getElementById('script-tc');p.style.display=p.style.display==='block'?'none':'block';">面试口述讲稿（自用 · 点击展开）<span>▼</span></button>
+    <div id="script-tc" class="star-block" style="display:none;margin-top:12px;">
+      <p><strong>S</strong> 海外业务系统分散，30 分钟无法掌握运营健康。</p>
+      <p><strong>T</strong> 0→1 搭建 Console 海外总台，一站式指挥管控。</p>
+      <p><strong>A</strong> 微前端 P0–P10；21 书架/135 文献；Knot Agent 入口；三阶段落地。</p>
+      <p><strong>R</strong> 多系统切换 → 单一 Console 操作。</p>
+    </div>
+
+    <p style="margin-top:20px;font-size:0.85rem;">相关：<a href="tencent-ssc-overview.html">腾讯 · 企业级 AI 工作台 项目导览 →</a> · <a href="tencent-regional-tools.html">P3 区域工具 →</a> · <a href="tencent-98008-security.html">98008 安全治理 →</a></p>
+
+    <div class="footer">Console 总工作台 · 内部系统名称已泛化 · 仅供面试作品集展示</div>
+  </div>
+</body>
+</html>

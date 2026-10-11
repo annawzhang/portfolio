@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>腾讯 · 企业级 AI 工作台 · 项目导览</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero-index { text-align: center; padding: 32px 0 20px; }
+    .hero-index h1 { font-size: 1.75rem; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+    @media (max-width: 768px) { .projects { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">腾讯 · 企业级 AI 工作台 · 项目导览</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="tencent-ssc-overview.html" class="active">腾讯导览</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <div class="hero-index">
+      <h1>企业级 AI 工作台 · 项目导览</h1>
+      <p style="color:var(--muted);max-width:560px;margin:12px auto;">2026.05 – 2026.07 · Console 建库 → Chatbot 用库 → Gap Finder 补库</p>
+      <div class="badge-row" style="justify-content:center;">
+        <span class="badge">日常工作 + 4 个项目</span>
+        <span class="badge">未命中率 6%</span>
+        <span class="badge">40min→3min</span>
+      </div>
+    </div>
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">5</div><div class="lbl">Console 板块</div></div>
+      <div class="card stat"><div class="num">12</div><div class="lbl">专业 Agent</div></div>
+      <div class="card stat up"><div class="num">6%</div><div class="lbl">未命中率</div></div>
+      <div class="card stat up"><div class="num">3min</div><div class="lbl">No-IOA 耗时</div></div>
+    </div>
+    <div class="section-title">日常工作</div>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-green" href="tencent-daily-ops.html" style="grid-column: 1 / -1;">
+        <div class="company">日常 · 需求对接、Bot 运营、工具维护</div>
+        <h2>让上线的能力持续跑起来</h2>
+        <p>与 AMER / APAC / EMEA 对齐需求与口径 · 每日风控复盘 · 每周按 Gap Finder 清单迭代知识库 · 区域工具维护、跑测与交接。</p>
+        <div class="metrics"><span>每日</span><span>每周</span><span>SOP 与交接</span></div>
+      </a>
+    </div>
+    <div class="section-title">专项项目</div>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card" href="tencent-console.html" style="border-color:#07c160;">
+        <div class="company">项目 01 · Console 总工作台 0→1</div>
+        <h2>微前端聚合 · 治理层架构</h2>
+        <p>5 大板块 · 21 书架/135 文献 · Knot Agent 入口 · 执行与治理解耦。</p>
+        <div class="metrics"><span>5 板块</span><span>K8s 云原生</span></div>
+      </a>
+      <a class="project-card" href="tencent-chatbot-gap.html">
+        <div class="company">项目 02 · Chatbot 知识闭环</div>
+        <h2>12 专 Agent · Gap Finder 补库</h2>
+        <p>主+子 Agent · 问询 ETL · 未命中聚类 · 知识闭环。</p>
+        <div class="metrics"><span>未命中 6%</span><span>建库→用库→补库</span></div>
+      </a>
+      <a class="project-card" href="tencent-regional-tools.html">
+        <div class="company">项目 03 · P3 区域工具</div>
+        <h2>海外作战室 · No-IOA · 费用分摊</h2>
+        <p>AMER/APAC/EMEA 数据隔离 · 40min→3min · US/CA/BR/SG 覆盖。</p>
+        <div class="metrics"><span>3 区域</span><span>~90% 节约</span></div>
+      </a>
+      <a class="project-card" href="tencent-98008-security.html">
+        <div class="company">项目 04 · 98008 安全治理</div>
+        <h2>P0–P3 风控 · VIP 分级</h2>
+        <p>DFA+正则双向扫描 · 高管白名单 · Exception 告警面板。</p>
+        <div class="metrics"><span>4 级风控</span><span>闭环迭代</span></div>
+      </a>
+    </div>
+    <div class="footer">腾讯 · 海外业务 · 张文婧</div>
+  </div>
+</body>
+</html>

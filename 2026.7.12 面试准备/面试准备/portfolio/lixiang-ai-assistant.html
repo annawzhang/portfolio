@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想汽车 · 区域销售 AI 助手</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .layer-row { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px dashed var(--border); }
+    .layer-row:last-child { border-bottom: none; }
+    .layer-name { font-weight: 700; font-size: 0.85rem; color: var(--accent); }
+    .layer-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+    .prod-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .prod-tags span { font-size: 0.8rem; padding: 4px 10px; border-radius: 999px; background: #f1f5f9; border: 1px solid var(--border); }
+    @media (max-width: 768px) { .layer-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · 区域销售 AI 助手</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-overview.html">理想导览</a>
+      <a href="lixiang-daily-ops.html">日常运营</a>
+      <a href="lixiang-cockpit.html">经营驾驶舱</a>
+      <a href="lixiang-ai-assistant.html" class="active">AI 助手</a>
+      <a href="lixiang-mega-es9-voc.html">MEGA/ES9</a>
+      <a href="lixiang-sales-script.html">话术手册</a>
+      <a href="lixiang-aito-voc.html">问界专项</a>
+      <a href="lixiang-competitor-map.html">竞品商圈</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>区域销售 AI 助手 · 稳定可复用的业务闭环</h1>
+      <div class="meta">理想汽车 · 销售策略 · 2026.07 – 至今 · 内部产品名已泛化</div>
+      <p class="tagline">从单一问答工具，升级为面向区域销售与经营管理的综合 AI 助手：<strong>查数 → 分析 → 制图 → 校验 → 推送</strong>全流程自动化，并补齐稳定性和安全边界。</p>
+      <div class="badge-row">
+        <span class="badge">6 层能力架构</span>
+        <span class="badge">18 类产品/流程</span>
+        <span class="badge">确定性流水线</span>
+        <span class="badge">群发授权</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">18</div><div class="lbl">沉淀的产品/流程</div></div>
+      <div class="card stat"><div class="num">6 层</div><div class="lbl">能力架构</div></div>
+      <div class="card stat"><div class="num">3 类</div><div class="lbl">数据源：DC / 飞书 / PB</div></div>
+      <div class="card stat"><div class="num">5 种</div><div class="lbl">产出形态</div></div>
+    </div>
+
+    <div class="section-title">问题与目标</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>原来的问题</h3>
+        <ul style="font-size:0.86rem;padding-left:18px;line-height:1.9;">
+          <li>高频查数、做表、截图、发群依赖人工，重复劳动多</li>
+          <li>临时需求各做各的，口径和格式不统一</li>
+          <li>自动发送偶发失败、重复发送、错发风险难以控制</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>产品目标</h3>
+        <ul style="font-size:0.86rem;padding-left:18px;line-height:1.9;">
+          <li>把临时需求整理为标准流程，一次性分析沉淀为可复用工具</li>
+          <li>让信息从"被看到"走向"被使用、可反馈、可迭代"</li>
+          <li>流程可预览、可授权、可追溯</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-title">六层能力架构</div>
+    <div class="card">
+      <div class="layer-row"><div class="layer-name">智能交互</div><div class="layer-desc">自然语言提需求，拆解为查询、计算、制图、校验和发送步骤</div></div>
+      <div class="layer-row"><div class="layer-name">业务数据</div><div class="layer-desc">自动抓取 DC、飞书表格、PB 看板等多源数据；维护现车看板抓取文档</div></div>
+      <div class="layer-row"><div class="layer-name">分析决策</div><div class="layer-desc">同比、环比、贡献度、达成率交给程序计算；TOP/BOT 与异常识别</div></div>
+      <div class="layer-row"><div class="layer-name">内容生产</div><div class="layer-desc">报表、图片、Excel、飞书互动卡片、HTML 驾驶舱</div></div>
+      <div class="layer-row"><div class="layer-name">自动执行</div><div class="layer-desc">定时任务：刷新 → 渲染 → 健康检查 → 预览 → 发送</div></div>
+      <div class="layer-row"><div class="layer-name">安全治理</div><div class="layer-desc">群发授权、禁言群保护、预览确认、SOP 管控</div></div>
+    </div>
+
+    <div class="section-title">确定性流水线</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">01</div><div class="step-title">数据刷新</div><div class="step-desc">多源抓取<br/>口径对齐</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">02</div><div class="step-title">渲染</div><div class="step-desc">图表 / 卡片<br/>HTML / Excel</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">03</div><div class="step-title">健康检查</div><div class="step-desc">字段完整<br/>数值合理</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">04</div><div class="step-title">预览确认</div><div class="step-desc">负责人审核<br/>授权范围</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">05</div><div class="step-title">发送留痕</div><div class="step-desc">固定顺序<br/>message_id</div></div>
+    </div>
+
+    <div class="section-title">稳定性与安全设计</div>
+    <div class="grid-3">
+      <div class="arch-box"><div class="arch-title">幂等锁</div><div class="arch-items">同一任务同一时段只执行一次，避免重复发送</div></div>
+      <div class="arch-box"><div class="arch-title">失败重试</div><div class="arch-items">偶发失败等待后完整重跑一次，避免输出残缺数据</div></div>
+      <div class="arch-box"><div class="arch-title">时间护栏</div><div class="arch-items">超出发送窗口自动停止，避免非工作时间打扰</div></div>
+      <div class="arch-box"><div class="arch-title">message_id 留痕</div><div class="arch-items">保留结果文件与过程状态，支持定位、复盘、迭代</div></div>
+      <div class="arch-box"><div class="arch-title">群发授权</div><div class="arch-items">固定收件人和发送顺序，降低错发、漏发风险</div></div>
+      <div class="arch-box"><div class="arch-title">禁言群保护</div><div class="arch-items">识别禁言 / 敏感群，自动跳过</div></div>
+    </div>
+
+    <div class="section-title">沉淀的主要产品/流程（18 类，节选）</div>
+    <div class="card">
+      <div class="prod-tags">
+        <span>数据晾晒</span><span>专家龙虎榜</span><span>大区定单进度</span><span>门店达成度</span>
+        <span>经营驾驶舱</span><span>PB 看板</span><span>销售策略订单看板</span><span>现车库存播报</span>
+        <span>政策提醒</span><span>重点事项播报</span>
+      </div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-top:12px;">现车库存播报：维护现车看板抓取文档，自动化流程读取各门店库存，浏览器截图生成完整看板图，按固定时间同步区域。</p>
+    </div>
+
+    <p style="margin-top:16px;font-size:0.85rem;"><a href="lixiang-cockpit.html">← 经营驾驶舱</a> · <a href="lixiang-feishu-sop.html">飞书 SOP 产品化 →</a></p>
+
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';">面试口述讲稿（自用）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 区域高频查数、做表、发群依赖人工，临时需求口径不一，自动发送有错发和重复风险。</p>
+      <p><span class="label">T</span> 把单一问答工具升级为可复用、可控的业务 AI 助手。</p>
+      <p><span class="label">A</span> 搭六层能力架构；多源取数 + 五种产出；确定性流水线；幂等锁、重试、时间护栏、留痕；群发授权与 SOP 管控。</p>
+      <p><span class="label">R</span> 沉淀 18 类产品/流程，从一次性需求走向可复用能力。</p>
+    </div>
+    <div class="footer">理想汽车 · 区域销售 AI 助手 · 内部系统名称已泛化 · 张文婧</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想 i9 vs 蔚来 ES8 · 社媒 VOC 监测看板</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --surface: #fff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --i9: #2563eb;
+      --i9-soft: #eff6ff;
+      --es8: #059669;
+      --es8-soft: #ecfdf5;
+      --danger: #dc2626;
+      --warning: #d97706;
+      --radius: 12px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    .topbar {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 24px; display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .brand { font-weight: 700; font-size: 0.95rem; }
+    .tabs { display: flex; gap: 8px; }
+    .tab {
+      padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+      background: #fff; font-size: 0.82rem; cursor: pointer; color: var(--muted);
+    }
+    .tab.active { background: var(--i9); color: #fff; border-color: var(--i9); }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 24px 64px; }
+    .hero { margin-bottom: 28px; }
+    .hero h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
+    .meta { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
+    .tagline { margin-top: 10px; font-size: 0.95rem; color: #334155; max-width: 820px; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .badge {
+      font-size: 0.72rem; padding: 4px 10px; border-radius: 999px;
+      background: var(--i9-soft); color: var(--i9); font-weight: 600;
+    }
+    .badge.es8 { background: var(--es8-soft); color: var(--es8); }
+    .badge.warn { background: #fef2f2; color: var(--danger); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px;
+    }
+    .stat .num { font-size: 1.65rem; font-weight: 700; line-height: 1.1; }
+    .stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+    .stat.i9 .num { color: var(--i9); }
+    .stat.es8 .num { color: var(--es8); }
+    .stat.accent .num { color: var(--text); }
+    .section-title {
+      font-size: 1.05rem; font-weight: 700; margin: 28px 0 14px;
+      padding-left: 12px; border-left: 3px solid var(--i9);
+    }
+    .section-title.es8 { border-left-color: var(--es8); }
+    .chart-box { position: relative; height: 280px; }
+    .chart-box.tall { height: 320px; }
+    .chart-title { font-size: 0.88rem; font-weight: 600; margin-bottom: 10px; color: #334155; }
+    .flow {
+      display: flex; align-items: stretch; gap: 0; flex-wrap: wrap; margin-bottom: 20px;
+    }
+    .flow-step {
+      flex: 1; min-width: 110px; background: var(--surface); border: 1px solid var(--border);
+      padding: 14px; text-align: center; font-size: 0.82rem;
+    }
+    .flow-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .flow-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+    .flow-step .sn { font-size: 0.7rem; color: var(--muted); }
+    .flow-step .st { font-weight: 600; margin: 4px 0; }
+    .flow-step .sd { font-size: 0.76rem; color: var(--muted); }
+    .flow-arrow { display: flex; align-items: center; padding: 0 4px; color: var(--muted); font-size: 0.9rem; }
+    .voc-item {
+      border-left: 3px solid var(--border); padding: 14px 16px; margin-bottom: 10px;
+      background: #fff; border-radius: 0 8px 8px 0;
+    }
+    .voc-item.risk { border-left-color: var(--danger); background: #fffbfb; }
+    .voc-item.ok { border-left-color: var(--es8); background: #f0fdf4; }
+    .voc-item.i9 { border-left-color: var(--i9); background: var(--i9-soft); }
+    .voc-q { font-weight: 700; font-size: 0.86rem; margin-bottom: 6px; }
+    .voc-c { font-size: 0.84rem; color: #334155; margin-bottom: 8px; line-height: 1.65; }
+    .voc-v {
+      font-size: 0.8rem; color: #64748b; font-style: italic;
+      padding-left: 10px; border-left: 2px solid #e2e8f0; margin-top: 6px;
+    }
+    .voc-v .likes { color: var(--warning); font-style: normal; font-weight: 600; }
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .insight-col h3 { font-size: 0.9rem; margin-bottom: 10px; }
+    .insight-col ul { list-style: none; font-size: 0.84rem; color: #334155; }
+    .insight-col li { padding: 6px 0; border-bottom: 1px solid #f1f5f9; }
+    .insight-col li::before { content: "· "; color: var(--muted); }
+    .insight-col.pros li::before { color: var(--es8); }
+    .insight-col.cons li::before { color: var(--danger); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: #f8fafc; font-weight: 600; color: #334155; }
+    .note {
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px;
+      padding: 12px 16px; font-size: 0.84rem; color: #92400e; margin-bottom: 20px;
+    }
+    .footer { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 40px; }
+    .toggle-btn {
+      width: 100%; padding: 12px 20px; margin-top: 20px;
+      background: #f8fafc; border: 1px dashed var(--border); border-radius: var(--radius);
+      cursor: pointer; font-size: 0.84rem; color: var(--muted);
+    }
+    .star-block { display: none; background: #f8fafc; border-radius: var(--radius); padding: 20px; margin-top: 12px; font-size: 0.86rem; }
+    .star-block p { margin-bottom: 10px; }
+    .star-block .label { font-weight: 700; color: var(--i9); margin-right: 6px; }
+    @media (max-width: 900px) {
+      .grid-4, .grid-3, .grid-2, .insight-grid { grid-template-columns: 1fr; }
+      .flow-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · i9 vs ES8 社媒 VOC 看板</div>
+    <div class="tabs">
+      <button class="tab active" onclick="setScope('all')">全网大类结论</button>
+      <button class="tab" onclick="setScope('gd')">广东区域参考</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>理想 i9 vs 蔚来 ES8 · 媒体监测 VOC 看板</h1>
+      <div class="meta">数据来源：社媒助手 · 抖音 + 小红书 · 2026-09-02 · 张文婧实习作品</div>
+      <p class="tagline" id="scopeDesc">
+        1655 条评论去重 · <strong>大类结论取全网</strong>（i9 741 / ES8 131）· 广东 IP 282 条作区域补充 · 仅对比 i9 与 ES8
+      </p>
+      <div class="badge-row">
+        <span class="badge">i9 预热期主场</span>
+        <span class="badge es8">ES8 体验期口碑</span>
+        <span class="badge warn">造型争议 · 最大风险</span>
+        <span class="badge">问题·结论·原声</span>
+      </div>
+    </div>
+
+    <div class="note" id="sampleNote">
+      分析策略：i9 样本 = 抖音「i9真的要来了」视频全部评论 + 其他来源 i9 关键词；ES8 样本 = 全来源 ES8 关键词。大类结论以全网为准，广东 ES8 仅 20 条，区域 ES8 结论仅供参考。
+    </div>
+
+    <div class="grid-4" id="statsRow"></div>
+
+    <div class="section-title">舆情监测工作流</div>
+    <div class="flow">
+      <div class="flow-step"><div class="sn">01</div><div class="st">社媒采集</div><div class="sd">抖音 i9 视频<br/>+ ES8 对比视频<br/>+ 小红书</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="sn">02</div><div class="st">清洗去重</div><div class="sd">评论+点赞+IP<br/>1655 条去重</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="sn">03</div><div class="st">议题编码</div><div class="sd">9 大舆情主题<br/>情感正负向</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="sn">04</div><div class="st">可视化输出</div><div class="sd">声量/口碑/议题<br/>风险/洞察</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="sn">05</div><div class="st">决策建议</div><div class="sd">定价/造型/传播<br/>Must Do 动作</div></div>
+    </div>
+
+    <div class="section-title">声量对比 · 谁讨论热度更高</div>
+    <div class="grid-2">
+      <div class="card"><div class="chart-title">品牌评论条数对比</div><div class="chart-box"><canvas id="volumeChart"></canvas></div></div>
+      <div class="card"><div class="chart-title">数据来源分布</div><div class="chart-box"><canvas id="sourceChart"></canvas></div></div>
+    </div>
+
+    <div class="section-title">正负向口碑分布</div>
+    <div class="grid-2">
+      <div class="card"><div class="chart-title">理想 i9 情感分布</div><div class="chart-box"><canvas id="i9SentChart"></canvas></div></div>
+      <div class="card"><div class="chart-title">蔚来 ES8 情感分布</div><div class="chart-box"><canvas id="es8SentChart"></canvas></div></div>
+    </div>
+
+    <div class="section-title">高频关键词 · 讨论最多的议题</div>
+    <div class="grid-2">
+      <div class="card"><div class="chart-title">理想 i9 TOP8 议题</div><div class="chart-box tall"><canvas id="i9TopicChart"></canvas></div></div>
+      <div class="card"><div class="chart-title">蔚来 ES8 TOP8 议题</div><div class="chart-box tall"><canvas id="es8TopicChart"></canvas></div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px;">
+      <div class="chart-title">i9 vs ES8 核心议题对比</div>
+      <div class="chart-box tall"><canvas id="compareChart"></canvas></div>
+    </div>
+
+    <div class="section-title es8">洞察结论 · 舆论优劣势</div>
+    <div class="card insight-grid" style="padding:20px;">
+      <div class="insight-col">
+        <h3 style="color:var(--i9)">理想 i9 舆论优势</h3>
+        <ul class="insight-col pros">
+          <li>声量领先：741 条 vs ES8 131 条，9 月发布预热带动关注</li>
+          <li>空间/家庭：「小 MEGA」「MEGA 空间逻辑放进 SUV」认知形成</li>
+          <li>发布期待：「9 月发布板上钉钉」「续航和智驾 9 月见」</li>
+          <li>换购意愿：「看完 i9 觉得 i6 不香了，想换新车」</li>
+        </ul>
+        <h3 style="color:var(--danger);margin-top:16px;">理想 i9 舆论劣势</h3>
+        <ul class="insight-col cons">
+          <li>造型争议最大：「死磕这种造型」「跟 MPV 有啥区别」（17 赞）</li>
+          <li>差异化焦虑：「纯电卷成这样，i9 拿什么差异化」（13 赞）</li>
+          <li>定价/级别：「i8 都没上就不考虑 i9，9 万区别不止 6 座 5 座」（36 赞）</li>
+          <li>产品线内卷：i6/i8 用户因 i9 产生换购焦虑</li>
+        </ul>
+      </div>
+      <div class="insight-col">
+        <h3 style="color:var(--es8)">蔚来 ES8 舆论优势</h3>
+        <ul class="insight-col pros">
+          <li>操控/底盘：「ES8 操控真的牛」「高速甩 L9 几条街」（51 赞）</li>
+          <li>乘坐舒适：「L9 晕车 ES8 没感觉」（20 赞，广东）</li>
+          <li>豪华/换电：「先进豪华可换电，毫无疑问 es8」</li>
+          <li>已上市有真实体验口碑，产品认知成熟</li>
+        </ul>
+        <h3 style="color:var(--danger);margin-top:16px;">蔚来 ES8 舆论劣势</h3>
+        <ul class="insight-col cons">
+          <li>声量被 i9 预热压制：131 条 vs i9 741 条</li>
+          <li>座椅偏硬：「出了名的硬，兜不住」（4 赞，跨平台复现）</li>
+          <li>五座版诚意不足：「赶工凑数，和 L8 比全方位吊打」</li>
+          <li>租电/买断模式仍是转化障碍</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-title">风险舆情 · 高赞负面传播</div>
+    <div class="card"><div class="chart-box"><canvas id="riskChart"></canvas></div></div>
+
+    <div class="section-title">议题洞察 · 问题 · 结论 · 原声</div>
+    <div id="vocItems"></div>
+
+    <div class="section-title">决策对比矩阵</div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table>
+        <thead><tr><th>维度</th><th>理想 i9</th><th>蔚来 ES8</th></tr></thead>
+        <tbody>
+          <tr><td>讨论声量</td><td>741 条，预热期主场</td><td>131 条，体验期</td></tr>
+          <tr><td>口碑状态</td><td>158 好评 / 81 差评 / 502 中评</td><td>41 好评 / 26 差评 / 64 中评</td></tr>
+          <tr><td>核心优势</td><td>空间/家庭定位/发布期待</td><td>操控/豪华/换电/舒适</td></tr>
+          <tr><td>核心风险</td><td>造型/定价/差异化</td><td>座椅硬/租电/五座版/价格</td></tr>
+          <tr><td>讨论阶段</td><td>发布前预热（9 月）</td><td>已上市体验反馈</td></tr>
+          <tr><td>数据置信度</td><td>高（n=741）</td><td>可用（n=131）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-title">可行动洞察</div>
+    <div class="grid-3">
+      <div class="card"><h3 style="font-size:0.88rem;margin-bottom:8px;">i9 造型传播</h3><p style="font-size:0.84rem;color:#334155;">MPV 化造型是最大负面，发布前需预埋造型亮点（风阻/空间实测）</p></div>
+      <div class="card"><h3 style="font-size:0.88rem;margin-bottom:8px;">i9 定价策略</h3><p style="font-size:0.84rem;color:#334155;">40-50 万 + 9 万级别差是核心敏感带，建议起售价锚定 39.98 万以内</p></div>
+      <div class="card"><h3 style="font-size:0.88rem;margin-bottom:8px;">ES8 应对</h3><p style="font-size:0.84rem;color:#334155;">座椅硬 + 五座版负面在 i9 预热区被二次传播，需主动回应</p></div>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleScript()">面试口述讲稿（STAR · 点击展开）▼</button>
+    <div id="script" class="star-block">
+      <p><span class="label">S</span> i9 9 月发布前，需结构化监测 i9 vs ES8 社媒舆论，支撑定价/造型/传播决策；此前 i9 样本不足（仅 9 条），无法有效对比。</p>
+      <p><span class="label">T</span> 搭建抖音+小红书双平台 VOC 监测，输出声量/口碑/议题/风险可视化看板，区分「全网大类结论」与「广东区域参考」。</p>
+      <p><span class="label">A</span> 社媒助手采集 4 源 1655 条评论；加入 i9 预热视频后 i9 样本增至 741 条；9 大议题编码 + 情感分析 + Chart.js 交互看板；输出 Word 报告 + 本网页。</p>
+      <p><span class="label">R</span> i9 声量 5.7 倍于 ES8，但造型是最大风险；ES8 操控/豪华是核心护城河；建议 i9 正式上市后启动第二轮专项对比监测（目标 300+ 条）。</p>
+    </div>
+
+    <div class="footer">理想 i9 vs ES8 社媒 VOC · 数据已脱敏 · 仅供实习/面试作品集展示 · 2026-09-02</div>
+  </div>
+
+<script>
+const DATA = {
+  all: {
+    label: '全网',
+    i9: 741, es8: 131, total: 1655, gd: 282,
+    i9Sent: [158, 502, 81], es8Sent: [41, 64, 26],
+    i9Topics: {'空间/座位':115,'品牌/口碑':98,'价格/性价比':83,'续航/补能':51,'造型/设计':48,'内饰/豪华':18,'发布/上市':17,'底盘/操控':16},
+    es8Topics: {'品牌/口碑':34,'价格/性价比':32,'底盘/操控':18,'续航/补能':13,'造型/设计':10,'空间/座位':9,'智驾/车机':8,'内饰/豪华':6},
+    sources: {'抖音·i9视频':732,'抖音·ES8视频':469,'小红书1':356,'小红书2':98},
+    i9Ip: {'浙江':113,'广东':96,'江苏':76,'山东':48},
+    es8Ip: {'广东':20,'浙江':20,'江苏':13,'北京':12},
+  },
+  gd: {
+    label: '广东IP',
+    i9: 96, es8: 20, total: 282, gd: 282,
+    i9Sent: [22, 58, 16], es8Sent: [8, 7, 5],
+    i9Topics: {'空间/座位':18,'品牌/口碑':14,'价格/性价比':12,'造型/设计':8,'续航/补能':7,'发布/上市':5,'底盘/操控':4,'内饰/豪华':3},
+    es8Topics: {'底盘/操控':5,'价格/性价比':4,'品牌/口碑':3,'内饰/豪华':2,'续航/补能':2,'空间/座位':2,'造型/设计':1,'智驾/车机':1},
+    sources: {'抖音·i9视频':90,'抖音·ES8视频':58,'小红书1':125,'小红书2':9},
+    i9Ip: {'广东':96},
+    es8Ip: {'广东':20},
+  }
+};
+
+const VOC = [
+  { type:'risk', brand:'i9', q:'i9 造型能否被接受？', c:'结论：造型是 i9 最大争议点。负面占高赞评论主导——「死磕这种造型」「跟 MPV 有啥区别」。正面认可「小 MEGA」产品思路，但对 SUV 造型 MPV 化接受度低。', v:'「i9还死磕这种造型真的有意思吗，四五十万的SUV，还是带点西装属性才好吧」', likes:17 },
+  { type:'risk', brand:'i9', q:'i9 定价与级别跨度？', c:'结论：用户对 i8→i9 9 万级别差敏感。「i8 都没上就不考虑 i9」反映产品线内卷。40-50 万是纯电大型 SUV 核心敏感带。', v:'「就不是一个级别的，i8都没上就更不会考虑i9，9万的区别可不止6座和5座这点区别」', likes:36 },
+  { type:'i9', brand:'i9', q:'i9 空间/家庭定位认知？', c:'结论：「MEGA 空间逻辑 + SUV 形态」是 i9 最强正向认知。「家庭纯电旗舰 SUV，市场确实缺这么一个产品」获认可。', v:'「小MEGA叫法真准，MEGA的空间逻辑放进SUV，这个产品思路很有意思」', likes:11 },
+  { type:'i9', brand:'i9', q:'9 月发布预期？', c:'结论：发布节奏预期积极。「门店预热了，9 月发布板上钉钉」「续航和智驾 9 月见」。', v:'「9月发布，现在已知的信息就够打了，续航和智驾9月见」', likes:11 },
+  { type:'ok', brand:'es8', q:'ES8 操控/底盘口碑？', c:'结论：ES8 操控是最高置信度卖点。「操控真的牛」「高速甩 L9 几条街」多条高赞验证。', v:'「当然ES8，L9落后」', likes:8 },
+  { type:'ok', brand:'es8', q:'ES8 乘坐舒适性？', c:'结论：对比理想系时 ES8 舒适优势明显。「L9 出行朋友晕车腰痛，ES8 怎么坐都没感觉」。', v:'「L9出行朋友晕车腰痛，es8怎么坐都没感觉」', likes:20 },
+  { type:'risk', brand:'es8', q:'ES8 座椅/五座版风险？', c:'结论：座椅偏硬是跨平台高频负面；五座版「赶工凑数」在 i9 预热评论区被二次传播。', v:'「ES8座椅是出了名的硬，兜不住屁股，往下滑溜」', likes:4 },
+  { type:'risk', brand:'es8', q:'ES8 租电/价格障碍？', c:'结论：「买断和租电是最大问题」仍是转化障碍；58 万/29.9 万讨论中均有「贵」的声音。', v:'「最大的问题就是买断和租电这个问题，不然封神杰作」', likes:1 },
+];
+
+let scope = 'all';
+let charts = {};
+
+function setScope(s) {
+  scope = s;
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', (s==='all'?0:1)===i));
+  const d = DATA[s];
+  document.getElementById('scopeDesc').innerHTML = s === 'all'
+    ? '1655 条评论去重 · <strong>大类结论取全网</strong>（i9 741 / ES8 131）· 广东 IP 282 条作区域补充'
+    : '282 条广东 IP · <strong>i9 96 条样本充足</strong> · ES8 20 条偏少仅供参考 · 趋势与全网一致';
+  document.getElementById('sampleNote').textContent = s === 'all'
+    ? '分析策略：i9 样本 = 抖音「i9真的要来了」视频全部评论 + 其他来源 i9 关键词；ES8 = 全来源 ES8 关键词。大类结论以全网为准。'
+    : '广东区域：i9 96 条（占全网 13%），ES8 20 条（占全网 15%）。i9 广东样本可支撑区域分析；ES8 广东样本偏少，结论仅供参考。';
+  renderStats(d);
+  updateCharts(d);
+}
+
+function renderStats(d) {
+  const ratio = (d.i9 / d.es8).toFixed(1);
+  document.getElementById('statsRow').innerHTML = `
+    <div class="card stat accent"><div class="num">${d.total}</div><div class="lbl">${d.label}评论总量</div></div>
+    <div class="card stat i9"><div class="num">${d.i9}</div><div class="lbl">理想 i9 相关</div></div>
+    <div class="card stat es8"><div class="num">${d.es8}</div><div class="lbl">蔚来 ES8 相关</div></div>
+    <div class="card stat accent"><div class="num">${ratio}x</div><div class="lbl">i9 声量倍率</div></div>`;
+}
+
+function destroyCharts() {
+  Object.values(charts).forEach(c => c.destroy());
+  charts = {};
+}
+
+function updateCharts(d) {
+  destroyCharts();
+  const i9c = '#2563eb', es8c = '#059669';
+
+  charts.volume = new Chart(document.getElementById('volumeChart'), {
+    type:'bar',
+    data:{ labels:['理想 i9','蔚来 ES8'], datasets:[{ data:[d.i9,d.es8], backgroundColor:[i9c,es8c], borderRadius:6 }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} },
+      scales:{ y:{ beginAtZero:true, title:{display:true,text:'评论条数'} } } }
+  });
+
+  charts.source = new Chart(document.getElementById('sourceChart'), {
+    type:'doughnut',
+    data:{ labels:Object.keys(d.sources), datasets:[{ data:Object.values(d.sources), backgroundColor:['#2563eb','#059669','#94a3b8','#cbd5e1'] }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'right', labels:{ boxWidth:12, font:{size:11} } } } }
+  });
+
+  charts.i9sent = new Chart(document.getElementById('i9SentChart'), {
+    type:'doughnut',
+    data:{ labels:['好评','中评','差评'], datasets:[{ data:d.i9Sent, backgroundColor:['#2563eb','#cbd5e1','#dc2626'] }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } } }
+  });
+
+  charts.es8sent = new Chart(document.getElementById('es8SentChart'), {
+    type:'doughnut',
+    data:{ labels:['好评','中评','差评'], datasets:[{ data:d.es8Sent, backgroundColor:['#059669','#cbd5e1','#dc2626'] }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } } }
+  });
+
+  const i9t = Object.entries(d.i9Topics).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  charts.i9topic = new Chart(document.getElementById('i9TopicChart'), {
+    type:'bar',
+    data:{ labels:i9t.map(x=>x[0]), datasets:[{ label:'提及次数', data:i9t.map(x=>x[1]), backgroundColor:i9c, borderRadius:4 }] },
+    options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} },
+      scales:{ x:{ beginAtZero:true, title:{display:true,text:'提及次数'} } } }
+  });
+
+  const e8t = Object.entries(d.es8Topics).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  charts.es8topic = new Chart(document.getElementById('es8TopicChart'), {
+    type:'bar',
+    data:{ labels:e8t.map(x=>x[0]), datasets:[{ label:'提及次数', data:e8t.map(x=>x[1]), backgroundColor:es8c, borderRadius:4 }] },
+    options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} },
+      scales:{ x:{ beginAtZero:true, title:{display:true,text:'提及次数'} } } }
+  });
+
+  const shared = ['价格/性价比','空间/座位','造型/设计','续航/补能','底盘/操控','品牌/口碑'];
+  charts.compare = new Chart(document.getElementById('compareChart'), {
+    type:'bar',
+    data:{
+      labels:shared,
+      datasets:[
+        { label:'理想 i9', data:shared.map(t=>d.i9Topics[t]||0), backgroundColor:i9c, borderRadius:4 },
+        { label:'蔚来 ES8', data:shared.map(t=>d.es8Topics[t]||0), backgroundColor:es8c, borderRadius:4 },
+      ]
+    },
+    options:{ responsive:true, maintainAspectRatio:false,
+      scales:{ y:{ beginAtZero:true, title:{display:true,text:'提及次数'} } } }
+  });
+
+  charts.risk = new Chart(document.getElementById('riskChart'), {
+    type:'bar',
+    data:{
+      labels:['i9造型争议','i9级别/定价','i9差异化','ES8座椅硬','ES8五座版','ES8租电/价格'],
+      datasets:[{ label:'代表评论最高赞', data:[17,36,13,4,3,1], backgroundColor:['#2563eb','#2563eb','#2563eb','#059669','#059669','#059669'], borderRadius:4 }]
+    },
+    options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} },
+      scales:{ x:{ beginAtZero:true, title:{display:true,text:'最高点赞数'} } } }
+  });
+}
+
+function renderVoc() {
+  document.getElementById('vocItems').innerHTML = VOC.map(v => `
+    <div class="voc-item ${v.type}">
+      <div class="voc-q" style="color:${v.brand==='i9'?'var(--i9)':'var(--es8)'}">${v.q}</div>
+      <div class="voc-c">${v.c}</div>
+      <div class="voc-v">「${v.v}」<span class="likes"> — ${v.likes}赞</span></div>
+    </div>`).join('');
+}
+
+function toggleScript() {
+  const el = document.getElementById('script');
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+
+renderStats(DATA.all);
+renderVoc();
+updateCharts(DATA.all);
+</script>
+</body>
+</html>

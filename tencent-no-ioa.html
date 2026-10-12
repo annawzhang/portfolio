@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>腾讯 · No-IOA 提效工具</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">腾讯 · No-IOA 提效</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="tencent-ssc-overview.html">腾讯导览</a>
+      <a href="tencent-daily-ops.html">日常工作</a>
+      <a href="tencent-console.html">Console 总台</a>
+      <a href="tencent-chatbot-gap.html">Chatbot 运营</a>
+      <a href="tencent-regional-tools.html" class="active">区域工具</a>
+      <a href="tencent-98008-security.html">安全治理</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:-8px;"><a href="tencent-regional-tools.html">← 区域工具总览</a> · No-IOA 子模块详情</p>
+    <div class="hero">
+      <h1>No-IOA 轻量访问 · 区域费用分摊自动化</h1>
+      <div class="meta">腾讯 · AI 技术产品经理 · 2026.05 – 2026.07 · 独立落地</div>
+      <p class="tagline">US/CA/BR 等区域业务依赖 IOA 重流程，单次 40 分钟 → 设计<strong>No-IOA 轻量工具</strong> + 费用分摊自动化，3 分钟内完成。</p>
+      <div class="badge-row"><span class="badge">40min → 3min</span><span class="badge">~90% 人工节约</span><span class="badge">4 国/区域</span></div>
+    </div>
+    <div class="grid-4">
+      <div class="card stat up"><div class="num">3min</div><div class="lbl">单次处理耗时</div></div>
+      <div class="card stat down"><div class="num">40min</div><div class="lbl">优化前耗时</div></div>
+      <div class="card stat accent"><div class="num">~90%</div><div class="lbl">人工节约</div></div>
+      <div class="card stat"><div class="num">4</div><div class="lbl">国/区域覆盖</div></div>
+    </div>
+    <div class="section-title">Before / After</div>
+    <table class="data card" style="padding:0;">
+      <thead><tr><th>维度</th><th>优化前（IOA 重流程）</th><th>优化后（No-IOA）</th></tr></thead>
+      <tbody>
+        <tr><td>单次处理耗时</td><td>~40 min</td><td><strong>&lt; 3 min</strong></td></tr>
+        <tr><td>操作步骤</td><td>多系统切换 · 人工核对</td><td>单页表单 · 规则自动校验</td></tr>
+        <tr><td>区域差异</td><td>体验不一致</td><td>US/CA/BR 等差异化 JSON 配置</td></tr>
+        <tr><td>变更成本</td><td>需开发排期</td><td>规则外置 · 11 家供应商回归包</td></tr>
+        <tr><td>嵌入方式</td><td>—</td><td>Console iframe 子应用</td></tr>
+      </tbody>
+    </table>
+    <div class="section-title">产品设计要点</div>
+    <div class="grid-2">
+      <div class="arch-box highlight"><div class="arch-title">配置优先于代码</div><div class="arch-items">业务规则外置 JSON，11 家供应商标准演示回归包，变更无需开发</div></div>
+      <div class="arch-box"><div class="arch-title">区域差异化</div><div class="arch-items">US/CA/BR 等国政策差异，表单字段与校验规则分区域配置</div></div>
+      <div class="arch-box"><div class="arch-title">Console 集成</div><div class="arch-items">作为 P3 区域工具子应用 iframe 嵌入，统一鉴权与操作入口</div></div>
+      <div class="arch-box"><div class="arch-title">费用分摊自动化</div><div class="arch-items">区域费用分摊逻辑产品化，减少手工 Excel 核算</div></div>
+    </div>
+    <p style="margin-top:16px;font-size:0.85rem;"><a href="tencent-console.html">← Console 总台</a> · <a href="tencent-chatbot-gap.html">Chatbot 运营 →</a></p>
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';" >面试口述讲稿（自用）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 海外 IOA 审批流程重，单次 40min，多国体验不一致。</p>
+      <p><span class="label">T</span> No-IOA 轻量工具 + 费用分摊自动化。</p>
+      <p><span class="label">A</span> 规则外置 JSON；4 国差异化；Console iframe 嵌入。</p>
+      <p><span class="label">R</span> 40min→3min，人工节约约 90%。</p>
+    </div>
+    <div class="footer">腾讯 · 企业级 AI 工作台 · No-IOA · 张文婧</div>
+  </div>
+</body>
+</html>

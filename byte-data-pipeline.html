@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>字节 · 多源数据采集全链路</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">字节 Seed · 数据爬取全链路</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="byte-seed-overview.html">字节导览</a>
+      <a href="byte-daily-ops.html">日常工作</a>
+      <a href="byte-data-pipeline.html" class="active">数据爬取</a>
+      <a href="byte-eight-dim.html">八维模型</a>
+      <a href="byte-campus-recruit.html">关系网络模型</a>
+      <a href="byte-funnel-ab.html">漏斗 AB</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <div class="hero">
+      <h1>AI 数据产品 0→1 · Agent 驱动全链路</h1>
+      <div class="meta">字节跳动 Seed · AI 数据产品经理 · 2026.02 – 2026.05</div>
+      <p class="tagline">GitHub / Hugging Face / Scholar 多源数据分散、采集手工、反爬频发 → <strong>Agent 驱动采集–清洗–特征–交付</strong>全链路产品化。</p>
+      <div class="badge-row"><span class="badge">准确率 90.5%+</span><span class="badge">人工降 50–60%</span><span class="badge">25 标准字段</span></div>
+    </div>
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">90.5%+</div><div class="lbl">数据准确率</div></div>
+      <div class="card stat up"><div class="num">50–60%</div><div class="lbl">人工成本下降</div></div>
+      <div class="card stat"><div class="num">3</div><div class="lbl">数据源 API</div></div>
+      <div class="card stat"><div class="num">Agent</div><div class="lbl">驱动自动化采集</div></div>
+    </div>
+    <div class="section-title">产品闭环 · 采集 → 清洗 → 交付</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">01</div><div class="step-title">多源采集</div><div class="step-desc">GitHub<br/>Hugging Face<br/>Scholar API</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">02</div><div class="step-title">反爬监控</div><div class="step-desc">异常检测<br/>自动重试<br/>频率控制</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">03</div><div class="step-title">清洗质检</div><div class="step-desc">字段补全<br/>mapping<br/>25 标准字段</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">04</div><div class="step-title">稳定交付</div><div class="step-desc">业务侧消费<br/>特征工程输入<br/>可复用链路</div></div>
+    </div>
+    <div class="section-title">核心能力模块</div>
+    <div class="grid-2">
+      <div class="card"><h3>Agent 驱动采集</h3><p style="font-size:0.85rem;line-height:1.7;">设计 Agent 编排采集任务，替代手工拉数；接入 GitHub/HF/Scholar API，统一调度与失败重试。</p></div>
+      <div class="card"><h3>反爬与异常监控</h3><p style="font-size:0.85rem;line-height:1.7;">建设反爬策略、异常监控与告警；采集失败自动降级与补跑，保障链路稳定性。</p></div>
+      <div class="card"><h3>补全质检 · mapping</h3><p style="font-size:0.85rem;line-height:1.7;">多源字段 mapping 到 25 项标准字段；补全规则 + 质检规则，输出可直接用于特征工程的标准化数据集。</p></div>
+      <div class="card"><h3>业务价值</h3><p style="font-size:0.85rem;line-height:1.7;">数据准确率 <strong>90.5%+</strong>；业务侧人工筛选成本降 <strong>50–60%</strong>；形成可复用的数据产品底座，支撑八维评估与关系网络模型。</p></div>
+    </div>
+    <div class="section-title">数据源覆盖</div>
+    <table class="data card" style="padding:0;">
+      <thead><tr><th>数据源</th><th>采集内容</th><th>难点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GitHub</strong></td><td>代码贡献、star、repo 活跃度</td><td>API 限流 · 反爬</td></tr>
+        <tr><td><strong>Hugging Face</strong></td><td>模型发布、数据集贡献</td><td>字段异构 · 补全</td></tr>
+        <tr><td><strong>Google Scholar</strong></td><td>论文引用、顶会产出</td><td>反爬 · 姓名消歧</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px;font-size:0.85rem;">同实习其他项目：<a href="byte-eight-dim.html">八维评估模型 →</a> · <a href="byte-campus-recruit.html">关系网络模型 →</a> · <a href="byte-funnel-ab.html">漏斗 AB 实验 →</a></p>
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';" >面试口述讲稿（自用）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 数据分散多源，采集手工、反爬频发，制约业务降本。</p>
+      <p><span class="label">T</span> 0→1 Agent 驱动采集–清洗–交付全链路。</p>
+      <p><span class="label">A</span> 接入 GitHub/HF/Scholar；反爬监控；mapping + 质检。</p>
+      <p><span class="label">R</span> 准确率 90.5%+，人工降 50–60%，可复用数据底座。</p>
+    </div>
+    <div class="footer">字节 Seed · AI 数据产品 · 张文婧</div>
+  </div>
+</body>
+</html>

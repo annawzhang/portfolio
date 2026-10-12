@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想汽车 · 产品迭代 · 本周必赢清单</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero-evolution {
+      background: linear-gradient(135deg, #fef2f2 0%, #fff 50%, #eff6ff 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      margin-bottom: 28px;
+    }
+    .hero-evolution h1 { font-size: 1.65rem; margin-bottom: 8px; }
+    .hero-evolution .quote {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #dc2626;
+      margin: 16px 0 8px;
+      padding: 12px 16px;
+      background: #fff;
+      border-left: 4px solid #dc2626;
+      border-radius: 0 8px 8px 0;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    @media (max-width: 900px) { .compare-grid { grid-template-columns: 1fr; } }
+    .version-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 2px solid var(--border);
+      background: var(--surface);
+    }
+    .version-card.v1 { border-color: #94a3b8; }
+    .version-card.v2 { border-color: #dc2626; box-shadow: 0 4px 16px rgba(220,38,38,0.12); }
+    .version-header {
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .v1 .version-header { background: #f1f5f9; color: #475569; }
+    .v2 .version-header { background: #fef2f2; color: #991b1b; }
+    .version-body { padding: 18px; font-size: 0.88rem; }
+    .version-body ul { padding-left: 18px; line-height: 1.85; color: #334155; }
+    .version-body .metric-row {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;
+    }
+    .version-body .metric-chip {
+      font-size: 0.75rem; padding: 4px 10px; border-radius: 999px;
+      background: #f8fafc; border: 1px solid var(--border);
+    }
+    .v2 .metric-chip { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+    .arrow-down {
+      text-align: center; font-size: 2rem; color: var(--muted); margin: 8px 0;
+    }
+    .must-win-table { font-size: 0.82rem; }
+    .must-win-table th { background: #991b1b; color: #fff; }
+    .must-win-table .rank { font-weight: 700; color: #dc2626; }
+    .must-win-table .score { font-weight: 700; }
+    .iteration-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .iteration-step:last-child { border-bottom: none; }
+    .step-tag {
+      font-size: 0.72rem; font-weight: 700; padding: 4px 8px;
+      border-radius: 6px; text-align: center; align-self: start;
+    }
+    .step-tag.s1 { background: #dbeafe; color: #1d4ed8; }
+    .step-tag.s2 { background: #d1fae5; color: #047857; }
+    .step-tag.s3 { background: #fef3c7; color: #b45309; }
+    .step-tag.s4 { background: #ede9fe; color: #6d28d9; }
+    .step-tag.s5 { background: #fce7f3; color: #be185d; }
+    .step-tag.s6 { background: #ffedd5; color: #c2410c; }
+    .step-tag.s7 { background: #fee2e2; color: #b91c1c; }
+    .step-tag.s8 { background: #e0e7ff; color: #4338ca; }
+    .step-tag.a4 { background: #ccfbf1; color: #0f766e; }
+    .step-tag.v2 { background: #fef2f2; color: #991b1b; }
+    .step-tag.base { background: #f1f5f9; color: #475569; }
+    .s-evolution-table { font-size: 0.8rem; }
+    .s-evolution-table th { background: #1e293b; color: #fff; font-size: 0.75rem; }
+    .s-evolution-table td:first-child { font-weight: 700; white-space: nowrap; }
+    .s-evolution-table .changed { background: #fffbeb; }
+    .s-evolution-table .new { background: #f0fdf4; }
+    .s-chip {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      padding: 2px 7px; border-radius: 4px; margin: 1px 2px;
+    }
+    .s-chip.s1 { background: #dbeafe; color: #1d4ed8; }
+    .s-chip.s2 { background: #d1fae5; color: #047857; }
+    .s-chip.s3 { background: #fef3c7; color: #b45309; }
+    .s-chip.s4 { background: #ede9fe; color: #6d28d9; }
+    .s-chip.s5 { background: #fce7f3; color: #be185d; }
+    .s-chip.s6 { background: #ffedd5; color: #c2410c; }
+    .s-chip.s7 { background: #fee2e2; color: #b91c1c; }
+    .s-chip.s8 { background: #e0e7ff; color: #4338ca; }
+    .s-chip.cross { background: #f1f5f9; color: #475569; }
+    .s-chip.v2 { background: #fef2f2; color: #991b1b; }
+    .s-chip.a4 { background: #ccfbf1; color: #0f766e; }
+    .version-timeline-item {
+      border-left: 3px solid var(--border);
+      padding: 0 0 20px 18px;
+      margin-left: 8px;
+      position: relative;
+    }
+    .version-timeline-item::before {
+      content: ''; position: absolute; left: -7px; top: 4px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: #fff; border: 2px solid #94a3b8;
+    }
+    .version-timeline-item.highlight { border-left-color: #dc2626; }
+    .version-timeline-item.highlight::before { border-color: #dc2626; background: #fef2f2; }
+    .version-timeline-item h4 { font-size: 0.95rem; margin-bottom: 6px; }
+    .version-timeline-item .vt-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 8px; }
+    .version-timeline-item ul { font-size: 0.84rem; line-height: 1.75; color: #334155; padding-left: 18px; }
+    .tab-bar { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .tab-btn {
+      padding: 10px 20px; border: 2px solid var(--border); background: #fff;
+      border-radius: 8px; cursor: pointer; font-size: 0.88rem; font-weight: 600;
+    }
+    .tab-btn.active { border-color: #dc2626; background: #fef2f2; color: #991b1b; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .iframe-wrap {
+      border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; height: 520px; background: #f8fafc;
+    }
+    .iframe-wrap iframe { width: 100%; height: 100%; border: none; }
+    .param-table td:first-child { font-family: monospace; font-size: 0.78rem; color: #475569; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · 产品迭代</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-diagnosis-star.html">诊断模型</a>
+      <a href="lixiang-cockpit.html">经营驾驶舱 V1</a>
+      <a href="lixiang-product-evolution.html" class="active">必赢清单 V2</a>
+      <a href="lixiang-voc.html">提车 VOC</a>
+      <a href="lixiang-i9-voc.html">i9 舆情</a>
+      <a href="lixiang-feishu-sop.html">飞书 SOP</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero-evolution">
+      <div class="meta">理想汽车 · AI 策略产品 · 决策产品 v2.0 · 2026.08</div>
+      <h1>从「全览驾驶舱」到「本周必赢清单」</h1>
+      <p style="color:#334155;max-width:720px;margin-top:8px;">
+        基于城市部反馈与面试复盘的产品升级：<strong>不是推翻数据基建，而是在 S1–S7 引擎之上增加决策层</strong>，把「信息全览」收敛为「本周必须先做的 10 件事」。
+      </p>
+      <div class="quote">砍掉 80% 展示，保留 20% 决策项</div>
+      <p style="font-size:0.88rem;color:var(--muted);">
+        V1.0 回答「大盘怎么样」→ V2.0 回答「本周先救谁、做什么、谁负责、何时截止、怎么验证」
+      </p>
+      <div class="badge-row">
+        <span class="badge" style="background:#fef2f2;color:#dc2626;">决策产品思维</span>
+        <span class="badge">四路信号打分</span>
+        <span class="badge">AB 实验验证</span>
+        <span class="badge">config.yaml 可调参</span>
+      </div>
+    </div>
+
+    <!-- V1 vs V2 对比 -->
+    <div class="section-title">V1.0 vs V2.0 · 一屏看懂产品迭代</div>
+    <div class="compare-grid">
+      <div class="version-card v1">
+        <div class="version-header">V1.0 · 区域经营驾驶舱（数据产品）</div>
+        <div class="version-body">
+          <p style="margin-bottom:10px;color:var(--muted);">2026.07 – 08 初 · 0→1 数据基建</p>
+          <ul>
+            <li>680 单元 × 61 字段宽表</li>
+            <li>S1–S7 十三模块 + 6 类图表 + 双热力图</li>
+            <li>35 优质 / 98 流失 / 26 PPL 红 / 106 异常</li>
+            <li>Narrative 翻译 + P1/P2/P3 分派</li>
+            <li>成功指标：<strong>指标覆盖率、图表完整性</strong></li>
+          </ul>
+          <div class="metric-row">
+            <span class="metric-chip">680 行输出</span>
+            <span class="metric-chip">6 类图表</span>
+            <span class="metric-chip">全览型</span>
+          </div>
+          <p style="margin-top:14px;">
+            <a href="dashboard_store_20260819.html" target="_blank" style="font-weight:600;">→ 打开 V1 脱敏驾驶舱</a>
+          </p>
+        </div>
+      </div>
+      <div class="version-card v2">
+        <div class="version-header">V2.0 · 本周必赢清单（决策产品）</div>
+        <div class="version-body">
+          <p style="margin-bottom:10px;color:#991b1b;">2026.08 · 面试反馈驱动升级</p>
+          <ul>
+            <li><strong>Top 10 门店</strong> × 1 条动作 × 负责人 × 周五截止</li>
+            <li><strong>分层级配额</strong>：一级3 + 二级4 + 三级3（同层内紧急分排序）</li>
+            <li>四路信号：流失 + PPL 红 + 异常 + 同店 YoY</li>
+            <li>复合紧急分排序 + 多信号叠加 ×1.25</li>
+            <li>飞书卡片：确认 / 分派 · Treatment vs Control AB</li>
+            <li>成功指标：<strong>清单执行率 → 锁单转化率</strong></li>
+          </ul>
+          <div class="metric-row">
+            <span class="metric-chip">10 家决策</span>
+            <span class="metric-chip">1 条动作</span>
+            <span class="metric-chip">AB 验证</span>
+          </div>
+          <p style="margin-top:14px;font-size:0.82rem;color:#991b1b;font-weight:600;">
+            信息量减少 ~98%，决策密度提升
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- S 场景迭代全景 -->
+    <div class="section-title">S 业务场景 · 各版本关键调整全景</div>
+    <p style="font-size:0.88rem;color:#334155;margin-bottom:16px;max-width:900px;">
+      产品迭代<strong>不是推翻 kpi_engine</strong>，而是逐版本精调 S1–S7（及 S8 扩展）的方法论、阈值与交付形态。
+      下表按版本列出<strong>调整了哪个 S 场景、改了什么、为什么改</strong>——面试可直接引用。
+    </p>
+
+    <table class="data card s-evolution-table" style="padding:0;margin-bottom:24px;">
+      <thead>
+        <tr>
+          <th>版本</th><th>调整的 S 场景</th><th>关键变更</th><th>变更原因 / 业务价值</th><th>代码 / 配置入口</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="changed">
+          <td>方案 V1→V2<br/><span style="font-size:0.72rem;color:var(--muted)">建模方案 pivot</span></td>
+          <td>
+            <span class="s-chip s1">S1</span><span class="s-chip s2">S2</span><span class="s-chip s3">S3</span>
+            <span class="s-chip s4">S4</span><span class="s-chip s5">S5</span><span class="s-chip s6">S6</span><span class="s-chip s7">S7</span>
+          </td>
+          <td>全部场景方法论从 <strong>ML（Logistic/XGBoost）</strong> 调整为 <strong>指标引擎 + 规则模型</strong>：S2 改 Z-score 加权、S4 改阈值引擎、S7 改三层规则（阈值+环比+Z-score）</td>
+          <td>DC 是聚合数仓、无客户级明细，ML 黑盒不可解释；规则模型可落地、可调参、城市部能看懂</td>
+          <td>PLAN_V2_LANDING.md<br/>diagnosis.py / scenarios.py</td>
+        </tr>
+        <tr>
+          <td>V1.0<br/><span style="font-size:0.72rem;color:var(--muted)">W1–2 · 0→1</span></td>
+          <td>
+            <span class="s-chip s1">S1</span><span class="s-chip s2">S2</span><span class="s-chip s3">S3</span>
+            <span class="s-chip s4">S4</span><span class="s-chip s5">S5</span><span class="s-chip s7">S7</span>
+          </td>
+          <td>13 模块引擎上线；680 单元×61 字段宽表；S1–S7 首版跑通（S6 暂用客流类占位）</td>
+          <td>0→1 数据基建：把 10+ 分散看板收敛为一张宽表 + 一套口径</td>
+          <td>build_wide_table.py<br/>run_dashboard.py</td>
+        </tr>
+        <tr class="changed">
+          <td>V1.1<br/><span style="font-size:0.72rem;color:var(--muted)">W3</span></td>
+          <td><span class="s-chip s2">S2</span><span class="s-chip cross">Narrative</span></td>
+          <td><strong>S2 健康分权重 v2</strong>：试驾→锁单 35%、PPL 转化 25%、开启→试驾 15%、退订损耗 15%；新增 bottleneck 卡点标签（如「试驾→锁单弱」）；Narrative v1.1 把指标翻译成人话</td>
+          <td>线下对齐：销售最关心「试驾能不能锁单」，而非客流规模；V1 只出分数，店长仍不知做什么</td>
+          <td>config.yaml → health_factors<br/>diagnosis.py · narrative.py</td>
+        </tr>
+        <tr class="changed">
+          <td>V1.2<br/><span style="font-size:0.72rem;color:var(--muted)">W4</span></td>
+          <td><span class="s-chip s6">S6</span><span class="s-chip s7">S7</span></td>
+          <td><strong>S6 独立引擎</strong>：new_product.py 新车爬坡（渗透率/试驾锁单率 vs 老款）；<strong>S7 预警分派 A2</strong>：5 类病因（渠道/效率/跟进/数据/综合）→ P1/P2/P3 + 责任角色；config.yaml 外置</td>
+          <td>i6/L6 新品上市需专项追踪；S7 只报警不分派，一线不知道找谁</td>
+          <td>new_product.py<br/>alert_taxonomy.py · config.yaml</td>
+        </tr>
+        <tr class="changed">
+          <td>V1.3<br/><span style="font-size:0.72rem;color:var(--muted)">W5 初</span></td>
+          <td><span class="s-chip s1">S1</span><span class="s-chip a4">YoY</span><span class="s-chip s4">S4</span></td>
+          <td><strong>A4 同店 YoY</strong>：拉 2025-08 历史，输出 net_lock_yoy / store_status_yoy（同店/新店/关店）；<strong>S4 B1</strong>：DC 无 24H 跟进权限，改用代理指标；双热力图（城市部×车系 + TOP20 门店×车系）</td>
+          <td>城市部周会必问「同比怎么样」；同店 vs 新店要分开看，否则误判</td>
+          <td>yoy.py · fetch_yoy_history.py<br/>charts.py · config.yaml → yoy</td>
+        </tr>
+        <tr class="new">
+          <td>V1.4<br/><span style="font-size:0.72rem;color:var(--muted)">W5 中</span></td>
+          <td><span class="s-chip s8">S8</span><span class="s-chip s2">S2</span></td>
+          <td><strong>S8 线索层漏斗</strong>：leads_funnel.py 从 PB view2486 接入「线索→排程→试驾→锁单」前段，补全 DC 缺失的线索层；宽表新增 8 列（leads_cnt / leads_to_appoint_rate 等）</td>
+          <td>原漏斗从「客流→商机」开始，邀约环节是最大瓶颈但 DC 无数据；RPA 每日拉 PB 表补齐</td>
+          <td>leads_funnel.py<br/>影刀 RPA · funnel_probe_*.json</td>
+        </tr>
+        <tr class="changed">
+          <td>V1.5<br/><span style="font-size:0.72rem;color:var(--muted)">W5 末 · 能力升级</span></td>
+          <td><span class="s-chip s2">S2</span><span class="s-chip s3">S3</span><span class="s-chip s1">S1</span></td>
+          <td><strong>S2/S3 归因升级</strong>：attribution.py 拆解净锁单差距到漏斗各环节（如「试驾→锁单拖累 72%」）；risk_radar.py 四维风险扫描；roi.py 量化省时/挽回/避损</td>
+          <td>城市部不只问「谁差」，还要问「差在哪一环、差多少、挽回值多少」</td>
+          <td>attribution.py · risk_radar.py · roi.py · ask.py</td>
+        </tr>
+        <tr class="changed">
+          <td>V2.0<br/><span style="font-size:0.72rem;color:var(--muted)">W6 · 决策产品</span></td>
+          <td>
+            <span class="s-chip s2">S2</span><span class="s-chip s4">S4</span><span class="s-chip s7">S7</span><span class="s-chip a4">YoY</span>
+          </td>
+          <td><strong>不改 S 场景算法，新增 must_win_list 决策层</strong>：消费 S2 流失 + S4 PPL 红 + S7 异常 + YoY 下滑四路信号 → <strong>按一级/二级/三级门店分层取 Top N</strong>（3+4+3=10）× 1 动作 × 负责人 × 周五截止；Treatment vs Control AB</td>
+          <td>城市部反馈「680 行看不过来」+ 大店垄断 Top10；从数据产品升级为<strong>分层决策产品</strong></td>
+          <td>must_win_list.py<br/>config.yaml → must_win_list</td>
+        </tr>
+        <tr>
+          <td>V2.1<br/><span style="font-size:0.72rem;color:var(--muted)">W7+ · 规划中</span></td>
+          <td><span class="s-chip cross">执行回流</span></td>
+          <td>飞书卡片「确认/分派」执行率回流 → 迭代 S4 阈值 &amp; must_win 权重；AB 显著性验证 → 锁单转化率</td>
+          <td>闭环验证：不只「推清单」，还要证明「清单有效」</td>
+          <td>feishu_card.py · AB 实验</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 各 S 场景版本内演进细节 -->
+    <div class="section-title">逐场景 · 版本内演进细节（面试深挖用）</div>
+    <div class="card" style="padding:20px 22px;margin-bottom:24px;">
+
+      <div class="version-timeline-item">
+        <h4><span class="s-chip s1">S1</span> 锁单绩效达成</h4>
+        <div class="vt-meta">模块：atomic_metrics + derived_metrics · 贯穿 V1.0 → V2.0</div>
+        <ul>
+          <li><strong>V1.0</strong>：net_lock_order + perf_target 达成率排名，输出城市部净锁单汇总</li>
+          <li><strong>V1.3</strong>：叠加 A4 同店 YoY（net_lock_yoy / net_lock_yoy_rate），区分同店下滑 vs 新店增量</li>
+          <li><strong>V1.5</strong>：attribution.py 拆解「净锁单较基准低 X%，最大拖累环节是 Y」</li>
+          <li><strong>V2.0</strong>：YoY 下滑成为 must_win 第四路信号（weight_yoy_decline=10，阈值 -20%）</li>
+        </ul>
+      </div>
+
+      <div class="version-timeline-item">
+        <h4><span class="s-chip s2">S2</span> 漏斗健康度诊断 ⭐ 调整最多</h4>
+        <div class="vt-meta">模块：diagnosis.py → compute_s2_health_score()</div>
+        <ul>
+          <li><strong>方案 pivot</strong>：Logistic 意向评分 → <strong>Z-score 多因子加权</strong>（可解释、可调参）</li>
+          <li><strong>V1.0</strong>：6 因子加权，输出 health_score (0–100) + health_level（优质/中等/流失严重）</li>
+          <li><strong>V1.1 权重 v2</strong>：td_to_lock_rate 30%→<strong>35%</strong>，ppl_conversion 25%，open_to_td_rate 15%；新增 <strong>bottleneck 卡点标签</strong>（开启→试驾弱 / 试驾→锁单弱 / 退订损耗高）</li>
+          <li><strong>V1.1</strong>：health_thresholds 中等线 40→<strong>45</strong>（线下复盘：&lt;45 门店已感「明显跑单」）</li>
+          <li><strong>V1.4</strong>：S8 线索层接入后，漏斗从「客流→商机→试驾→锁单」扩展为「<strong>线索→排程→试驾→锁单</strong>」完整链路</li>
+          <li><strong>V1.5</strong>：attribution 按环节贡献拆解（如城市部 B：试驾→锁单拖累 72%）</li>
+          <li><strong>V2.0</strong>：health_level=「流失严重」→ must_win 信号 #1（weight_churn=30）</li>
+        </ul>
+      </div>
+
+      <div class="version-timeline-item">
+        <h4><span class="s-chip s3">S3</span> 渠道结构诊断</h4>
+        <div class="vt-meta">模块：scenarios.py → compute_s3_channel_structure()</div>
+        <ul>
+          <li><strong>方案 pivot</strong>：Logistic 回归系数 → <strong>BCG 矩阵 + DC attribution 归因工具</strong></li>
+          <li><strong>V1.0</strong>：输出 channel_dominant（如「线下地推(50%)」）、channel_diversity 多样性指数</li>
+          <li><strong>V1.0</strong>：识别单一渠道过度依赖（占比 &gt;70%）门店清单</li>
+          <li><strong>V1.5</strong>：attribution 支持按城市部拆解「客流→商机」环节差距</li>
+          <li><strong>V1.4 协同</strong>：S8 PB 渠道 tag（门店/网店/官方/外展/推荐）比 DC ab_* 更细，用于线索层分渠道</li>
+        </ul>
+      </div>
+
+      <div class="version-timeline-item">
+        <h4><span class="s-chip s4">S4</span> PPL 过程管控 ⭐ 阈值迭代最细</h4>
+        <div class="vt-meta">模块：diagnosis.py → compute_s4_ppl_alerts()</div>
+        <ul>
+          <li><strong>方案 pivot</strong>：Logistic → <strong>5 条阈值规则引擎</strong>（红黄绿灰四级）</li>
+          <li><strong>V1.0</strong>：5 规则 — 无长期跟进 / 无效跟进&gt;15% / 高PPL异常 / 退订24H跟进&lt;60% / 试驾质量&lt;70</li>
+          <li><strong>V1.2</strong>：阈值全部外置 config.yaml → ppl_alert.*，支持 --sensitivity 扫描</li>
+          <li><strong>V1.3 B1</strong>：DC 403 无 lock_24h_follow_rate 权限 → 改用「3 天内锁单-跟进间隔」代理指标</li>
+          <li><strong>参数校准</strong>：follow_intensity 0.30（大盘 ~0.5）；long_follow 0.005（大盘 ~2.1%）；min_ppl 200（避免小店误伤）</li>
+          <li><strong>V2.0</strong>：ppl_alert_level=「红」→ must_win 信号 #2（weight_ppl_red=35，最高权重）；PPL 红 + 池子≥200 → pipeline_bonus +10</li>
+        </ul>
+      </div>
+
+      <div class="version-timeline-item">
+        <h4><span class="s-chip s5">S5</span> 车型产销结构</h4>
+        <div class="vt-meta">模块：scenarios.py → compute_s5_series_analysis()</div>
+        <ul>
+          <li><strong>V1.0</strong>：series_role（主力/重要/边缘/无量）、series_efficiency（🚀效率高/🔻效率低/平均水平）</li>
+          <li><strong>V1.0</strong>：识别「⚠️ 单一主力」风险（单车型锁单占比 &gt;60%）</li>
+          <li><strong>V1.2</strong>：series_weights 写入 config.yaml，支撑目标分摊（i6/L6 各 30%）</li>
+          <li><strong>V2.0</strong>：must_win 按 store×series 单元打分，取得分最高车型为「焦点车型」</li>
+        </ul>
+      </div>
+
+      <div class="version-timeline-item">
+        <h4><span class="s-chip s6">S6</span> 新车上市诊断 · V1.2 新增独立场景</h4>
+        <div class="vt-meta">模块：new_product.py → compute_s6_new_product()</div>
+        <ul>
+          <li><strong>方案 pivot</strong>：双 ML 模型 → <strong>趋势曲线 + 大盘同期对标</strong></li>
+          <li><strong>V1.0</strong>：config 中 S6_customer_flow 仅占位（客流类），未独立成场景</li>
+          <li><strong>V1.2 重构</strong>：独立 new_product.py；追踪 X04(i6)/X13(新L8)/X11(新L9)；输出渗透率/试驾锁单率/爬坡 verdict</li>
+          <li><strong>实例</strong>：新 L6 上市 35 天渗透率 76%；新 L9 渗透率 25% 判定「渗透偏低」</li>
+          <li><strong>飞书卡片</strong>：S6 区块单独展示「🚗 新品爬坡」摘要</li>
+        </ul>
+      </div>
+
+      <div class="version-timeline-item">
+        <h4><span class="s-chip s7">S7</span> 异常预警 · 从报警到分派到决策</h4>
+        <div class="vt-meta">模块：scenarios.py + alert_taxonomy.py + must_win_list.py</div>
+        <ul>
+          <li><strong>方案 pivot</strong>：XGBoost → <strong>三层规则</strong>（阈值 + 环比 + Z-score）</li>
+          <li><strong>V1.0</strong>：anomaly_level 红/橙/绿；anomaly_msg（如「净锁单日均环比降 59%」）</li>
+          <li><strong>V1.2 A2</strong>：alert_taxonomy 5 类病因分类 → alert_category + alert_owner + alert_priority (P1/P2/P3)</li>
+          <li><strong>V1.3</strong>：接入 prev_df 环比检测（daily_drop 40% / daily_surge 50% / td_lock_rate_drop 8pt）</li>
+          <li><strong>参数</strong>：zscore_threshold 1.8；daily_drop 0.4（城市部：「掉四成必须当天介入」）</li>
+          <li><strong>V2.0</strong>：异常红/橙 → must_win 信号 #3/#4（weight 25/15）；与 S2/S4 叠加 ×1.25</li>
+        </ul>
+      </div>
+
+      <div class="version-timeline-item new">
+        <h4><span class="s-chip s8">S8</span> 线索层漏斗 · V1.4 新增扩展场景</h4>
+        <div class="vt-meta">模块：leads_funnel.py · 数据源 PB view2486（非 DC）</div>
+        <ul>
+          <li><strong>背景</strong>：DC 漏斗从「客流→商机」开始，<strong>缺线索层</strong>；邀约是最大瓶颈但无数据</li>
+          <li><strong>V1.4</strong>：影刀 RPA 每日拉 PB → funnel_probe_*.json → enrich_wide_with_leads() 左连接宽表</li>
+          <li><strong>新增 8 列</strong>：leads_cnt / leads_appoint_cnt / leads_attempt_cnt / leads_lock_cnt + 4 个转化率</li>
+          <li><strong>业务结果</strong>：识别邀约瓶颈，漏斗邀约率 24% → <strong>+1.8pp</strong></li>
+          <li><strong>简历「5 环节漏斗」</strong>：线索→排程→试驾→锁单 + DC 后段 = 完整 5 环节</li>
+        </ul>
+      </div>
+
+      <div class="version-timeline-item highlight">
+        <h4><span class="s-chip cross">A4 · YoY</span> 同店同比 · V1.3 横切场景</h4>
+        <div class="vt-meta">模块：yoy.py · 非独立 S 场景，为 S1/S2 提供对比维度</div>
+        <ul>
+          <li><strong>V1.3</strong>：拉 2025-08 历史宽表（512 行）；compute_yoy() 输出 net_lock_yoy / store_status_yoy</li>
+          <li><strong>分类</strong>：同店 / 新店/新增 / 关店/停售 / 无变化 — 避免新店冲量掩盖同店下滑</li>
+          <li><strong>V2.0</strong>：同店 + YoY&lt;-20% → must_win 第四路信号</li>
+        </ul>
+      </div>
+
+      <div class="version-timeline-item highlight" style="border-left-color:#dc2626;padding-bottom:0;">
+        <h4><span class="s-chip v2" style="background:#fef2f2;color:#991b1b;">V2.0 决策层</span> must_win_list · 消费 S2+S4+S7+YoY</h4>
+        <div class="vt-meta">模块：must_win_list.py · 第 14 个引擎模块（决策层，不改 S 算法）</div>
+        <ul>
+          <li><strong>核心逻辑</strong>：四路信号打分 → 复合紧急分 → <strong>store_tier 分层</strong> → 各层 Top N 配额 → 绑定 Narrative 动作 → 10 家 Treatment 输出</li>
+          <li><strong>分层配额</strong>：一级（MTD≥10）3 家 · 二级（5–9）4 家 · 三级（2–4）3 家；Control 组同层抽取</li>
+          <li><strong>算分示例</strong>：流失(+30) + PPL红(+35) + 异常橙(+15) = 80 × 1.25(三信号) + 10(pipeline) = <strong>110.0</strong></li>
+          <li><strong>AB 设计</strong>：Treatment Top10 触达 vs Control 接近分数不触达；主指标清单执行率 → 次指标锁单转化率</li>
+          <li><strong>产品定位</strong>：S 场景回答「哪里有问题」→ must_win 回答「本周先救谁、做什么」</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓ 同一套 kpi_engine 底层，上层 +must_win_list 决策模块 ↓</div>
+
+    <!-- 交互 Tab：预览 -->
+    <div class="section-title">交付形态对比 · 可切换预览</div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="showTab('v1')">V1 · 全览驾驶舱</button>
+      <button class="tab-btn" onclick="showTab('v2')">V2 · 必赢清单</button>
+      <button class="tab-btn" onclick="showTab('model')">建模 & 参数迭代</button>
+    </div>
+
+    <div id="tab-v1" class="tab-content active">
+      <div class="card" style="margin-bottom:12px;padding:14px 18px;">
+        <strong>V1 特点：</strong> 城市部综合评分 + <strong>分层级标兵/关注 Top10</strong>（一级/二级/三级分榜）+ PPL 红警明细 + 异常预警明细 —— 信息完整，但<strong>管理者需自行从 680 行中筛选优先级</strong>。
+      </div>
+      <div class="iframe-wrap">
+        <iframe src="dashboard_store_20260819.html" title="V1 脱敏驾驶舱"></iframe>
+      </div>
+    </div>
+
+    <div id="tab-v2" class="tab-content">
+      <div class="card" style="margin-bottom:12px;padding:14px 18px;border-color:#fecaca;background:#fffbfb;">
+        <strong>V2 特点：</strong> 城市经理打开飞书卡片，<strong>5 秒内知道本周先督导哪 10 家、做什么、谁负责</strong>。对照组 5 家不发清单，用于 AB 验证。
+      </div>
+      <table class="data card must-win-table" style="padding:0;">
+        <thead>
+          <tr>
+            <th>#</th><th>层级</th><th>门店（脱敏）</th><th>焦点车型</th><th>紧急分</th>
+            <th>信号</th><th>本周动作</th><th>负责人</th><th>截止</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rank">1</td><td>一级</td><td>华南 A 店</td><td>全新 L9</td><td class="score">110.0</td>
+            <td>流失 · PPL红 · 异常橙</td>
+            <td>锁单速度骤降，第一时间盘点 pipeline</td><td>店长</td><td>周五</td>
+          </tr>
+          <tr>
+            <td class="rank">2</td><td>一级</td><td>华南 F 店</td><td>理想i8</td><td class="score">98.5</td>
+            <td>PPL红 · YoY降</td>
+            <td>标杆店 i8 试驾转化复盘，复制至二级店</td><td>区域经理</td><td>周五</td>
+          </tr>
+          <tr>
+            <td class="rank">3</td><td>一级</td><td>华南 G 店</td><td>L6</td><td class="score">92.0</td>
+            <td>流失 · 异常橙</td>
+            <td>新品爬坡专项督导</td><td>店长</td><td>周五</td>
+          </tr>
+          <tr>
+            <td class="rank">4</td><td>二级</td><td>华南 B 店</td><td>L6</td><td class="score">103.8</td>
+            <td>流失 · PPL红 · YoY降</td>
+            <td>PPL 分层跟进，主管抽查低分工单</td><td>店长</td><td>周五</td>
+          </tr>
+          <tr>
+            <td class="rank">5</td><td>二级</td><td>华南 C 店</td><td>i6</td><td class="score">91.2</td>
+            <td>流失 · PPL红</td>
+            <td>优化试驾陪同，24H 内必回访</td><td>销售主管</td><td>周五</td>
+          </tr>
+          <tr style="color:var(--muted);">
+            <td>…</td><td colspan="8">二级 4 家 + 三级 3 家 · 各层独立排序 · Control 同层抽取 · 完整 CSV 见引擎输出</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="grid-3" style="margin-top:16px;">
+        <div class="arch-box highlight">
+          <div class="arch-title">#1 算分示例</div>
+          <div class="arch-items">流失(+30)+PPL红(+35)+异常橙(+15)=80<br/>×1.25(三信号)=100<br/>+10(pipeline)=<strong>110.0</strong></div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-title">飞书卡片</div>
+          <div class="arch-items">✅ 确认本周清单<br/>📤 分派给店长<br/>追踪执行率</div>
+        </div>
+        <div class="arch-box">
+          <div class="arch-title">验证指标</div>
+          <div class="arch-items">主：清单执行率<br/>次：次周锁单转化<br/>Treatment vs Control</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-model" class="tab-content">
+      <div class="section-title" style="margin-top:0;">参数怎么确定？五步法迭代 · 对应 S 场景</div>
+      <div class="card">
+        <div class="iteration-step">
+          <div class="step-tag s2">S2</div>
+          <div><strong>Step 1 · 业务锚点</strong> — 与区域销售负责人对齐：<span class="s-chip s2">S2</span> 试驾→锁单(35%)、PPL 转化(25%) 最影响 revenue；<span class="s-chip s4">S4</span> PPL 跟进强度大盘约 0.5，低于 0.3 视为「几乎没跟」。</div>
+        </div>
+        <div class="iteration-step">
+          <div class="step-tag s4">S4</div>
+          <div><strong>Step 2 · 数据分布校准</strong> — 680 单元跑批后看 P25/P50/P75；<span class="s-chip s4">S4</span> PPL&lt;200 不触发 R1/R2 避免小店误伤；8/15 快照 26 PPL 红 / 98 流失作为校准基准。</div>
+        </div>
+        <div class="iteration-step">
+          <div class="step-tag v2">V2</div>
+          <div><strong>Step 3 · 线下验证</strong> — Top10 发给城市部：「5 秒内知道先督导谁吗？」V1 常答「信息太多」→ V2 消费 <span class="s-chip s2">S2</span>+<span class="s-chip s4">S4</span>+<span class="s-chip s7">S7</span>+<span class="s-chip a4">YoY</span> 四路信号收敛。误报样本（<span class="s-chip s7">S7</span> 数据链路问题）降权。</div>
+        </div>
+        <div class="iteration-step">
+          <div class="step-tag s4">S4</div>
+          <div><strong>Step 4 · 灵敏度测试</strong> — run_must_win.py --sensitivity 扫描 <span class="s-chip s4">S4</span> 阈值。8/15 结论：follow_intensity 0.25–0.35 不影响 PPL 红数量 → 红警由「无长期跟进+无效跟进」驱动，非跟进量。</div>
+        </div>
+        <div class="iteration-step">
+          <div class="step-tag s7">S7</div>
+          <div><strong>Step 5 · AB 验证</strong> — Treatment(Top10 触达) vs Control(接近分数但不触达)。主指标：清单执行率→锁单转化率。无显著差异则迭代 <span class="s-chip s4">S4</span> 阈值 / must_win 权重 / <span class="s-chip s7">S7</span> 分派角色。</div>
+        </div>
+      </div>
+
+      <div class="section-title">关键参数表 · 标注所属 S 场景（config.yaml 可调，改 YAML 不改代码）</div>
+      <table class="data card param-table" style="padding:0;">
+        <thead><tr><th>参数</th><th>所属场景</th><th>默认值</th><th>确定依据</th></tr></thead>
+        <tbody>
+          <tr><td>health_factors.td_to_lock_rate</td><td><span class="s-chip s2">S2</span></td><td>0.35</td><td>销售链路最关心「试驾能不能锁单」</td></tr>
+          <tr><td>health_factors.ppl_conversion</td><td><span class="s-chip s2">S2</span></td><td>0.25</td><td>商机→锁单反映全漏斗效率</td></tr>
+          <tr><td>health_thresholds.中等</td><td><span class="s-chip s2">S2</span></td><td>45</td><td>线下复盘：&lt;45 门店已感「明显跑单」</td></tr>
+          <tr><td>ppl_alert.follow_intensity</td><td><span class="s-chip s4">S4</span></td><td>0.30</td><td>广东大盘 ~0.5，0.3 为「明显偏低」</td></tr>
+          <tr><td>ppl_alert.long_follow</td><td><span class="s-chip s4">S4</span></td><td>0.005</td><td>大盘 ~2.1%，0.5% 以下视为未做</td></tr>
+          <tr><td>ppl_alert.min_ppl_for_alert</td><td><span class="s-chip s4">S4</span></td><td>200</td><td>避免小店样本不足误报</td></tr>
+          <tr><td>anomaly_alert.daily_drop</td><td><span class="s-chip s7">S7</span></td><td>40%</td><td>城市部周会「掉四成必须当天介入」</td></tr>
+          <tr><td>anomaly_alert.zscore_threshold</td><td><span class="s-chip s7">S7</span></td><td>1.8</td><td>偏离大区均值 &gt;1.8σ 触发异常</td></tr>
+          <tr><td>yoy_decline_threshold</td><td><span class="s-chip a4">YoY</span></td><td>-20%</td><td>平衡敏感度与误报</td></tr>
+          <tr><td>top_n_by_tier</td><td><span class="s-chip v2">V2</span></td><td>一级3/二级4/三级3</td><td>避免零售中心垄断 Top10；小店有对标、有配额</td></tr>
+          <tr><td>weight_ppl_red</td><td><span class="s-chip v2">V2</span></td><td>35</td><td>有 pipeline 可挽回，优先于纯流失</td></tr>
+          <tr><td>weight_churn</td><td><span class="s-chip v2">V2</span></td><td>30</td><td>S2 流失严重，但无 PPL 池时紧急度略低</td></tr>
+          <tr><td>multi_hit_multiplier</td><td><span class="s-chip v2">V2</span></td><td>1.25</td><td>S2+S4+S7 三信号叠加门店稳定排 Top3</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 迭代时间线 -->
+    <div class="section-title">产品迭代时间线 · 标注 S 场景变更</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">方案</div><div class="step-title">Pivot</div><div class="step-desc">S1–S7<br/>ML→规则模型</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">W1–2</div><div class="step-title">V1.0</div><div class="step-desc">680 宽表<br/>S1–S7 首跑</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">W3</div><div class="step-title">V1.1</div><div class="step-desc">S2 权重 v2<br/>Narrative</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">W4</div><div class="step-title">V1.2</div><div class="step-desc">S6 新车引擎<br/>S7 预警分派</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">W5</div><div class="step-title">V1.3–1.5</div><div class="step-desc">YoY · S8 线索<br/>归因/风险/ROI</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="border-color:#dc2626;background:#fffbfb;"><div class="step-num">W6</div><div class="step-title" style="color:#991b1b;">V2.0</div><div class="step-desc">must_win<br/>S2+S4+S7+YoY</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">W7+</div><div class="step-title">V2.1</div><div class="step-desc">执行率回流<br/>AB 迭代阈值</div></div>
+    </div>
+
+    <div class="star-block">
+      <h3>面试口述 · S 场景迭代 + 产品思维（45 秒）</h3>
+      <p>我的产品经历了<strong>三次关键 pivot</strong>：第一次是建模方案，S1–S7 全部从 ML 黑盒改为可解释的规则模型——S2 用 Z-score 加权、S4 用阈值引擎、S7 用三层预警，因为 DC 是聚合数仓不是明细数仓。</p>
+      <p>第二次是<strong>逐场景精调</strong>：V1.1 调 S2 权重让「试驾→锁单」占 35%；V1.2 把 S6 从占位升级为独立新车引擎、S7 加了 P1/P2/P3 分派；V1.3 加 YoY 同店同比；V1.4 发现 DC 缺线索层，新增 S8 从 PB 补「线索→排程→试驾」，邀约 +1.8pp。</p>
+      <p>第三次是<strong>交付形态 pivot</strong>：V2.0 没改 S 算法，而是加了 must_win_list 决策层——消费 S2 流失 + S4 PPL 红 + S7 异常 + YoY 四路信号，从 680 行收敛到 Top 10 × 动作 × 负责人。V1 证明我能建系统，V2 证明我能帮管理者做决策。</p>
+    </div>
+
+    <div class="card" style="text-align:center;padding:28px;margin-top:24px;">
+      <p style="margin-bottom:16px;">📄 完整产品方案 Word 文档（含建模细节 + 参数迭代五步法）</p>
+      <a href="张文婧-本周必赢清单-产品方案.docx" download style="display:inline-block;padding:12px 24px;background:#dc2626;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;margin-right:12px;">下载产品方案 Word</a>
+      <a href="dashboard_store_20260819.html" target="_blank" style="display:inline-block;padding:12px 24px;background:var(--accent);color:#fff;border-radius:8px;font-weight:600;text-decoration:none;margin-right:12px;">V1 脱敏驾驶舱</a>
+      <a href="lixiang-cockpit.html" style="display:inline-block;padding:12px 24px;border:1px solid var(--border);border-radius:8px;font-weight:600;text-decoration:none;color:var(--text);">返回 V1 说明页</a>
+    </div>
+
+    <div class="footer">决策产品 v2.0 · 示例数据已脱敏 · 仅供面试作品集展示</div>
+  </div>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

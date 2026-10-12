@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TCL · 企业系统产品 · 项目导览</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero-index { text-align: center; padding: 32px 0 20px; }
+    .hero-index h1 { font-size: 1.75rem; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+    @media (max-width: 768px) { .projects { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">TCL · 项目导览</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="tcl-hris-overview.html" class="active">TCL 导览</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <div class="hero-index">
+      <h1>TCL 企业系统产品 · 项目导览</h1>
+      <p style="color:var(--muted);max-width:560px;margin:12px auto;">2025.12 – 2026.02 · 日常系统运维与 SSC 事务 + 原型、OA 集成、数据治理项目</p>
+      <div class="badge-row" style="justify-content:center;">
+        <span class="badge">日常工作 + 2 个项目</span>
+        <span class="badge">20+ 交互 Demo</span>
+        <span class="badge">HRIS / SAP / OA</span>
+      </div>
+    </div>
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">20+</div><div class="lbl">Axure Demo</div></div>
+      <div class="card stat"><div class="num">OA</div><div class="lbl">接口联调打通</div></div>
+      <div class="card stat"><div class="num">3 套</div><div class="lbl">对接系统</div></div>
+      <div class="card stat up"><div class="num">→</div><div class="lbl">原型到生产</div></div>
+    </div>
+    <div class="section-title">日常工作</div>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-purple" href="tcl-daily-ops.html" style="grid-column: 1 / -1;">
+        <div class="company">日常 · HRIS 系统运维与 SSC 事务支持</div>
+        <h2>让存量系统和数据日常稳定可用</h2>
+        <p>故障工单跟进 · 异常监控 · 跨系统历史数据修正 · 入转调离流程事务跟进 · 日常取数与报表支持。</p>
+        <div class="metrics"><span>HRIS / SAP / OA</span><span>差异工单</span><span>SSC 事务</span></div>
+      </a>
+    </div>
+    <div class="section-title">专项项目</div>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-purple" href="tcl-hris-demo.html">
+        <div class="company">项目 01 · 系统原型 · OA 集成</div>
+        <h2>20+ 交互原型 · 数据中心联调</h2>
+        <p>审批链路/组织视图/看板 · OA 页面编排与接口联调 · 可演示可评审。</p>
+        <div class="metrics"><span>20+ Demo</span><span>3 模块</span></div>
+      </a>
+      <a class="project-card" href="tcl-hris-ai.html">
+        <div class="company">项目 02 · AI 效能 · 系统迭代</div>
+        <h2>对标学习 · 数据治理 · SQL 调优</h2>
+        <p>月度 AI 分享输入 · 系统数据治理 · 慢查询优化 · 生产落地加速。</p>
+        <div class="metrics"><span>AI 反哺</span><span>SQL 调优</span></div>
+      </a>
+    </div>
+    <div class="footer">TCL · 张文婧</div>
+  </div>
+</body>
+</html>

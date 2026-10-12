@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>张文婧 · 面试作品集 · 总览</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0 8px;
+      text-align: left;
+    }
+    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 20px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .about-card h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .about-card p, .about-card li {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .about-card ul { padding-left: 18px; margin: 0; }
+    .about-card li { margin-bottom: 6px; }
+    .about-card .name {
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .about-card .meta-line {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">张文婧 · 面试作品集</div>
+    <nav>
+      <a href="index.html" class="active nav-home">总览</a>
+      <a href="lixiang-overview.html">理想导览</a>
+      <a href="tencent-ssc-overview.html">腾讯导览</a>
+      <a href="byte-seed-overview.html">字节导览</a>
+      <a href="tcl-hris-overview.html">TCL 导览</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero-index">
+      <h1>张文婧</h1>
+      <p style="max-width:640px;margin:12px auto 0;color:var(--muted);line-height:1.75;">
+        香港中文大学（深圳）金融数学硕士 · 苏州大学统计学本科<br/>
+        关注数据产品 / AI 产品 / 企业级解决方案
+      </p>
+      <div class="badge-row" style="justify-content:center;margin-top:16px;">
+        <span class="badge">225010030@link.cuhk.edu.cn</span>
+        <span class="badge">托福 99</span>
+        <span class="badge">中共党员</span>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>个人介绍</h3>
+        <div class="name">张文婧</div>
+        <div class="meta-line">
+          香港中文大学（深圳）· 金融数学硕士（2025.09 – 至今）<br/>
+          苏州大学 · 统计学本科（2021.09 – 2025.06）
+        </div>
+        <p>
+          具备四段实习经历：TCL 企业系统产品 → 字节 Seed AI 数据产品 → 腾讯企业级 AI 工作台 → 理想汽车销售策略。
+          擅长 0→1 产品搭建、数据看板 / 诊断引擎、Agent 编排与跨团队推进；可用英文工作沟通。
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>主要奖项</h3>
+        <ul>
+          <li><strong>FlagOS</strong> 全球 AI 挑战赛 · 全球 Top 2（Runner-up，84.77，OpenSeek PR#223）</li>
+          <li><strong>中国国际大学生创新大赛</strong> · 江苏省金奖 / 国家级铜奖（WaterNa）</li>
+          <li><strong>全国商业精英挑战赛</strong> · 全国三等奖（宋锦品牌）</li>
+          <li>苏州大学校级奖学金若干</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h3>主要课程</h3>
+        <ul>
+          <li>统计建模 · 机器学习</li>
+          <li>程序设计（R、Python、C++、SPSS、SQL）</li>
+          <li>数据建模 · 概率论与数理统计</li>
+        </ul>
+        <p style="margin-top:12px;font-size:0.8rem;color:var(--muted);">
+          技能：Axure / Xmind · PRD · AB 实验 · SQL 调优 · 影刀 RPA · Cursor / Agent 工具
+        </p>
+      </div>
+    </div>
+
+    <div class="section-title">比赛与开源</div>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-cyan" href="https://github.com/FlagAI-Open/OpenSeek/pull/223" target="_blank" rel="noopener" style="grid-column: 1 / -1;">
+        <div class="company">FlagOS 全球 AI 挑战赛 · OpenSeek LongContext-ICL-Annotation · TrialBlazers 队长</div>
+        <h2>全球 Top 2 · 8 任务长上下文 ICL 标注方案</h2>
+        <p>
+          队长，负责整体方案与全流程实现，主攻 Task 8：30K / 16K 长上下文 ICL 构建 → MMR 去冗余检索 + 标签均衡采样 → 规则任务 Solver 生成与自动调试 → Task 8 生成 → 校验 → 修复（Pass@k）→ 8 任务消融实验。
+        </p>
+        <div class="metrics"><span>排行榜 84.77</span><span>Task 8 142→166/166</span><span>规则任务 +82%</span><span>查看 GitHub 提交 →</span></div>
+      </a>
+    </div>
+
+    <!-- 实习时间线 -->
+    <div class="section-title">实习经历</div>
+    <div class="timeline">
+      <a href="tcl-hris-overview.html" class="timeline-item" style="text-decoration:none;color:inherit;">
+        <div class="tl-co">TCL</div><div class="tl-name">企业系统产品</div><div class="tl-period">2025.12 – 2026.02</div>
+      </a>
+      <a href="byte-seed-overview.html" class="timeline-item" style="text-decoration:none;color:inherit;">
+        <div class="tl-co">字节跳动</div><div class="tl-name">Seed AI 数据产品</div><div class="tl-period">2026.02 – 2026.05</div>
+      </a>
+      <a href="tencent-ssc-overview.html" class="timeline-item" style="text-decoration:none;color:inherit;">
+        <div class="tl-co">腾讯</div><div class="tl-name">企业级 AI 工作台</div><div class="tl-period">2026.05 – 2026.07</div>
+      </a>
+      <a href="lixiang-overview.html" class="timeline-item" style="text-decoration:none;color:inherit;">
+        <div class="tl-co">理想汽车</div><div class="tl-name">销售策略</div><div class="tl-period">2026.07 – 至今</div>
+      </a>
+    </div>
+
+    <!-- 项目卡片 · 按公司 -->
+    <div class="section-title">核心项目 · 实习导览</div>
+    <div class="projects">
+      <a class="project-card accent-purple" href="tcl-hris-overview.html">
+        <div class="company">TCL · 企业系统产品 · 项目导览</div>
+        <h2>业务系统原型 + OA 集成 + 数据治理</h2>
+        <p>流程梳理 → 20+ 交互原型 → OA 接口联调 → 原型到生产 · 可演示、可评审、可落地。</p>
+        <div class="metrics"><span>20+ Demo</span><span>OA 打通</span><span>SQL 调优</span></div>
+      </a>
+
+      <a class="project-card accent-green" href="tencent-ssc-overview.html">
+        <div class="company">腾讯 · 企业级 AI 工作台 · 项目导览</div>
+        <h2>Console 0→1 + 多 Agent 知识闭环 + 区域工具</h2>
+        <p>建库 → 用库 → 补库 · 微前端统一工作台 · 执行层与治理层解耦。</p>
+        <div class="metrics"><span>未命中率 6%</span><span>40min→3min</span><span>12 专 Agent</span></div>
+      </a>
+
+      <a class="project-card accent-cyan" href="byte-seed-overview.html">
+        <div class="company">字节跳动 · Seed AI 数据产品 · 项目导览</div>
+        <h2>Agent 数据全链路 + 可解释评估模型 + 漏斗 AB</h2>
+        <p>多源采集 → 清洗质检 → 八维分层评分 → AB 验证 · 20,121 条样本 · 效率 +40%。</p>
+        <div class="metrics"><span>20,121 条评分</span><span>八维 V5.0</span><span>效率 +40%</span></div>
+      </a>
+
+      <a class="project-card accent-red" href="lixiang-overview.html">
+        <div class="company">理想汽车 · 销售策略 · 项目导览</div>
+        <h2>日常销售运营 + 经营驾驶舱 + AI 助手 + 舆情洞察</h2>
+        <p>目标拆解 → 过程监控 → 日报复盘 → 宣发动员 → 一线反馈 · 专项分析沉淀为一线可用的工具。</p>
+        <div class="metrics"><span>18 类 AI 产品/流程</span><span>7,550 条舆情</span><span>50 门店商圈</span></div>
+      </a>
+    </div>
+
+    <div class="section-title">字节 Seed · <a href="byte-seed-overview.html" style="font-size:0.85rem;font-weight:normal;">进入导览 →</a></div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:4px 0 10px;">日常工作</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-cyan" href="byte-daily-ops.html"><div class="company">数据交付 · 取数监控 · Agent 协同</div><h2>采集质检 · 增量取数 · 画像梳理</h2><p>25 项标准字段 · 漏斗监控 · 招聘 Agent 画像与漏斗</p></a>
+    </div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:20px 0 10px;">专项项目</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card" href="byte-data-pipeline.html"><div class="company">数据爬取</div><h2>Agent 全链路</h2><p>GitHub/HF/Scholar · 准确率 90.5%+ · 人工降 50–60%</p></a>
+      <a class="project-card" href="byte-eight-dim.html"><div class="company">八维模型</div><h2>V5.0 评估体系</h2><p>20,121 条 · 识别准确率 90.8% · 3 轮 AB</p></a>
+      <a class="project-card" href="byte-campus-recruit.html"><div class="company">关系网络模型</div><h2>三维图谱推荐</h2><p>1,547 样本 · 路径推荐</p></a>
+      <a class="project-card" href="byte-funnel-ab.html"><div class="company">漏斗 AB</div><h2>看板 + SQL 调优</h2><p>效率 +40% · SQL 2.1s</p></a>
+    </div>
+
+    <div class="section-title">腾讯 · 企业级 AI 工作台 · <a href="tencent-ssc-overview.html" style="font-size:0.85rem;font-weight:normal;">进入导览 →</a></div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:4px 0 10px;">日常工作</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-green" href="tencent-daily-ops.html"><div class="company">需求对接 · Bot 运营 · 工具维护</div><h2>每日复盘 · 每周迭代</h2><p>三大区对接 · 知识库迭代 · 区域工具跑测</p></a>
+    </div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:20px 0 10px;">专项项目</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card" href="tencent-console.html"><div class="company">Console 总台</div><h2>0→1 统一工作台</h2><p>5 板块 · 21 书架 · 微前端</p></a>
+      <a class="project-card" href="tencent-chatbot-gap.html"><div class="company">Chatbot 知识闭环</div><h2>Gap Finder 补库</h2><p>12 专 Agent · 未命中 6%</p></a>
+      <a class="project-card" href="tencent-regional-tools.html"><div class="company">区域工具</div><h2>P3 海外作战室</h2><p>AMER/APAC/EMEA · No-IOA · 费用分摊</p></a>
+      <a class="project-card" href="tencent-98008-security.html"><div class="company">安全治理</div><h2>P0-P3 风控</h2><p>VIP 分级 · DFA 双向扫描</p></a>
+    </div>
+
+    <div class="section-title">理想汽车 · 广东大区 · <a href="lixiang-overview.html" style="font-size:0.85rem;font-weight:normal;">进入导览 →</a></div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:4px 0 10px;">日常工作</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-red" href="lixiang-daily-ops.html"><div class="company">日常销售运营</div><h2>目标 · 监控 · 日报 · 宣发</h2><p>城市部/门店/车型拆解 · 每日操盘日报 · 战报喜报</p></a>
+      <a class="project-card" href="lixiang-frontline.html"><div class="company">政策传达与一线支持</div><h2>让一线看得懂、能执行</h2><p>政策本地化 · 新品差异化沟通</p></a>
+    </div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:20px 0 10px;">专项项目</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card" href="lixiang-cockpit.html"><div class="company">广东经营驾驶舱</div><h2>门店级经营诊断</h2><p>MTD 底表 · 健康度 · 漏斗 · 综合诊断</p></a>
+      <a class="project-card" href="lixiang-ai-assistant.html"><div class="company">区域销售 AI 助手</div><h2>六层能力 · 18 类产品</h2><p>幂等锁 · 失败重试 · 群发授权</p></a>
+      <a class="project-card" href="lixiang-mega-es9-voc.html"><div class="company">舆情 · MEGA vs ES9</div><h2>广东 IP 用户专项</h2><p>437 条评论 · 6 类画像 · 侧滑门刚需</p></a>
+      <a class="project-card" href="lixiang-aito-voc.html"><div class="company">舆情 · 问界专项</div><h2>销量波动归因</h2><p>6,841 条评论 · 3 个议题</p></a>
+      <a class="project-card" href="lixiang-sales-script.html"><div class="company">舆情 · 外观顾虑话术手册</div><h2>272 条评论</h2><p>进攻型 / 坦诚型 / 重构型</p></a>
+      <a class="project-card" href="lixiang-competitor-map.html"><div class="company">竞品商圈匹配</div><h2>17 城 · 50 门店</h2><p>27 家与问界同商圈（54%）</p></a>
+      <a class="project-card" href="lixiang-feishu-sop.html"><div class="company">飞书 SOP</div><h2>协同自动化</h2><p>预览 → 授权 → 群发</p></a>
+    </div>
+
+    <div class="section-title">TCL · <a href="tcl-hris-overview.html" style="font-size:0.85rem;font-weight:normal;">进入导览 →</a></div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:4px 0 10px;">日常工作</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-purple" href="tcl-daily-ops.html"><div class="company">HRIS 运维 · SSC 事务</div><h2>工单 · 监控 · 数据修正</h2><p>HRIS / SAP / OA 跨系统校验 · 流程事务跟进</p></a>
+    </div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:20px 0 10px;">专项项目</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card" href="tcl-hris-demo.html"><div class="company">系统原型</div><h2>20+ Axure · OA 联调</h2><p>审批/组织/看板</p></a>
+      <a class="project-card" href="tcl-hris-ai.html"><div class="company">AI 反哺</div><h2>数据治理 · SQL 调优</h2><p>原型→生产</p></a>
+    </div>
+
+    <div class="section-title">数据闭环 · 产品架构能力</div>
+    <div class="grid-2">
+      <div class="loop-card">
+        <h3>理想汽车 · 数据 → 洞察 → 一线工具</h3>
+        <div class="loop-ring" style="grid-template-columns:repeat(3,1fr);">
+          <div class="loop-node"><div class="loop-icon">📊</div><div class="loop-title">经营诊断</div><div class="loop-desc">门店级驾驶舱<br/>领先/落后/异常</div></div>
+          <div class="loop-node"><div class="loop-icon">💬</div><div class="loop-title">舆情 + 商圈</div><div class="loop-desc">用户原声<br/>竞品门店距离</div></div>
+          <div class="loop-node"><div class="loop-icon">📱</div><div class="loop-title">一线触达</div><div class="loop-desc">AI 助手 · 话术手册<br/>飞书卡片</div></div>
+        </div>
+        <div class="loop-connector">多源取数 → 门店诊断 → 用户与竞品洞察 → 销售话术 → 飞书定时触达</div>
+      </div>
+      <div class="loop-card">
+        <h3>腾讯 · 建库 → 用库 → 补库</h3>
+        <div class="loop-ring" style="grid-template-columns:repeat(3,1fr);">
+          <div class="loop-node"><div class="loop-icon">📚</div><div class="loop-title">Console 建库</div><div class="loop-desc">21 书架<br/>135 文献</div></div>
+          <div class="loop-node"><div class="loop-icon">🤖</div><div class="loop-title">Chatbot 用库</div><div class="loop-desc">12 专 Agent<br/>RAG 检索</div></div>
+          <div class="loop-node"><div class="loop-icon">🔍</div><div class="loop-title">Gap Finder</div><div class="loop-desc">未命中聚类<br/>驱动补 FAQ</div></div>
+        </div>
+        <div class="loop-connector">问询日志 → 知识缺口 → 图书馆迭代 → 未命中率 6%</div>
+      </div>
+      <div class="loop-card">
+        <h3>字节跳动 · 采集 → 特征 → 决策</h3>
+        <div class="loop-ring" style="grid-template-columns:repeat(3,1fr);">
+          <div class="loop-node"><div class="loop-icon">🔗</div><div class="loop-title">Agent 采集</div><div class="loop-desc">GitHub/HF/Scholar</div></div>
+          <div class="loop-node"><div class="loop-icon">⚙️</div><div class="loop-title">八维评估</div><div class="loop-desc">V5.0 分层<br/>S+/S/A/B/C</div></div>
+          <div class="loop-node"><div class="loop-icon">🧪</div><div class="loop-title">AB 验证</div><div class="loop-desc">3 轮实验<br/>效率 +40%</div></div>
+        </div>
+        <div class="loop-connector">多源数据分散 → 全链路产品化 → 可解释评分 → 业务降本</div>
+      </div>
+      <div class="loop-card">
+        <h3>FlagOS · 标注 → 校验 → 交付</h3>
+        <div class="loop-ring" style="grid-template-columns:repeat(3,1fr);">
+          <div class="loop-node"><div class="loop-icon">✏️</div><div class="loop-title">工作台 0→1</div><div class="loop-desc">PRD + 原型<br/>标注 SOP</div></div>
+          <div class="loop-node"><div class="loop-icon">🔧</div><div class="loop-title">Agent 管线</div><div class="loop-desc">Generate-Verify<br/>-Repair</div></div>
+          <div class="loop-node"><div class="loop-icon">🏆</div><div class="loop-title">开源交付</div><div class="loop-desc">Top 2<br/>PR#223</div></div>
+        </div>
+        <div class="loop-connector">30K ICL → Task 8 满分 166/166 → 全球 Runner-up</div>
+      </div>
+    </div>
+
+    <div class="section-title">能力速查</div>
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">0→1</div><div class="lbl">产品搭建 ×6 项目</div></div>
+      <div class="card stat"><div class="num">Agent</div><div class="lbl">Knot / 飞书 / 采集</div></div>
+      <div class="card stat"><div class="num">AB</div><div class="lbl">单一变量实验设计</div></div>
+      <div class="card stat"><div class="num">SQL</div><div class="lbl">45s→2.1s 调优</div></div>
+    </div>
+
+    <div class="section-title">项目 / 比赛</div>
+    <div class="grid-3">
+      <div class="arch-box highlight">
+        <div class="arch-title">FlagOS · 全球 Top 2</div>
+        <div class="arch-items">AI 产品负责人 · 智能标注工作台 0→1 · Task 8 满分 · OpenSeek PR#223</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">WaterNa · 省金 / 国铜</div>
+        <div class="arch-items">硅基光伏耦合发电 · 多源数据 pipeline · 特征工程支撑商业化测算</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">宋锦品牌 · 全国三等奖</div>
+        <div class="arch-items">PEST + 波特五力 + SPSS LDA-SEM 双模型 · 品牌传播路径量化</div>
+      </div>
+    </div>
+
+    <button class="script-toggle" onclick="document.getElementById('script-panel').classList.toggle('open'); this.querySelector('.chev').textContent = document.getElementById('script-panel').classList.contains('open') ? '▲' : '▼';">
+      <span>面试口述讲稿（STAR · 自用，默认折叠）</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="script-panel" id="script-panel">
+      <div class="star-entry">
+        <div class="star-entry-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>理想 · 销售策略：数据、AI 与舆情转化为一线工具</span><span class="tag">讲稿</span>
+        </div>
+        <div class="star-entry-body">
+          <p><span class="lbl">S</span> 经营数据分散、门店口径不一；竞品信息主要依赖试驾录音，媒体舆情和用户讨论覆盖不足。</p>
+          <p><span class="lbl">T</span> 以日常销售运营为基本盘保障目标落地，同时用数据与 AI 提高分析效率，把洞察转化为一线用得上的策略与工具。</p>
+          <p><span class="lbl">A</span> 目标拆到城市部/门店/车型并分口径监控达成，每日操盘日报与海报宣发；建门店级经营驾驶舱和 AI 助手流水线（18 类产品/流程）；做 MEGA/ES9（437 条）、问界（6,841 条）舆情专项和外观话术手册；完成 17 城 50 门店竞品商圈匹配。</p>
+          <p><span class="lbl">R</span> 从"展示数字"走向"诊断 + 动作"；发现 54% 门店与问界同商圈；舆情洞察沉淀为六类场景销售话术。</p>
+        </div>
+      </div>
+      <div class="star-entry">
+        <div class="star-entry-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>腾讯 · Console 0→1 + Chatbot 知识闭环</span><span class="tag">讲稿</span>
+        </div>
+        <div class="star-entry-body">
+          <p><span class="lbl">S</span> 海外业务工具分散，12 个专业 Agent 知识覆盖不足，未命中率高。</p>
+          <p><span class="lbl">T</span> Console 一站式工作台 + Gap Finder 驱动补库。</p>
+          <p><span class="lbl">A</span> 5 大板块聚合；21 书架/135 文献；问询 ETL + 聚类挖缺口；No-IOA 40min→3min。</p>
+          <p><span class="lbl">R</span> 未命中率 6%；Console 建库 → Chatbot 用库 → Gap Finder 补库。</p>
+        </div>
+      </div>
+      <div class="star-entry">
+        <div class="star-entry-header" onclick="this.parentElement.classList.toggle('open')">
+          <span>字节 · AI 数据全链路 + 可解释评估模型</span><span class="tag">讲稿</span>
+        </div>
+        <div class="star-entry-body">
+          <p><span class="lbl">S</span> 多源数据分散，采集靠手工，缺乏可解释的评分体系。</p>
+          <p><span class="lbl">T</span> Agent 驱动采集–清洗–交付；八维 V5.0 分层 + AB 实验。</p>
+          <p><span class="lbl">A</span> GitHub/HF/Scholar 接入；20,121 人评分；3 轮 AB；10+ SQL 调优。</p>
+          <p><span class="lbl">R</span> 准确率 90.5%+，人工降 50–60%，业务效率 +40%。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      张文婧 · 香港中文大学（深圳）金融数学硕士 · 双击 HTML 即可在浏览器打开<br/>
+      数据来源：实习交付物 · 项目文档 · kpi_engine · VOC 交付包
+    </div>
+  </div>
+</body>
+</html>

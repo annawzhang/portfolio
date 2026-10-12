@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>字节跳动 · Seed AI 数据产品 · 项目导览</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero-index { text-align: center; padding: 32px 0 20px; }
+    .hero-index h1 { font-size: 1.75rem; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+    @media (max-width: 768px) { .projects { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">字节 Seed · 项目导览</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="byte-seed-overview.html" class="active">字节导览</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <div class="hero-index">
+      <h1>Seed AI 数据产品 · 项目导览</h1>
+      <p style="color:var(--muted);max-width:560px;margin:12px auto;">2026.02 – 2026.05 · 每个子项目独立页面，点击查看架构与核心指标</p>
+      <div class="badge-row" style="justify-content:center;">
+        <span class="badge">日常工作 + 4 个项目</span>
+        <span class="badge">20,121 条评分</span>
+        <span class="badge">效率 +40%</span>
+      </div>
+    </div>
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">20,121</div><div class="lbl">量化评分</div></div>
+      <div class="card stat up"><div class="num">90.8%</div><div class="lbl">识别准确率</div></div>
+      <div class="card stat up"><div class="num">+40%</div><div class="lbl">业务效率</div></div>
+      <div class="card stat"><div class="num">2.1s</div><div class="lbl">核心 SQL</div></div>
+    </div>
+    <div class="section-title">日常工作</div>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-cyan" href="byte-daily-ops.html" style="grid-column: 1 / -1;">
+        <div class="company">日常 · 数据批次交付与取数监控</div>
+        <h2>让数据每批稳定产出、指标每天可查</h2>
+        <p>批次采集与质检 · SQL 模板增量取数 · 漏斗指标异动监控 · 评分结果交付与校准 · 协助梳理招聘 Agent 人才画像模型与招聘漏斗。</p>
+        <div class="metrics"><span>25 项标准字段</span><span>增量取数</span><span>反馈校准</span><span>Agent 画像梳理</span></div>
+      </a>
+    </div>
+    <div class="section-title">专项项目</div>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card" href="byte-data-pipeline.html">
+        <div class="company">项目 01 · 数据爬取全链路</div>
+        <h2>Agent 驱动采集–清洗–交付</h2>
+        <p>GitHub/HF/Scholar 多源接入 · 反爬监控 · mapping 质检 · 准确率 90.5%+。</p>
+        <div class="metrics"><span>人工降 50–60%</span><span>25 标准字段</span></div>
+      </a>
+      <a class="project-card" href="byte-eight-dim.html">
+        <div class="company">项目 02 · 八维评估模型 V5.0</div>
+        <h2>专家加权 · S+/S/A/B/C 分层</h2>
+        <p>ICLR 2026 校准 · 四因子 AB · 20,121 条评分 · 可解释非黑盒。</p>
+        <div class="metrics"><span>62%→90.8%</span><span>3 轮 AB</span></div>
+      </a>
+      <a class="project-card" href="byte-campus-recruit.html">
+        <div class="company">项目 03 · 关系网络推荐模型</div>
+        <h2>三维关系图谱 · 路径推荐</h2>
+        <p>1,547 条重点实验室样本 · 导师-学生-实验室图谱 · S/A/B/C/D 分层。</p>
+        <div class="metrics"><span>1,547 样本</span><span>智能推荐路径</span></div>
+      </a>
+      <a class="project-card" href="byte-funnel-ab.html">
+        <div class="company">项目 04 · 转化漏斗 AB 实验</div>
+        <h2>漏斗看板 · SQL 调优</h2>
+        <p>线索→触达→转化监控 · NOT EXISTS 排他 · SQL 45s→2.1s。</p>
+        <div class="metrics"><span>效率 +40%</span><span>10+ SQL</span></div>
+      </a>
+    </div>
+    <div class="footer">字节 Seed · 张文婧</div>
+  </div>
+</body>
+</html>

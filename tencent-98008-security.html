@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>腾讯 · 98008 安全治理与知识闭环</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .risk-row { display: grid; grid-template-columns: 80px 1fr 140px; gap: 12px; align-items: center; padding: 12px; border-radius: 8px; margin-bottom: 8px; font-size: 0.85rem; }
+    .loop-ring { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0; }
+    .loop-node { background: var(--surface); border: 2px solid var(--border); border-radius: 50%; width: 100px; height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 0.75rem; padding: 8px; }
+    .loop-node strong { font-size: 0.8rem; margin-bottom: 2px; }
+    .loop-center { background: var(--accent-soft); border-color: var(--accent); width: 120px; height: 120px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">腾讯 · 98008 安全治理</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="tencent-ssc-overview.html">腾讯导览</a>
+      <a href="tencent-daily-ops.html">日常工作</a>
+      <a href="tencent-console.html">Console 总台</a>
+      <a href="tencent-chatbot-gap.html">Chatbot 运营</a>
+      <a href="tencent-regional-tools.html">区域工具</a>
+      <a href="tencent-98008-security.html" class="active">安全治理</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>98008 安全治理 · 风控 + 知识闭环</h1>
+      <div class="meta">腾讯 · AI 技术产品经理 · 2026.05 – 2026.07 · 自主设计</div>
+      <p class="tagline">补齐 Bot 原生缺失的<strong>内容安全</strong>与<strong>VIP 分级服务</strong>两块能力，形成「识别拦截 → 数据回流 → 人工复盘 → 词库迭代」完整闭环。</p>
+      <div class="badge-row">
+        <span class="badge">未命中率 6%</span>
+        <span class="badge">目标 &lt;10%</span>
+        <span class="badge">P0-P3 四级风控</span>
+        <span class="badge">DFA + 正则双向扫描</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat up"><div class="num">6%</div><div class="lbl">缺口闭合后未命中率</div></div>
+      <div class="card stat up"><div class="num">~90%</div><div class="lbl">提效工具人工节约</div></div>
+      <div class="card stat"><div class="num">4</div><div class="lbl">风控等级 P0-P3</div></div>
+      <div class="card stat"><div class="num">3</div><div class="lbl">Gap Finder 问题源</div></div>
+    </div>
+
+    <div class="section-title">P0–P3 分级敏感词体系</div>
+    <div class="card">
+      <div class="risk-row level-p0"><span class="pill level-p0">P0 极高</span><div>劳动纠纷、集体投诉、涉密薪酬</div><div><strong>阻断全链路 + 置顶告警</strong></div></div>
+      <div class="risk-row level-p1"><span class="pill level-p1">P1 高</span><div>员工隐私、保密数据、仲裁</div><div><strong>禁止输出 + 转人工</strong></div></div>
+      <div class="risk-row level-p2"><span class="pill level-p2">P2 中</span><div>区域政策争议、轻度负面</div><div><strong>合规提醒 + 留存上下文</strong></div></div>
+      <div class="risk-row level-p3"><span class="pill level-p3">P3 低</span><div>歧义类词汇</div><div><strong>后台日志，不干预</strong></div></div>
+    </div>
+
+    <div class="section-title">技术实现 · 双向扫描架构</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>扫描链路</h3>
+        <div class="flow" style="flex-direction:column;align-items:stretch;">
+          <div class="flow-step" style="border-radius:var(--radius);"><div class="step-title">用户输入</div><div class="step-desc">DFA 字典树 + 正则规则扫描</div></div>
+          <div class="flow-arrow" style="transform:rotate(90deg);">→</div>
+          <div class="flow-step" style="border-radius:var(--radius);"><div class="step-title">Knot RAG 生成</div><div class="step-desc">模型输出二次扫描</div></div>
+          <div class="flow-arrow" style="transform:rotate(90deg);">→</div>
+          <div class="flow-step" style="border-radius:var(--radius);"><div class="step-title">分级处置</div><div class="step-desc">阻断 / 转人工 / 提醒 / 日志</div></div>
+          <div class="flow-arrow" style="transform:rotate(90deg);">→</div>
+          <div class="flow-step" style="border-radius:var(--radius);"><div class="step-title">Console 告警面板</div><div class="step-desc">Exceptional Case 监控 · 运营日复盘</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>VIP 高管分级服务</h3>
+        <ul style="font-size:0.85rem;padding-left:20px;line-height:1.8;">
+          <li>复用 IOA 统一鉴权，匹配 VIP 白名单</li>
+          <li>高管咨询自动走高优人工 SLA 通道</li>
+          <li>高管高频问题同步补充知识库</li>
+          <li>白名单运营可视化编辑，人员变动无需开发</li>
+          <li>VIP 咨询单独监控，兼顾体验与分级管控</li>
+        </ul>
+        <h3 style="margin-top:16px;">存储与部署</h3>
+        <p style="font-size:0.82rem;color:var(--muted);">敏感词 → 内部云 KV · 知识库 → 向量库 · 对话埋点 → 时序库 · K8s 热重载 · 不走公网</p>
+      </div>
+    </div>
+
+    <div class="section-title">Gap Finder 知识补缺闭环</div>
+    <div class="card">
+      <div class="flow">
+        <div class="flow-step"><div class="step-title">员工咨询</div><div class="step-desc">Knot 采集埋点</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">三类问题源</div><div class="step-desc">未命中 / 低分 / 异常工单</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">Gap Finder</div><div class="step-desc">定时拉取·去重·排序</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">运营补 FAQ</div><div class="step-desc">合规审核·一键入库</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">索引重建</div><div class="step-desc">热同步至 Knot</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="step-title">未命中率↓</div><div class="step-desc">看板监控 6%</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">运营看板监控指标</div>
+    <div class="grid-3">
+      <div class="card stat accent"><div class="num">自助率</div><div class="lbl">Bot 独立解决占比</div></div>
+      <div class="card stat"><div class="num">工单积压</div><div class="lbl">OEC 转人工量</div></div>
+      <div class="card stat down"><div class="num">敏感词告警</div><div class="lbl">P0/P1 实时置顶</div></div>
+    </div>
+
+    <div class="section-title">四层产品思维</div>
+    <div class="grid-2">
+      <div class="arch-box"><div class="arch-title">1. 风险分层</div><div class="arch-items">平衡合规与体验，P0 阻断 vs P3 仅日志</div></div>
+      <div class="arch-box"><div class="arch-title">2. 复用 IOA</div><div class="arch-items">不重复造轮子，VIP 鉴权对接现有体系</div></div>
+      <div class="arch-box"><div class="arch-title">3. 数据看板驱动</div><div class="arch-items">Exceptional Case 面板 → 运营日复盘迭代</div></div>
+      <div class="arch-box"><div class="arch-title">4. 全链路打通</div><div class="arch-items">风控/身份与问答/工单/知识库一体化</div></div>
+    </div>
+
+    <div class="section-title">区域工具 · No-IOA（关联项目） · <a href="tencent-regional-tools.html" style="font-size:0.85rem;font-weight:normal;">进入区域工具 →</a></div>
+    <table class="data card" style="padding:0;">
+      <thead><tr><th>指标</th><th>优化前</th><th>优化后</th></tr></thead>
+      <tbody>
+        <tr><td>单次处理耗时</td><td>40 min</td><td><strong>3 min 内</strong></td></tr>
+        <tr><td>人工成本</td><td>基准</td><td>节约 ~90%</td></tr>
+        <tr><td>覆盖区域</td><td>—</td><td>US / CA / BR 等 4 国/区域</td></tr>
+        <tr><td>演示回归包</td><td>无</td><td>11 家供应商标准包</td></tr>
+      </tbody>
+    </table>
+
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';" >面试口述讲稿（自用 · 点击展开）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 98008 Bot 能问答但缺少内容安全和 VIP 差异化服务，劳动纠纷类 query 存在合规风险，高管咨询无 SLA 保障。</p>
+      <p><span class="label">T</span> 补齐敏感词风控和高管分级服务，形成完整闭环。</p>
+      <p><span class="label">A</span> 设计 P0–P3 四级标准，DFA+正则双向扫描；告警汇总 Console 面板，运营日复盘迭代词库；复用 IOA 鉴权匹配 VIP 白名单。</p>
+      <p><span class="label">R</span> 形成可配置、可迭代的风控闭环，VIP 服务分级落地；Gap Finder 驱动未命中率降至 6%。</p>
+    </div>
+
+    <p style="margin-top:20px;font-size:0.85rem;"><a href="tencent-console.html">← 返回 Console 总工作台架构</a></p>
+
+    <div class="footer">98008 安全治理 · 仅供面试作品集展示</div>
+  </div>
+</body>
+</html>

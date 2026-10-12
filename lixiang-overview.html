@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想汽车 · 销售策略 · 项目导览</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero-index { text-align: center; padding: 32px 0 20px; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+    .proj-list { font-size: 0.85rem; padding-left: 18px; line-height: 1.85; color: var(--text-secondary); }
+    .proj-value { font-size: 0.82rem; color: var(--muted); margin-top: 10px; line-height: 1.7; }
+    .proj-links { margin-top: 12px; font-size: 0.82rem; }
+    .proj-links a { margin-right: 14px; }
+    @media (max-width: 768px) { .projects { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · 项目导览</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-overview.html" class="active">理想导览</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <div class="hero-index">
+      <h1>理想销售策略 · 项目导览</h1>
+      <p style="color:var(--muted);max-width:640px;margin:12px auto;line-height:1.75;">
+        2026.07 – 至今 · 广东大区 · 日常销售运营为基本盘，叠加数据产品、舆情监控和竞品研究专项<br/>
+        把分散的数据、用户声音和业务问题，转化为可执行的销售策略与一线工具
+      </p>
+      <div class="badge-row" style="justify-content:center;">
+        <span class="badge">目标拆解 → 过程监控 → 日报复盘 → 宣发动员 → 一线反馈</span>
+      </div>
+    </div>
+
+    <div class="section-title">日常工作 · 基本盘</div>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-red" href="lixiang-daily-ops.html">
+        <div class="company">日常 · 销售运营</div>
+        <h2>把目标、数据和一线动作连接起来</h2>
+        <p>目标拆解与节奏管理 → 订单达成监控 → 操盘日报与复盘 → 海报宣发动员 → 一线反馈闭环。</p>
+        <div class="metrics"><span>城市部 / 门店 / 车型</span><span>MTD / WTD 口径</span><span>每日操盘日报</span></div>
+      </a>
+      <a class="project-card" href="lixiang-frontline.html">
+        <div class="company">日常 · 政策传达与新品一线支持</div>
+        <h2>让一线看得懂、能执行</h2>
+        <p>政策本地化 · 飞书卡片与定时任务 · MEGA / i6 / L 系列差异化沟通策略。</p>
+        <div class="metrics"><span>政策本地化</span><span>新品支持</span></div>
+      </a>
+    </div>
+
+    <div class="section-title">专项项目</div>
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:4px 0 10px;">数据与 AI 产品</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-red" href="lixiang-cockpit.html">
+        <div class="company">项目 01 · 广东经营驾驶舱</div>
+        <h2>从报表输出走向门店诊断</h2>
+        <p>门店级 MTD 底表 · KPI / 同比 / 车型爬坡 / 健康度 / 漏斗 / 综合诊断 · 飞书卡片 + HTML 驾驶舱。</p>
+        <div class="metrics"><span>领先/落后/异常识别</span><span>确定性流水线</span></div>
+      </a>
+      <a class="project-card" href="lixiang-ai-assistant.html">
+        <div class="company">项目 02 · 区域销售 AI 助手</div>
+        <h2>六层能力 · 稳定可复用的业务闭环</h2>
+        <p>多源取数 → 自动产出 → 健康检查 → 预览授权 → 发送留痕 · 幂等锁、失败重试、时间护栏。</p>
+        <div class="metrics"><span>18 类产品/流程</span><span>6 层架构</span></div>
+      </a>
+    </div>
+
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:20px 0 10px;">舆情监控与洞察</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-purple" href="lixiang-mega-es9-voc.html">
+        <div class="company">项目 03 · MEGA vs ES9 用户专项</div>
+        <h2>谁选 MEGA、谁选 ES9、为什么</h2>
+        <p>广东 IP 437 条评论 · 空间好用高于数据大 · 侧滑门隐性刚需 · 6 类典型画像。</p>
+        <div class="metrics"><span>437 条</span><span>6 类画像</span></div>
+      </a>
+      <a class="project-card" href="lixiang-sales-script.html">
+        <div class="company">项目 04 · 外观顾虑销售话术手册</div>
+        <h2>把舆情变成一线工具</h2>
+        <p>272 条评论 · 三类顾虑 · L 系列进攻型 / i6 坦诚型 / MEGA 重构型 · 六类场景话术与禁止表达。</p>
+        <div class="metrics"><span>1,113 点赞</span><span>6 类场景</span></div>
+      </a>
+      <a class="project-card" href="lixiang-aito-voc.html">
+        <div class="company">项目 05 · 问界舆情专项</div>
+        <h2>解释销量变化为什么发生</h2>
+        <p>三个议题 6,841 条评论 · 订单取消、价格与退订、品牌与技术归属 · 为竞品应对提供外部证据。</p>
+        <div class="metrics"><span>6,841 条</span><span>3 个议题</span></div>
+      </a>
+      <a class="project-card" href="lixiang-i9-voc.html">
+        <div class="company">项目 06 · i9 / ES8 舆情与提车 VOC</div>
+        <h2>社媒舆情 + 终端用户声音</h2>
+        <p>i9 定价 / 上市 / 传播建议 · i9 vs ES8 对比 · 提车 VOC 与竞品矩阵。</p>
+        <div class="metrics"><span>问题·结论·原声</span><span>决策建议</span></div>
+      </a>
+    </div>
+
+    <h3 style="font-size:0.9rem;color:var(--muted);margin:20px 0 10px;">竞品研究</h3>
+    <div class="projects" style="margin-top:0;">
+      <a class="project-card accent-green" href="lixiang-competitor-map.html">
+        <div class="company">项目 07 · 竞品商圈匹配</div>
+        <h2>把门店位置转化为本地竞争情报</h2>
+        <p>广东 17 城 50 家门店 · 理想 vs 问界、小米 · 同商圈 / 同城不同商圈 / 暂无对标三类关系。</p>
+        <div class="metrics"><span>54% 同商圈</span><span>1–5 km 标签</span></div>
+      </a>
+    </div>
+
+    <div class="section-title">驾驶舱延伸</div>
+    <div class="grid-3">
+      <a class="arch-box" href="dashboard_store_20260819.html" style="text-decoration:none;color:inherit;"><div class="arch-title">脱敏版 HTML 驾驶舱 →</div><div class="arch-items">完整交付形态示例</div></a>
+      <a class="arch-box" href="lixiang-product-evolution.html" style="text-decoration:none;color:inherit;"><div class="arch-title">V2 本周必赢清单 →</div><div class="arch-items">从全览到决策项</div></a>
+      <a class="arch-box" href="lixiang-diagnosis-star.html" style="text-decoration:none;color:inherit;"><div class="arch-title">诊断模型 →</div><div class="arch-items">指标与应用方向</div></a>
+    </div>
+
+    <div class="footer">理想汽车 · 销售策略实习 · 内部系统名称已泛化 · 张文婧</div>
+  </div>
+</body>
+</html>

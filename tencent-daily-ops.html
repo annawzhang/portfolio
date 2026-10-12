@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>腾讯 · 企业级 AI 工作台 · 日常工作</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .ops-list { font-size: 0.85rem; padding-left: 18px; line-height: 1.85; color: var(--text-secondary); }
+    .rhythm { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .rhythm .card h3 { font-size: 0.9rem; }
+    .rhythm .when { font-size: 0.72rem; font-weight: 700; color: #fff; background: var(--accent); border-radius: 999px; padding: 2px 10px; display: inline-block; margin-bottom: 8px; }
+    @media (max-width: 768px) { .rhythm { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">腾讯 · 日常工作</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="tencent-ssc-overview.html">腾讯导览</a>
+      <a href="tencent-daily-ops.html" class="active">日常工作</a>
+      <a href="tencent-console.html">Console 总台</a>
+      <a href="tencent-chatbot-gap.html">Chatbot 运营</a>
+      <a href="tencent-regional-tools.html">区域工具</a>
+      <a href="tencent-98008-security.html">安全治理</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>日常工作 · 对接需求、运营 Bot、维护工具</h1>
+      <div class="meta">腾讯 · AI 技术产品经理（海外业务）· 2026.05 – 2026.07</div>
+      <p class="tagline">项目之外的持续性工作：和三大区业务同事对齐需求与口径，按日、按周运营 Bot 和知识库，维护已上线的区域工具，并把过程沉淀成 SOP 和交接文档。</p>
+      <div class="badge-row">
+        <span class="badge">AMER / APAC / EMEA 对接</span>
+        <span class="badge">每日风控复盘</span>
+        <span class="badge">每周知识库迭代</span>
+        <span class="badge">工具维护与跑测</span>
+      </div>
+    </div>
+
+    <div class="section-title">工作节奏</div>
+    <div class="rhythm">
+      <div class="card">
+        <span class="when">每日</span>
+        <h3>Bot 运营看板与风控复盘</h3>
+        <ul class="ops-list">
+          <li>监控自助率、工单积压、敏感词告警和低分反馈</li>
+          <li>复盘敏感词命中、误杀和漏检案例</li>
+          <li>在线调整分级词库和豁免白名单，配置实时生效</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="when">每周</span>
+        <h3>知识库迭代与周记汇报</h3>
+        <ul class="ops-list">
+          <li>按 Gap Finder 待优化清单补充 FAQ、更新 SOP</li>
+          <li>知识库更新后同步刷新检索索引</li>
+          <li>周记：本周产出、思考总结、下周规划</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="when">持续</span>
+        <h3>需求对接与工具维护</h3>
+        <ul class="ops-list">
+          <li>跟会，与三大区同事对齐流程和数据口径</li>
+          <li>整理提需文档、PRD 和会议纪要</li>
+          <li>按最新规则维护区域工具，组织跑测</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-title">三项日常工作</div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>1 · 业务对接与需求梳理</h3>
+        <ul class="ops-list">
+          <li>与 AMER / APAC / EMEA 业务同事跟会，排查流程差异、对齐数据包</li>
+          <li>把业务痛点整理成提需文档和 PRD，按工作流而不只是按单点痛点拆需求</li>
+          <li>会议纪要和汇报材料存档，方便跨区域同步</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>2 · Bot 与知识库日常运营</h3>
+        <ul class="ops-list">
+          <li>运营后台看板盯指标异动，低分和转人工会话进入待优化清单</li>
+          <li>每日风控复盘，误杀词条加白名单、漏检句式补规则</li>
+          <li>典型风险场景同步补进知识库 FAQ，减少同类问题重复触发</li>
+        </ul>
+        <p style="font-size:0.8rem;margin-top:8px;"><a href="tencent-chatbot-gap.html">Gap Finder 设计 →</a> · <a href="tencent-98008-security.html">风控体系 →</a></p>
+      </div>
+      <div class="card">
+        <h3>3 · 工具维护、跑测与交接</h3>
+        <ul class="ops-list">
+          <li>按最新规则更新美洲区域工具的上传表格要求和校验逻辑</li>
+          <li>美加、新加坡等区域数据跑测，修复上线后问题</li>
+          <li>沉淀区域工具 SOP、方法论复盘和交接文档，保证交接人能接手</li>
+        </ul>
+        <p style="font-size:0.8rem;margin-top:8px;"><a href="tencent-regional-tools.html">区域工具 →</a></p>
+      </div>
+    </div>
+
+    <div class="section-title">和项目的关系</div>
+    <div class="card" style="border-left:4px solid var(--accent);">
+      <p style="font-size:0.86rem;line-height:1.75;">项目负责把能力从 0 搭起来（<a href="tencent-console.html">Console 总台</a>、Gap Finder、风控分级、区域工具）；日常工作负责让这些能力持续跑起来：看板发现问题 → 每日 / 每周迭代 → 结果再回到看板验证。</p>
+    </div>
+
+    <p style="margin-top:16px;font-size:0.85rem;"><a href="tencent-ssc-overview.html">← 腾讯导览</a> · <a href="tencent-console.html">Console 总台 →</a></p>
+    <div class="footer">腾讯 · 海外业务 · 日常工作 · 张文婧</div>
+  </div>
+</body>
+</html>

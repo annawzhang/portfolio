@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>字节 · 关系网络推荐模型</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .network-viz { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; text-align: center; }
+    .net-node { background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .net-node.center { border-color: var(--accent); background: var(--accent-soft); grid-column: 1 / -1; max-width: 280px; margin: 0 auto; }
+    .net-node strong { display: block; font-size: 0.9rem; margin-bottom: 4px; }
+    .net-node span { font-size: 0.78rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">字节 Seed · 关系网络模型</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="byte-seed-overview.html">字节导览</a>
+      <a href="byte-daily-ops.html">日常工作</a>
+      <a href="byte-data-pipeline.html">数据爬取</a>
+      <a href="byte-eight-dim.html">八维模型</a>
+      <a href="byte-campus-recruit.html" class="active">关系网络模型</a>
+      <a href="byte-funnel-ab.html">漏斗 AB</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <div class="hero">
+      <h1>三维关系网络 · 分层与路径推荐</h1>
+      <div class="meta">字节跳动 Seed · AI 数据产品经理 · 2026.02 – 2026.05</div>
+      <p class="tagline">1,547 条重点实验室样本，导师-学生-实验室关系复杂 → 构建<strong>三维关系网络</strong>，聚类分层 S/A/B/C/D，智能推荐联系路径。</p>
+      <div class="badge-row"><span class="badge">1,547 样本</span><span class="badge">三维网络</span><span class="badge">S/A/B/C/D 分层</span></div>
+    </div>
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">1,547</div><div class="lbl">重点实验室样本</div></div>
+      <div class="card stat"><div class="num">3</div><div class="lbl">关系维度</div></div>
+      <div class="card stat"><div class="num">5</div><div class="lbl">分层等级</div></div>
+      <div class="card stat"><div class="num">智能</div><div class="lbl">联系路径推荐</div></div>
+    </div>
+    <div class="section-title">三维关系网络</div>
+    <div class="network-viz">
+      <div class="net-node"><strong>导师节点</strong><span>学术影响力 · 实验室归属 · 历史产出</span></div>
+      <div class="net-node"><strong>学生节点</strong><span>1,547 样本 · 研究方向 · 论文/项目</span></div>
+      <div class="net-node"><strong>实验室节点</strong><span>重点实验室标签 · 机构层级 · 领域匹配</span></div>
+      <div class="net-node center"><strong>关系边</strong><span>导师→学生 · 学生→实验室 · 实验室→领域</span></div>
+    </div>
+    <div class="section-title">产品链路</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-title">候选池导入</div><div class="step-desc">1,547 重点实验室<br/>结构化字段</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">网络构建</div><div class="step-desc">导师-学生-实验室<br/>三维图</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">聚类分层</div><div class="step-desc">S/A/B/C/D<br/>可解释规则</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">路径推荐</div><div class="step-desc">优先联系谁<br/>验证什么信息</div></div>
+    </div>
+    <div class="section-title">分层输出 · S/A/B/C/D</div>
+    <table class="data card" style="padding:0;">
+      <thead><tr><th>层级</th><th>定义</th><th>跟进策略</th></tr></thead>
+      <tbody>
+        <tr><td><strong>S</strong></td><td>顶会产出 + 强导师网络 + 重点实验室</td><td>优先导师建联 · 快速跟进</td></tr>
+        <tr><td><strong>A</strong></td><td>多项维度突出 · 实验室匹配度高</td><td>导师 + 实验室负责人双线验证</td></tr>
+        <tr><td><strong>B</strong></td><td>部分维度强 · 信息基本完整</td><td>标准流程 · 实验室同学交叉验证</td></tr>
+        <tr><td><strong>C</strong></td><td>中等潜力 · 部分信息缺失</td><td>批量验证 · 低优先级</td></tr>
+        <tr><td><strong>D</strong></td><td>低匹配或信息不足</td><td>暂缓 · 数据补全后复评</td></tr>
+      </tbody>
+    </table>
+    <div class="section-title">业务价值</div>
+    <div class="grid-2">
+      <div class="arch-box highlight"><div class="arch-title">决策标准化</div><div class="arch-items">分层从经验驱动 → 网络+规则驱动，业务方对齐口径</div></div>
+      <div class="arch-box"><div class="arch-title">推荐提效</div><div class="arch-items">智能推荐「先找谁、问什么」，减少无效联系与重复劳动</div></div>
+    </div>
+    <p style="margin-top:16px;font-size:0.85rem;"><a href="byte-eight-dim.html">← 八维评估模型</a> · <a href="byte-funnel-ab.html">漏斗 AB 实验 →</a></p>
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';" >面试口述讲稿（自用）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 1,547 条样本关系复杂，分层与联系路径依赖经验。</p>
+      <p><span class="label">T</span> 三维关系网络 + 聚类分层 + 联系路径推荐。</p>
+      <p><span class="label">A</span> 导师-学生-实验室图；S/A/B/C/D 输出；推荐逻辑产品化。</p>
+      <p><span class="label">R</span> 决策标准化，推荐效率与一致性提升。</p>
+    </div>
+    <div class="footer">字节 Seed · 关系网络模型 · 张文婧</div>
+  </div>
+</body>
+</html>

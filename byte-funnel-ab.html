@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>字节 · 转化漏斗 AB 实验</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">字节 Seed · 漏斗 AB 实验</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="byte-seed-overview.html">字节导览</a>
+      <a href="byte-daily-ops.html">日常工作</a>
+      <a href="byte-data-pipeline.html">数据爬取</a>
+      <a href="byte-eight-dim.html">八维模型</a>
+      <a href="byte-campus-recruit.html">关系网络模型</a>
+      <a href="byte-funnel-ab.html" class="active">漏斗 AB</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <div class="hero">
+      <h1>转化漏斗监控 · AB 实验与 SQL 调优</h1>
+      <div class="meta">字节跳动 Seed · AI 数据产品经理 · 2026.02 – 2026.05</div>
+      <p class="tagline">线索 → 触达 → 转化全链路缺乏统一监控与实验机制 → 搭建<strong>漏斗看板 + 3 轮 AB 实验</strong>，SQL 45s→2.1s，整体转化效率 +40%。</p>
+      <div class="badge-row"><span class="badge">3 轮 AB</span><span class="badge">效率 +40%</span><span class="badge">SQL 2.1s</span></div>
+    </div>
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">+40%</div><div class="lbl">整体转化效率</div></div>
+      <div class="card stat up"><div class="num">2.1s</div><div class="lbl">核心 SQL 耗时</div></div>
+      <div class="card stat"><div class="num">3</div><div class="lbl">AB 实验轮次</div></div>
+      <div class="card stat"><div class="num">10+</div><div class="lbl">SQL 调优条数</div></div>
+    </div>
+    <div class="section-title">转化漏斗 · 全链路监控</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-title">线索</div><div class="step-desc">线索池入库<br/>分层标签</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">触达</div><div class="step-desc">邮件/站内<br/>跟进记录</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">转化</div><div class="step-desc">回复/面试<br/>offer</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-title">看板监控</div><div class="step-desc">环节转化率<br/>异常告警</div></div>
+    </div>
+    <div class="section-title">AB 实验设计 · 单一变量隔离</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>NOT EXISTS 排他逻辑</h3>
+        <p style="font-size:0.85rem;line-height:1.7;">纯对照组 / 纯实验组 / 混合样本三层隔离；混合数据不参与转化对比，避免污染实验结论。</p>
+        <h3 style="margin-top:16px;">3 轮实验摘要</h3>
+        <table class="data">
+          <tbody>
+            <tr><td>首轮</td><td>海外人群专项分析 → 发现华人模块瓶颈</td></tr>
+            <tr><td>二轮</td><td>华人识别 0/1 → 四因子梯度 → 90.8%</td></tr>
+            <tr><td>三轮</td><td>转化数据反向调权重 → 海外 +21%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>SQL 调优</h3>
+        <p style="font-size:0.85rem;line-height:1.7;margin-bottom:12px;">10+ 条慢查询调优，支撑 AB 分析与日常看板刷新。</p>
+        <table class="data">
+          <thead><tr><th>指标</th><th>优化前</th><th>优化后</th></tr></thead>
+          <tbody>
+            <tr><td>核心查询耗时</td><td>45s</td><td><strong>2.1s</strong></td></tr>
+            <tr><td>查询效率</td><td>基准</td><td><strong>+70%</strong></td></tr>
+            <tr><td>策略迭代</td><td>Excel 手工</td><td>自动化看板</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="section-title">与其他项目联动</div>
+    <div class="grid-3">
+      <div class="arch-box"><div class="arch-title">八维评估</div><div class="arch-items">分层标签作为漏斗上游输入，AB 验证评分策略对转化影响</div></div>
+      <div class="arch-box"><div class="arch-title">数据爬取</div><div class="arch-items">全链路数据质量保障看板分析可信度</div></div>
+      <div class="arch-box"><div class="arch-title">关系网络模型</div><div class="arch-items">分支独立漏斗监控与推荐转化追踪</div></div>
+    </div>
+    <p style="margin-top:16px;font-size:0.85rem;"><a href="byte-eight-dim.html">← 八维评估模型</a> · <a href="byte-data-pipeline.html">数据爬取全链路 →</a></p>
+    <button class="script-btn" onclick="var p=document.getElementById('script');p.style.display=p.style.display==='block'?'none':'block';" >面试口述讲稿（自用）<span>▼</span></button>
+    <div id="script" class="star-block" style="display:none;margin-top:12px;">
+      <p><span class="label">S</span> 转化链路缺监控与实验机制，SQL 慢，效率有提升空间。</p>
+      <p><span class="label">T</span> 漏斗看板 + AB 验证 + SQL 调优。</p>
+      <p><span class="label">A</span> 3 轮 AB；NOT EXISTS 排他；10+ SQL 调优。</p>
+      <p><span class="label">R</span> 转化效率 +40%，核心 SQL 2.1s。</p>
+    </div>
+    <div class="footer">字节 Seed · 漏斗 AB · 张文婧</div>
+  </div>
+</body>
+</html>

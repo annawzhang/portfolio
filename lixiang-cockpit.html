@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想汽车 · 区域经营驾驶舱</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .engine-module { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .mod { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 10px; font-size: 0.78rem; text-align: center; }
+    .mod strong { display: block; font-size: 0.82rem; margin-bottom: 2px; }
+    .alert-p1 { color: #dc2626; font-weight: 600; }
+    .alert-p2 { color: #d97706; font-weight: 600; }
+    .alert-p3 { color: #64748b; font-weight: 600; }
+    @media (max-width: 768px) { .engine-module { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · 经营驾驶舱</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-diagnosis-star.html">诊断模型</a>
+      <a href="lixiang-cockpit.html" class="active">经营驾驶舱 V1</a>
+      <a href="lixiang-product-evolution.html">必赢清单 V2</a>
+      <a href="lixiang-voc.html">提车 VOC</a>
+      <a href="lixiang-i9-voc.html">i9 舆情</a>
+      <a href="lixiang-feishu-sop.html">飞书 SOP</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>广东大区 · 经营驾驶舱 & kpi_engine</h1>
+      <div class="meta">理想汽车 · AI 策略产品 · kpi_engine v1.3 · 2026.08</div>
+      <p class="tagline">DC 27 指标 → 680 单元宽表（61 字段）→ S1–S7 场景诊断 + YoY + S6 新车；<strong>指标口径引擎 + 场景规则模型</strong>，非 ML 黑盒。<a href="lixiang-product-evolution.html" style="color:#dc2626;font-weight:600;">→ 查看 V2.0 产品迭代：本周必赢清单（砍掉80%展示）</a></p>
+      <div class="badge-row">
+        <span class="badge">13 模块引擎</span>
+        <span class="badge">6 类图表 + 双热力图</span>
+        <span class="badge">Narrative v1.1</span>
+        <span class="badge">飞书 Agent 触达</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">2.53%</div><div class="lbl">大区整体锁单率（客流→锁单）</div></div>
+      <div class="card stat up"><div class="num">32</div><div class="lbl">优质单元</div></div>
+      <div class="card stat down"><div class="num">110</div><div class="lbl">流失严重</div></div>
+      <div class="card stat down"><div class="num">127</div><div class="lbl">PPL红警+异常预警</div></div>
+    </div>
+
+    <div class="section-title">数据链路 · 诊断闭环</div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">01</div><div class="step-title">影刀 RPA</div><div class="step-desc">每日 DC 拉表<br/>27 项指标</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">02</div><div class="step-title">宽表构建</div><div class="step-desc">门店×车系<br/>680 单元·61 字段</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">03</div><div class="step-title">S1-S7 诊断</div><div class="step-desc">Z-score 健康分<br/>预警归因</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">04</div><div class="step-title">HTML 驾驶舱</div><div class="step-desc">6 类图表<br/>双热力图</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">05</div><div class="step-title">Narrative</div><div class="step-desc">策略建议<br/>标杆参照</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><div class="step-num">06</div><div class="step-title">飞书触达</div><div class="step-desc">P1/P2/P3 分派<br/>每日 10:30</div></div>
+    </div>
+
+    <div class="section-title">分层级 Top10 · 一级 / 二级 / 三级门店分榜建模</div>
+    <div class="card" style="margin-bottom:16px;">
+      <p style="font-size:0.88rem;color:#334155;margin-bottom:14px;">原 V1 驾驶舱为<strong>全区混排 TOP10</strong>，大店（零售中心）垄断标兵榜、小店看不到对标。升级为<strong>按门店层级分榜</strong>，同层内排序，Narrative 参照也限定在同层级。</p>
+      <table class="data">
+        <thead><tr><th>层级</th><th>定义口径（8/15快照）</th><th>标兵 Top10 排序</th><th>必赢清单配额（V2）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>一级</strong></td><td>门店 MTD 净锁单 Top 33%（≥11 台）</td><td>同层加权健康分降序 · 取 Top10</td><td>Treatment 3 家</td></tr>
+          <tr><td><strong>二级</strong></td><td>门店 MTD 净锁单中间 33%（4–10 台）</td><td>同层加权健康分降序 · 参照仅限同层</td><td>Treatment 4 家</td></tr>
+          <tr><td><strong>三级</strong></td><td>门店 MTD 净锁单尾部 33%（≤4 台）</td><td>同层加权健康分降序 · 避免与大店混排</td><td>Treatment 3 家</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;">建模逻辑：<code>store_tier = cut(net_lock_store, 33%/33%/33%)</code> → 各层独立 <code>nlargest(10)</code> 标兵 + <code>nsmallest(10)</code> 关注。</p>
+    </div>
+
+    <div class="section-title">kpi_engine · 13 模块</div>
+    <div class="card">
+      <div class="engine-module">
+        <div class="mod"><strong>atomic_metrics</strong>DC 取数</div>
+        <div class="mod"><strong>derived_metrics</strong>10 衍生指标</div>
+        <div class="mod"><strong>diagnosis</strong>S2/S4 诊断</div>
+        <div class="mod"><strong>scenarios</strong>S3/S5/S7</div>
+        <div class="mod"><strong>new_product</strong>S6 新车</div>
+        <div class="mod"><strong>yoy</strong>同店同比</div>
+        <div class="mod"><strong>alert_taxonomy</strong>预警分派</div>
+        <div class="mod"><strong>narrative</strong>自然语言</div>
+        <div class="mod"><strong>charts</strong>6 类图表</div>
+        <div class="mod"><strong>feishu_card</strong>飞书卡片</div>
+        <div class="mod"><strong>attribution</strong>渠道归因</div>
+        <div class="mod"><strong>leads_funnel</strong>5 环节漏斗</div>
+        <div class="mod"><strong>settings</strong>YAML 配置</div>
+      </div>
+    </div>
+
+    <div class="section-title">S1–S7 场景模型</div>
+    <table class="data card" style="padding:0;">
+      <thead><tr><th>场景</th><th>模型</th><th>核心能力</th></tr></thead>
+      <tbody>
+        <tr><td><strong>S1</strong> 锁单绩效</td><td>达成率 + 潜力池</td><td>周/月锁单复盘</td></tr>
+        <tr><td><strong>S2</strong> 漏斗诊断</td><td>Z-score 多因子加权</td><td>门店×车型健康度 · 核心</td></tr>
+        <tr><td><strong>S3</strong> 渠道结构</td><td>BCG 矩阵 + 归因</td><td>渠道投放分层</td></tr>
+        <tr><td><strong>S4</strong> PPL 管控</td><td>红警规则</td><td>26 个 PPL 红警单元</td></tr>
+        <tr><td><strong>S5</strong> 人员效率</td><td>场景规则</td><td>试驾→锁单率标杆</td></tr>
+        <tr><td><strong>S6</strong> 新车上市</td><td>渗透率 + 爬坡</td><td>新 L6/L8/L9 追踪</td></tr>
+        <tr><td><strong>S7</strong> 综合复盘</td><td>多场景聚合</td><td>城市部/门店下钻</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-title">预警归因 · P1/P2/P3 分派</div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>5 类预警病因</h3>
+        <ul style="font-size:0.85rem;padding-left:18px;line-height:1.9;">
+          <li><strong>渠道类</strong> — 大区运营/品牌活动组</li>
+          <li><strong>效率类</strong> — 销售经理/陪驾组</li>
+          <li><strong>跟进类</strong> — 销售主管/培训组</li>
+          <li><strong>数据类</strong> — BI 数据链路核查</li>
+          <li><strong>综合类</strong> — 门店店长(紧急)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>分派统计（示例）</h3>
+        <table class="data">
+          <tbody>
+            <tr><td class="alert-p1">P1 渠道类</td><td>79 单元</td></tr>
+            <tr><td class="alert-p1">P1 效率类</td><td>64 单元</td></tr>
+            <tr><td class="alert-p2">P2 跟进类</td><td>49 单元</td></tr>
+            <tr><td class="alert-p3">P3 数据类</td><td>50 单元</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>转化标兵示例</h3>
+        <p style="font-size:0.85rem;"><strong>门店 X（脱敏）· i8</strong></p>
+        <p style="font-size:0.85rem;color:var(--success);">试驾→锁单 <strong>50.0%</strong></p>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;">Narrative 输出可执行策略 + 标杆参照</p>
+      </div>
+    </div>
+
+    <div class="section-title">驾驶舱 · 6 类图表</div>
+    <div class="grid-3">
+      <div class="arch-box"><div class="arch-title">大区漏斗</div><div class="arch-items">客流→商机→试驾→锁单 · 城市部对比</div></div>
+      <div class="arch-box"><div class="arch-title">门店战力四象限</div><div class="arch-items">横轴=试驾→锁单率 · 纵轴=净锁单量</div></div>
+      <div class="arch-box"><div class="arch-title">车型贡献 + 渠道</div><div class="arch-items">各车型净锁单占比 · 渠道结构</div></div>
+      <div class="arch-box"><div class="arch-title">城市部×车系热力</div><div class="arch-items">双热力图 · 分层级 Top10 下钻</div></div>
+      <div class="arch-box"><div class="arch-title">S6 新品爬坡</div><div class="arch-items">渗透率 · 试驾锁单 · 判定</div></div>
+      <div class="arch-box"><div class="arch-title">YoY 同店同比</div><div class="arch-items">45 家同店 · 新店/关店分类</div></div>
+    </div>
+
+    <div class="section-title">完整 HTML 驾驶舱</div>
+    <div class="card" style="text-align:center;padding:32px;">
+      <p style="font-size:0.95rem;margin-bottom:16px;">已交付单文件 HTML 驾驶舱（含 6 张内嵌图表 + 诊断表 + Narrative）。</p>
+      <a href="dashboard_store_20260819.html" style="display:inline-block;padding:12px 24px;background:#e74c3c;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;margin-right:12px;">脱敏版 HTML 驾驶舱 (V1)</a>
+      <a href="lixiang-product-evolution.html" style="display:inline-block;padding:12px 24px;background:#991b1b;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;margin-right:12px;">V2 · 本周必赢清单</a>
+      <a href="lixiang-diagnosis-star.html" style="display:inline-block;padding:12px 24px;background:var(--accent);color:#fff;border-radius:8px;font-weight:600;text-decoration:none;">诊断模型详情</a>
+    </div>
+
+    <div class="footer">kpi_engine 诊断引擎 · 示例数据已脱敏 · 仅供面试作品集展示</div>
+  </div>
+</body>
+</html>

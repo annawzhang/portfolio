@@ -43,7 +43,7 @@
     </div>
 
     <div class="grid-4">
-      <div class="card stat accent"><div class="num">~2k</div><div class="lbl">大区 MTD 净锁单（示例）</div></div>
+      <div class="card stat accent"><div class="num">2.53%</div><div class="lbl">大区整体锁单率（客流→锁单）</div></div>
       <div class="card stat up"><div class="num">32</div><div class="lbl">优质单元</div></div>
       <div class="card stat down"><div class="num">110</div><div class="lbl">流失严重</div></div>
       <div class="card stat down"><div class="num">127</div><div class="lbl">PPL红警+异常预警</div></div>
@@ -70,9 +70,9 @@
       <table class="data">
         <thead><tr><th>层级</th><th>定义口径（8/15快照）</th><th>标兵 Top10 排序</th><th>必赢清单配额（V2）</th></tr></thead>
         <tbody>
-          <tr><td><strong>一级</strong></td><td>门店 MTD 净锁单 Top 33%（≥18 台）</td><td>同层加权健康分降序 · 取 Top10</td><td>Treatment 3 家</td></tr>
-          <tr><td><strong>二级</strong></td><td>门店 MTD 净锁单中间 33%（7–17 台）</td><td>同层加权健康分降序 · 参照仅限同层</td><td>Treatment 4 家</td></tr>
-          <tr><td><strong>三级</strong></td><td>门店 MTD 净锁单尾部 33%（≤6 台）</td><td>同层加权健康分降序 · 避免与大店混排</td><td>Treatment 3 家</td></tr>
+          <tr><td><strong>一级</strong></td><td>门店 MTD 净锁单 Top 33%（≥11 台）</td><td>同层加权健康分降序 · 取 Top10</td><td>Treatment 3 家</td></tr>
+          <tr><td><strong>二级</strong></td><td>门店 MTD 净锁单中间 33%（4–10 台）</td><td>同层加权健康分降序 · 参照仅限同层</td><td>Treatment 4 家</td></tr>
+          <tr><td><strong>三级</strong></td><td>门店 MTD 净锁单尾部 33%（≤4 台）</td><td>同层加权健康分降序 · 避免与大店混排</td><td>Treatment 3 家</td></tr>
         </tbody>
       </table>
       <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;">建模逻辑：<code>store_tier = cut(net_lock_store, 33%/33%/33%)</code> → 各层独立 <code>nlargest(10)</code> 标兵 + <code>nsmallest(10)</code> 关注。</p>

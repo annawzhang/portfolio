@@ -380,7 +380,7 @@
           <li><strong>方案 pivot</strong>：双 ML 模型 → <strong>趋势曲线 + 大盘同期对标</strong></li>
           <li><strong>V1.0</strong>：config 中 S6_customer_flow 仅占位（客流类），未独立成场景</li>
           <li><strong>V1.2 重构</strong>：独立 new_product.py；追踪 X04(i6)/X13(新L8)/X11(新L9)；输出渗透率/试驾锁单率/爬坡 verdict</li>
-          <li><strong>实例</strong>：新 L6 上市 35 天净锁 234 台、渗透率 76%；新 L9 渗透率 25% 判定「渗透偏低」</li>
+          <li><strong>实例</strong>：新 L6 上市 35 天渗透率 76%；新 L9 渗透率 25% 判定「渗透偏低」</li>
           <li><strong>飞书卡片</strong>：S6 区块单独展示「🚗 新品爬坡」摘要</li>
         </ul>
       </div>
@@ -414,7 +414,7 @@
         <h4><span class="s-chip cross">A4 · YoY</span> 同店同比 · V1.3 横切场景</h4>
         <div class="vt-meta">模块：yoy.py · 非独立 S 场景，为 S1/S2 提供对比维度</div>
         <ul>
-          <li><strong>V1.3</strong>：拉 2025-08 历史宽表（512 行 / 3932 台）；compute_yoy() 输出 net_lock_yoy / store_status_yoy</li>
+          <li><strong>V1.3</strong>：拉 2025-08 历史宽表（512 行）；compute_yoy() 输出 net_lock_yoy / store_status_yoy</li>
           <li><strong>分类</strong>：同店 / 新店/新增 / 关店/停售 / 无变化 — 避免新店冲量掩盖同店下滑</li>
           <li><strong>V2.0</strong>：同店 + YoY&lt;-20% → must_win 第四路信号</li>
         </ul>

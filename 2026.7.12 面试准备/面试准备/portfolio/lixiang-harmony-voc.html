@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想汽车 · 鸿蒙智行舆情监测与新品价格亮点</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 760px) { .quote-grid { grid-template-columns: 1fr; } }
+    .quote {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .quote p { font-size: 0.86rem; line-height: 1.7; color: var(--text); margin: 0 0 8px; }
+    .quote .meta { font-size: 0.75rem; color: var(--muted); }
+    .bar-row { display: grid; grid-template-columns: 64px 1fr 52px; gap: 10px; align-items: center; margin: 8px 0; font-size: 0.84rem; }
+    .bar-track { height: 10px; background: var(--bg-soft); border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .price-card::before {
+      content: "";
+      position: absolute; inset: 0 auto 0 0; width: 4px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+    .price-card .brand { font-size: 0.78rem; color: var(--accent); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .price-card h3 { font-size: 1.05rem; margin: 6px 0 8px; }
+    .price-card .range { font-family: var(--display); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+    .price-card .note { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
+    .pill-warn {
+      display: inline-block; font-size: 0.74rem; padding: 4px 10px; border-radius: 999px;
+      background: var(--warning-soft); color: #92400e; border: 1px solid #fcd34d; font-weight: 600;
+    }
+    .event-card {
+      border-radius: var(--radius-lg); padding: 18px; border: 1px solid var(--border-light);
+      background: var(--surface); box-shadow: var(--shadow-sm);
+    }
+    .event-card.crisis { background: linear-gradient(135deg, #fff7f7 0%, var(--surface) 70%); border-color: #fecaca; }
+    .event-card.pulse { background: linear-gradient(135deg, #fffbeb 0%, var(--surface) 70%); border-color: #fde68a; }
+    .talk-table td:first-child { white-space: nowrap; font-weight: 600; color: var(--accent); width: 28%; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想汽车 · 鸿蒙智行专项</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-overview.html">理想导览</a>
+      <a href="lixiang-aito-voc.html">问界专项</a>
+      <a href="lixiang-harmony-voc.html" class="active">鸿蒙智行</a>
+      <a href="lixiang-competitor-map.html">竞品商圈</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>鸿蒙智行 · 舆情监测 + 新品价格亮点</h1>
+      <div class="meta">理想汽车 · 广东大区销售策略 · 2026-10-28 / 10-29 · 内部参考口径</div>
+      <p class="tagline">
+        把社媒评论转成<strong>可执行的区域策略材料</strong>：四省市声量对比、品牌热度、危机事件跟踪，以及尚界 / 享界 / 问界价格带与一线话术纠偏。
+      </p>
+      <div class="badge-row">
+        <span class="badge">6,550 条评论</span>
+        <span class="badge">12 篇笔记 · 5,789 用户</span>
+        <span class="badge">四省市对比</span>
+        <span class="badge">价格口径拆分</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">6,550</div><div class="lbl">小红书评论样本</div></div>
+      <div class="card stat"><div class="num">36.1%</div><div class="lbl">四省市合计占比</div></div>
+      <div class="card stat"><div class="num">971</div><div class="lbl">广东评论 · 声量第一</div></div>
+      <div class="card stat up"><div class="num">42.98万</div><div class="lbl">享界 G9 官方起售</div></div>
+    </div>
+
+    <div class="section-title">核心结论（一页）</div>
+    <div class="grid-2">
+      <div class="arch-box highlight">
+        <div class="arch-title">声量与品牌</div>
+        <div class="arch-items">
+          广东 &gt; 浙江 ≈ 江苏 ≫ 重庆；尊界提及最多（事件驱动），问界互动最强。<br/>
+          「断刹车」是持续型危机（峰值 10/18）；「华为问界分手」是脉冲型叙事（9/27–9/28）。
+        </div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">策略含义</div>
+        <div class="arch-items">
+          明年规划舆情含 Q1 尚界 H8、V9 小改等，按<strong>未证实信息</strong>管理并准备话术。<br/>
+          社媒「30 万 / 36 万买到 L3」是价格感知偏差，门店需用官方 42.98 万起纠偏。
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">四省市声量对比</div>
+    <div class="card">
+      <div class="bar-row"><span>广东</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span>971 · 14.8%</span></div>
+      <div class="bar-row"><span>浙江</span><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><span>607 · 9.3%</span></div>
+      <div class="bar-row"><span>江苏</span><div class="bar-track"><div class="bar-fill" style="width:61%"></div></div><span>595 · 9.1%</span></div>
+      <div class="bar-row"><span>重庆</span><div class="bar-track"><div class="bar-fill" style="width:19%"></div></div><span>189 · 2.9%</span></div>
+      <p style="margin-top:12px;font-size:0.8rem;color:var(--muted);">口径：声量=评论条数；省份=IP 属地。周期 2026-04-26 至 2026-10-28，重点窗 09-27 起。</p>
+    </div>
+
+    <div class="quote-grid" style="margin-top:14px;">
+      <div class="quote">
+        <p>「120 时速急刹，不是停在这里踩。」</p>
+        <div class="meta">广东 · 2026-10-10 · 308 赞</div>
+      </div>
+      <div class="quote">
+        <p>「明年商超 4S 都摆不下这么多车……自己人打自己人才是最狠的」</p>
+        <div class="meta">广东 · 2026-09-27 · 33 赞</div>
+      </div>
+    </div>
+
+    <div class="section-title">品牌声量 · 五界三境</div>
+    <div class="grid-3">
+      <div class="card stat"><div class="num">124</div><div class="lbl">尊界提及 · 声量第一</div></div>
+      <div class="card stat accent"><div class="num">250</div><div class="lbl">问界点赞 · 互动第一</div></div>
+      <div class="card stat"><div class="num">33</div><div class="lbl">鸿蒙智行 · 模式讨论</div></div>
+    </div>
+    <p style="font-size:0.84rem;color:var(--muted);margin-top:8px;">尚界 27 · 智界 20 · 享界 14 · 华境 14（提及评论数）</p>
+
+    <div class="section-title">事件专题</div>
+    <div class="grid-2">
+      <div class="event-card crisis">
+        <div class="pill-warn" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;">持续型危机</div>
+        <h3 style="margin:10px 0 6px;">断刹车</h3>
+        <p style="font-size:0.86rem;line-height:1.7;color:var(--text-secondary);">
+          相关评论约 <strong>367</strong> 条、点赞 307；爆发期 10/13–10/27，峰值日 10/18 = 55 条。
+          讨论焦点从「是否符合国标」转向「急刹是否真断」与检测机构公信力。
+        </p>
+      </div>
+      <div class="event-card pulse">
+        <div class="pill-warn">脉冲型叙事</div>
+        <h3 style="margin:10px 0 6px;">华为问界分手 / 切割</h3>
+        <p style="font-size:0.86rem;line-height:1.7;color:var(--text-secondary);">
+          精准相关约 12 条、点赞 90；主爆发 09/27–09/28，条少赞高。
+          叙事核心是「车型规划逼问界走」，江苏、重庆互动更尖锐。
+        </p>
+      </div>
+    </div>
+
+    <div class="section-title">明年规划舆情 <span class="pill-warn" style="margin-left:8px;">UGC 转述 · 非官方</span></div>
+    <div class="card">
+      <table class="data">
+        <thead><tr><th>季度</th><th>舆情提及产品</th></tr></thead>
+        <tbody>
+          <tr><td>Q1</td><td>尚界 H8；V9 小改</td></tr>
+          <tr><td>Q2</td><td>尚界 H9；智界 R8；智界 S7 大改；享界 S9L / S9 系列小改；尊界 M600、M800</td></tr>
+          <tr><td>Q3</td><td>尚界 Z7 小改；智界 R9；享界 7 系 SUV</td></tr>
+          <tr><td>Q4</td><td>尚界 H5 大改；尊界 S800 大改</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px;font-size:0.8rem;color:var(--muted);">产品规划为用户转述，真实性存疑，仅反映舆论讨论；一线勿当官方排期对外承诺。</p>
+    </div>
+
+    <div class="section-title">新品价格区间总览</div>
+    <div class="grid-2">
+      <div class="price-card">
+        <div class="brand">尚界 Z7 / Z7T</div>
+        <h3>年轻轿车 · 肖战代言</h3>
+        <div class="range">21.98 – 30.98 万</div>
+        <div class="note">官方指导价 · Z7T 猎装较 Z7 约贵 1 万 · 电光紫粉传播强</div>
+      </div>
+      <div class="price-card">
+        <div class="brand">享界 G9</div>
+        <h3>科技豪华硬派 SUV · 杨幂代言</h3>
+        <div class="range">42.98 – 54.98 万</div>
+        <div class="note">官方指导价 · 2026-08-20 上市 · 增程 / 纯电多档</div>
+      </div>
+      <div class="price-card">
+        <div class="brand">问界系列</div>
+        <h3>智驾长板 · 家庭 SUV 基本盘</h3>
+        <div class="range">约 35 – 70 万</div>
+        <div class="note">社媒讨论区间 · M9 选配可达七八十万 · 以门店报价单为准</div>
+      </div>
+      <div class="price-card">
+        <div class="brand">尊界 SUV</div>
+        <h3>超豪华 · 规划舆情</h3>
+        <div class="range">约 65 – 70 万起</div>
+        <div class="note">社媒预估 · 有讨论称可下探挤压 M9U · 非官方价</div>
+      </div>
+    </div>
+
+    <div class="section-title">重点新品 · 享界 G9</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>官方配置价位（增程）</h3>
+        <table class="data">
+          <thead><tr><th>版本</th><th>指导价</th></tr></thead>
+          <tbody>
+            <tr><td>Max+ 5 座</td><td>42.98 万</td></tr>
+            <tr><td>Max+ 6 座</td><td>43.98 万</td></tr>
+            <tr><td>Ultra 5 / 6 座</td><td>47.98 / 49.98 万</td></tr>
+            <tr><td>Ultra+ 5 / 6 座</td><td>52.98 / 54.98 万</td></tr>
+            <tr><td>纯电 Ultra / Ultra+</td><td>约 49.98–54.98 万</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>卖点 × 社媒共鸣</h3>
+        <ul class="arch-tree">
+          <li class="root">智驾</li>
+          <li>L3 架构设计 · 38 传感器 · 乾崑 ADS 5 · 同价位「L3 + 空悬」被反复对比</li>
+          <li class="root">硬派底盘</li>
+          <li>全地形途灵 · 双腔空悬 · 后轮转向 · 对比宝马 iX3 时强调配置优势</li>
+          <li class="root">续航座舱</li>
+          <li>巨鲸 800V · 增程综合约 1366km · 鸿蒙三联屏 / 零重力座椅</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quote-grid" style="margin-top:14px;">
+      <div class="quote">
+        <p>「三十万能买到鸿蒙智行 L3，这应该是目前门槛最低的了」</p>
+        <div class="meta">广东 · 2026-08-20 · 34 赞 · <strong>需纠偏：官方起售 42.98 万</strong></div>
+      </div>
+      <div class="quote">
+        <p>「同价位你去比一圈，能给到 L3 冗余加空悬的，真找不出第二个」</p>
+        <div class="meta">河南 · 2026-08-20 · 40 赞 · 可用配置对比话术</div>
+      </div>
+    </div>
+
+    <div class="section-title">问界基本盘 · 原声共识</div>
+    <div class="grid-2">
+      <div class="arch-box highlight">
+        <div class="arch-title">购买理由（长板）</div>
+        <div class="arch-items">智驾 / ADS、AEB 主动安全是第一购买理由；ADS 5.0 后城区接管更少、可用性强；空悬 + CDC 版驾驶感受被车主强调。</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">争议 / 短板</div>
+        <div class="arch-items">车机流畅度、豪华感常被认为不如理想 / 蔚来；M7 历史被动安全 / 用料争议仍被翻炒；信息茧房与品牌站队明显。</div>
+      </div>
+    </div>
+    <div class="quote" style="margin-top:12px;">
+      <p>「我买华为的车是奔着智驾去的，其他的说实话的确是豪华感不如蔚来，车机不如理想，但是无奈长板太明显」</p>
+      <div class="meta">问界 M8 车主 · 77 赞</div>
+    </div>
+
+    <div class="section-title">广东大区销售可用话术</div>
+    <div class="card">
+      <table class="data talk-table">
+        <thead><tr><th>场景</th><th>建议</th></tr></thead>
+        <tbody>
+          <tr><td>享界 G9 询价</td><td>统一口径 42.98–54.98 万；解释社媒「30 万 / 36 万 L3」多为感知或权益误解，当场拆版权益清单</td></tr>
+          <tr><td>G9 vs 传统豪华 SUV</td><td>强调 L3 架构冗余、38 传感器、空悬 / 全地形、800V 续航，避免只卷外形</td></tr>
+          <tr><td>尚界 Z7 年轻客群</td><td>价格带 22–30 万；电光紫粉 + 代言人内容转化到店；续航 / ADS 用官方参数</td></tr>
+          <tr><td>问界保有 / 置换</td><td>承认短板（车机 / 豪华感），把决策拉回智驾与主动安全长板；M9 高配讲清选配价</td></tr>
+          <tr><td>多品牌不打架</td><td>用价格带 + 车身形式区隔：尚界轿车入门 → 问界家庭 SUV → 享界硬派豪华 → 尊界超豪华</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-title">面试口述 · 90 秒</div>
+    <div class="card" style="background:linear-gradient(135deg,#f0fdfa 0%,var(--surface) 60%);border-color:#99f6e4;">
+      <p style="font-size:0.9rem;line-height:1.8;color:var(--text-secondary);">
+        <strong style="color:var(--text);">S</strong> 广东大区需要盯鸿蒙智行竞品声量、危机事件和新品价格口径，原始数据是社媒评论导出。<br/>
+        <strong style="color:var(--text);">T</strong> 做成策略部门能直接用的监测报告 + 价格亮点一页纸，并给出一线纠偏话术。<br/>
+        <strong style="color:var(--text);">A</strong> 量化四省市声量与品牌矩阵；拆「断刹车 / 分手」两类事件形态；交叉验证官网指导价与社媒价格感知；输出尚界 / 享界 / 问界 / 尊界价格带与话术表。<br/>
+        <strong style="color:var(--text);">R</strong> 交付 6,550 条样本口径报告；明确广东声量第一、问界互动最强；把「30 万 L3」纠偏到官方 42.98 万起，避免门店被错误价格预期带偏。
+      </p>
+    </div>
+
+    <p style="margin-top:18px;font-size:0.85rem;">
+      <a href="lixiang-aito-voc.html">← 问界销量波动专项</a> ·
+      <a href="lixiang-competitor-map.html">竞品商圈匹配 →</a> ·
+      <a href="lixiang-overview.html">回到理想导览</a>
+    </p>
+    <div class="footer">理想汽车 · 鸿蒙智行舆情与价格专项 · 内部参考 · 张文婧</div>
+  </div>
+</body>
+</html>

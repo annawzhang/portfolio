@@ -1054,3 +1054,28 @@ table.data td strong { color: var(--accent); font-weight: 600; }
   .logic-step { border-radius: 10px !important; }
   .toc-bar { border-radius: 16px; top: 58px; }
 }
+
+/* ── Mind map (导览) ── */
+.mindmap-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 16px;
+  overflow-x: auto;
+  margin: 12px 0 24px;
+  box-shadow: var(--shadow-sm);
+}
+.mindmap-wrap svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  min-width: 720px;
+}
+.mindmap-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: -12px;
+  margin-bottom: 20px;
+}

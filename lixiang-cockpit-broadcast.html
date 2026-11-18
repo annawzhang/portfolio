@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理想 · 经营驾驶舱飞书播报</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .card-mock {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      max-width: 420px;
+    }
+    .card-mock .hd {
+      background: linear-gradient(135deg, #0f766e, #0d9488);
+      color: #fff;
+      padding: 14px 16px;
+    }
+    .card-mock .hd .t { font-weight: 700; font-size: 0.95rem; }
+    .card-mock .hd .s { font-size: 0.75rem; opacity: 0.85; margin-top: 4px; }
+    .card-mock .bd { padding: 14px 16px; font-size: 0.84rem; line-height: 1.7; color: var(--text-secondary); }
+    .card-mock .row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--border-light); }
+    .card-mock .row:last-child { border-bottom: 0; }
+    .card-mock .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+    .pill-p1 { background: #fef2f2; color: #dc2626; }
+    .pill-p2 { background: #fffbeb; color: #d97706; }
+    .pill-p3 { background: #f1f5f9; color: #64748b; }
+    .guard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 768px) { .guard-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">理想 · 经营驾驶舱飞书播报</div>
+    <nav>
+      <a href="index.html" class="nav-home">总览</a>
+      <a href="lixiang-overview.html">理想导览</a>
+      <a href="lixiang-cockpit.html">经营驾驶舱</a>
+      <a href="lixiang-cockpit-broadcast.html" class="active">飞书播报</a>
+      <a href="lixiang-feishu-sop.html">飞书 SOP</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>经营驾驶舱 · 飞书播报</h1>
+      <div class="meta">理想汽车 · 广东大区 · 诊断 → 策略 → 触达闭环</div>
+      <p class="tagline">
+        把 kpi_engine 每日诊断结果，做成可预览、可授权、可留痕的飞书卡片，
+        定时推到城市部 / 门店群——让一线「今天先管谁、为什么、找谁管」不用再翻报表。
+      </p>
+      <div class="badge-row">
+        <span class="badge">每日 10:30</span>
+        <span class="badge">P1 / P2 / P3 分派</span>
+        <span class="badge">预览 → 授权 → 群发</span>
+        <span class="badge">幂等 · 时间窗 · 健康检查</span>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card stat accent"><div class="num">10:30</div><div class="lbl">定时触达窗口</div></div>
+      <div class="card stat"><div class="num">3 级</div><div class="lbl">P1 / P2 / P3 预警</div></div>
+      <div class="card stat"><div class="num">5 类</div><div class="lbl">预警病因归因</div></div>
+      <div class="card stat up"><div class="num">0 重发</div><div class="lbl">同窗幂等锁</div></div>
+    </div>
+
+    <div class="section-title">思维导图 · 播报链路</div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 960 360" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,PingFang SC,sans-serif">
+        <defs>
+          <marker id="arrB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#64748b"/></marker>
+        </defs>
+        <rect x="360" y="12" width="240" height="42" rx="10" fill="#0f766e"/>
+        <text x="480" y="39" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">经营驾驶舱飞书播报</text>
+
+        <line x1="480" y1="54" x2="480" y2="78" stroke="#64748b" marker-end="url(#arrB)"/>
+        <line x1="120" y1="78" x2="840" y2="78" stroke="#64748b"/>
+        <line x1="120" y1="78" x2="120" y2="98" stroke="#64748b" marker-end="url(#arrB)"/>
+        <line x1="300" y1="78" x2="300" y2="98" stroke="#64748b" marker-end="url(#arrB)"/>
+        <line x1="480" y1="78" x2="480" y2="98" stroke="#64748b" marker-end="url(#arrB)"/>
+        <line x1="660" y1="78" x2="660" y2="98" stroke="#64748b" marker-end="url(#arrB)"/>
+        <line x1="840" y1="78" x2="840" y2="98" stroke="#64748b" marker-end="url(#arrB)"/>
+
+        <rect x="40" y="98" width="160" height="36" rx="8" fill="#ecfdf8" stroke="#99f6e4"/>
+        <text x="120" y="121" text-anchor="middle" font-size="12" font-weight="600" fill="#0f766e">① 影刀拉表</text>
+        <rect x="220" y="98" width="160" height="36" rx="8" fill="#ecfdf8" stroke="#99f6e4"/>
+        <text x="300" y="121" text-anchor="middle" font-size="12" font-weight="600" fill="#0f766e">② kpi_engine</text>
+        <rect x="400" y="98" width="160" height="36" rx="8" fill="#fff7ed" stroke="#fdba74"/>
+        <text x="480" y="121" text-anchor="middle" font-size="12" font-weight="600" fill="#c2410c">③ Narrative + 预警</text>
+        <rect x="580" y="98" width="160" height="36" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+        <text x="660" y="121" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">④ 卡片渲染</text>
+        <rect x="760" y="98" width="160" height="36" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+        <text x="840" y="121" text-anchor="middle" font-size="12" font-weight="600" fill="#dc2626">⑤ 飞书触达</text>
+
+        <line x1="120" y1="134" x2="120" y2="168" stroke="#64748b" marker-end="url(#arrB)"/>
+        <line x1="300" y1="134" x2="300" y2="168" stroke="#64748b" marker-end="url(#arrB)"/>
+        <line x1="480" y1="134" x2="480" y2="168" stroke="#64748b" marker-end="url(#arrB)"/>
+        <line x1="660" y1="134" x2="660" y2="168" stroke="#64748b" marker-end="url(#arrB)"/>
+        <line x1="840" y1="134" x2="840" y2="168" stroke="#64748b" marker-end="url(#arrB)"/>
+
+        <rect x="40" y="168" width="160" height="56" rx="8" fill="#fff" stroke="#e2e8f0"/>
+        <text x="120" y="192" text-anchor="middle" font-size="11">DC 27 项指标</text>
+        <text x="120" y="210" text-anchor="middle" font-size="11" fill="#64748b">门店 × 车型</text>
+
+        <rect x="220" y="168" width="160" height="56" rx="8" fill="#fff" stroke="#e2e8f0"/>
+        <text x="300" y="192" text-anchor="middle" font-size="11">680 单元宽表</text>
+        <text x="300" y="210" text-anchor="middle" font-size="11" fill="#64748b">S1–S7 诊断</text>
+
+        <rect x="400" y="168" width="160" height="56" rx="8" fill="#fff" stroke="#e2e8f0"/>
+        <text x="480" y="192" text-anchor="middle" font-size="11">策略建议</text>
+        <text x="480" y="210" text-anchor="middle" font-size="11" fill="#64748b">P1/P2/P3 分派</text>
+
+        <rect x="580" y="168" width="160" height="56" rx="8" fill="#fff" stroke="#e2e8f0"/>
+        <text x="660" y="192" text-anchor="middle" font-size="11">达成 / TOP / 预警</text>
+        <text x="660" y="210" text-anchor="middle" font-size="11" fill="#64748b">同层标兵参照</text>
+
+        <rect x="760" y="168" width="160" height="56" rx="8" fill="#fff" stroke="#e2e8f0"/>
+        <text x="840" y="192" text-anchor="middle" font-size="11">城市部 / 门店群</text>
+        <text x="840" y="210" text-anchor="middle" font-size="11" fill="#64748b">message_id 留痕</text>
+
+        <line x1="480" y1="224" x2="480" y2="256" stroke="#64748b" marker-end="url(#arrB)"/>
+        <rect x="200" y="256" width="560" height="72" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+        <text x="480" y="284" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">护栏：时间窗 · 健康检查 · 幂等锁 · 预览授权 · 禁言群跳过</text>
+        <text x="480" y="308" text-anchor="middle" font-size="11" fill="#64748b">错数不发 · 超时重试 · 同窗不重发 · 审批可追溯</text>
+      </svg>
+    </div>
+    <p class="mindmap-note">公开复刻口径 · 内部系统名已泛化 · 数字为脱敏演示</p>
+
+    <div class="section-title">卡片长什么样</div>
+    <div class="grid-2" style="align-items:start;">
+      <div class="card-mock">
+        <div class="hd">
+          <div class="t">广东大区 · 经营诊断播报</div>
+          <div class="s">2026-08-15 · MTD · 每日 10:30 · 自动跑批</div>
+        </div>
+        <div class="bd">
+          <div class="row"><span>大区锁单率</span><strong>2.53%</strong></div>
+          <div class="row"><span>优质单元</span><strong style="color:#059669;">32</strong></div>
+          <div class="row"><span>流失严重</span><strong style="color:#dc2626;">110</strong></div>
+          <div class="row"><span>PPL 红警 + 异常</span><strong style="color:#d97706;">127</strong></div>
+          <p style="margin:12px 0 8px;font-weight:700;color:var(--text);">今日先管</p>
+          <p><span class="pill pill-p1">P1</span>深圳南山 · 试驾→锁单掉点 · 销售经理跟进</p>
+          <p><span class="pill pill-p2">P2</span>广州天河 · 线索流失 · 大区运营复盘</p>
+          <p><span class="pill pill-p3">P3</span>东莞南城 · 新品爬坡偏慢 · 观察</p>
+          <p style="margin-top:12px;font-size:0.78rem;color:var(--muted);">Narrative：对标同层标兵「佛山禅城」，补齐陪驾节奏与周末排班。</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:12px;">
+          <h3>播报内容块</h3>
+          <ul style="padding-left:18px;font-size:0.88rem;line-height:1.9;margin-top:8px;">
+            <li><strong>达成摘要</strong>：大区 / 城市部 MTD、同比、缺口</li>
+            <li><strong>同层标兵 &amp; 关注</strong>：一级 / 二级 / 三级门店分榜</li>
+            <li><strong>预警分派</strong>：P1/P2/P3 + 5 类病因 + 责任人</li>
+            <li><strong>Narrative</strong>：卡点 → 可执行动作 → 参照门店</li>
+            <li><strong>链接</strong>：HTML 驾驶舱 / 诊断 CSV（内网）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>与飞书 SOP 的分工</h3>
+          <p style="font-size:0.88rem;line-height:1.75;margin-top:8px;">
+            <a href="lixiang-feishu-sop.html">飞书 SOP</a> 负责晾晒 / 冲锋榜 / 锁单生图等 5 类协同；
+            <strong>本页</strong>专注经营驾驶舱诊断结果的定时播报与预警分派。二者共用「预览 → 授权 → 群发」护栏。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">护栏 · 不发错、不重发、不打扰</div>
+    <div class="guard-grid">
+      <div class="arch-box"><div class="arch-title">时间窗</div><div class="arch-items">默认工作时段触达；过早 / 过晚任务直接拦截</div></div>
+      <div class="arch-box"><div class="arch-title">健康检查</div><div class="arch-items">覆盖率、异常极值、字段完整；不过关不发</div></div>
+      <div class="arch-box"><div class="arch-title">幂等锁</div><div class="arch-items">同一任务 · 同一天 · 同一半天只发一次</div></div>
+      <div class="arch-box"><div class="arch-title">预览授权</div><div class="arch-items">策略同学预览 → 负责人审批后再群发</div></div>
+      <div class="arch-box"><div class="arch-title">收件人白名单</div><div class="arch-items">禁言群 / 外部群自动跳过；禁止「发到所有群」</div></div>
+      <div class="arch-box highlight"><div class="arch-title">message_id 留痕</div><div class="arch-items">每条卡片可回溯；失败重试、重跑后放弃有记录</div></div>
+    </div>
+
+    <div class="section-title">公开复刻</div>
+    <div class="grid-3">
+      <a class="arch-box" href="https://annawzhang.github.io/retail-kpi-cockpit/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;"><div class="arch-title">Retail KPI Cockpit →</div><div class="arch-items">驾驶舱公开复刻</div></a>
+      <a class="arch-box" href="https://annawzhang.github.io/sales-ops-assistant/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;"><div class="arch-title">Sales Ops Assistant →</div><div class="arch-items">达成度 / 库存播报护栏回放</div></a>
+      <a class="arch-box" href="lixiang-cockpit.html" style="text-decoration:none;color:inherit;"><div class="arch-title">经营驾驶舱 V1 →</div><div class="arch-items">kpi_engine · S1–S7</div></a>
+    </div>
+
+    <p style="margin-top:20px;font-size:0.85rem;">
+      <a href="lixiang-cockpit.html">← 经营驾驶舱</a> ·
+      <a href="lixiang-feishu-sop.html">飞书 SOP →</a> ·
+      <a href="lixiang-overview.html">理想导览</a>
+    </p>
+    <div class="footer">理想汽车 · 经营驾驶舱飞书播报 · 张文婧</div>
+  </div>
+</body>
+</html>

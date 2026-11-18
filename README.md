@@ -14,7 +14,7 @@
 
 | 公司 · 方向 | 入口 | 代表项目 |
 |---|---|---|
-| 理想汽车 · 销售策略 | [理想导览](https://annawzhang.github.io/portfolio/lixiang-overview.html) | 经营驾驶舱 · AI 助手 · [鸿蒙智行舆情与价格亮点](https://annawzhang.github.io/portfolio/lixiang-harmony-voc.html) · 竞品商圈 |
+| 理想汽车 · 销售策略 | [理想导览](https://annawzhang.github.io/portfolio/lixiang-overview.html) | 经营驾驶舱 · [飞书播报](https://annawzhang.github.io/portfolio/lixiang-cockpit-broadcast.html) · AI 助手 · [鸿蒙智行舆情与价格亮点](https://annawzhang.github.io/portfolio/lixiang-harmony-voc.html) · 竞品商圈 |
 | 腾讯 · 企业级 AI 工作台 | [腾讯导览](https://annawzhang.github.io/portfolio/tencent-ssc-overview.html) | Console 0→1 · 多 Agent 知识闭环 · 区域提效工具 |
 | 字节跳动 · Seed AI 数据产品 | [字节导览](https://annawzhang.github.io/portfolio/byte-seed-overview.html) | Agent 采集全链路 · 八维评估模型 · 漏斗 AB |
 | TCL · 企业系统产品 | [TCL 导览](https://annawzhang.github.io/portfolio/tcl-hris-overview.html) | 交互原型 · OA 接口联调 · 数据治理 |
